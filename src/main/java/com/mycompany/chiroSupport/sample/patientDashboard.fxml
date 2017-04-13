@@ -1,0 +1,581 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="678.0" prefWidth="1018.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+  <tabs>
+    <Tab text="Patient Profile">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+      </content>
+    </Tab>
+    <Tab text="Medical Condition">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <TabPane layoutX="34.0" layoutY="29.0" prefHeight="255.0" prefWidth="431.0" side="LEFT" stylesheets="@verticaltabpanetext.css" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <tabs>
+                      <Tab text="Vitals">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                  <AnchorPane layoutX="191.0" layoutY="110.0" minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" />
+                                    <SplitPane dividerPositions="0.5681818181818182" layoutX="31.0" layoutY="10.0" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                      <items>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="271.0" prefWidth="648.0">
+                                             <children>
+                                                <Label layoutX="27.0" layoutY="14.0" prefHeight="17.0" prefWidth="96.0" text="Date" />
+                                                <Label layoutX="27.0" layoutY="46.0" prefHeight="17.0" prefWidth="96.0" text="Height" />
+                                                <Label layoutX="27.0" layoutY="83.0" prefHeight="17.0" prefWidth="96.0" text="Weight" />
+                                                <Label layoutX="27.0" layoutY="116.0" prefHeight="17.0" prefWidth="96.0" text="Pulse" />
+                                                <Label layoutX="27.0" layoutY="149.0" prefHeight="17.0" prefWidth="96.0" text="Respiration" />
+                                                <Label layoutX="27.0" layoutY="182.0" prefHeight="17.0" prefWidth="96.0" text="Temperature" />
+                                                <Label layoutX="27.0" layoutY="217.0" prefHeight="17.0" prefWidth="96.0" text="Blood Pressure" />
+                                                <DatePicker id="vitalsDatefld" layoutX="123.0" layoutY="10.0" />
+                                                <TextField id="vitalsHeightfld" layoutX="123.0" layoutY="42.0" />
+                                                <TextField id="vitalsWeightfld" layoutX="123.0" layoutY="79.0" />
+                                                <TextField id="vitalsPulsefld" layoutX="123.0" layoutY="112.0" />
+                                                <TextField id="vitalsRespirationsfld" layoutX="123.0" layoutY="145.0" />
+                                                <TextField id="vitalsTemperaturefld" layoutX="123.0" layoutY="178.0" />
+                                                <TextField id="vitalsBloodPressUBfld" layoutX="123.0" layoutY="213.0" prefHeight="25.0" prefWidth="62.0" />
+                                                <Label layoutX="192.0" layoutY="217.0" prefHeight="17.0" prefWidth="11.0" text="/" />
+                                                <TextField id="vitalsBloodPressLBfld" layoutX="210.0" layoutY="213.0" prefHeight="25.0" prefWidth="62.0" />
+                                                <Label layoutX="282.0" layoutY="46.0" prefHeight="17.0" prefWidth="29.0" text="cm" />
+                                                <Label layoutX="283.0" layoutY="83.0" prefHeight="17.0" prefWidth="29.0" text="kg" />
+                                                <Label layoutX="283.0" layoutY="116.0" prefHeight="17.0" prefWidth="29.0" text="bpm" />
+                                                <Label layoutX="282.0" layoutY="149.0" prefHeight="17.0" prefWidth="29.0" text="bpm" />
+                                                <Label layoutX="283.0" layoutY="182.0" prefHeight="17.0" prefWidth="29.0" text="F" />
+                                                <Label layoutX="283.0" layoutY="217.0" prefHeight="17.0" prefWidth="42.0" text="mmHg" />
+                                                <Button id="vitalsSavefld" layoutX="230.0" layoutY="270.0" mnemonicParsing="false" text="Save" />
+                                             </children>
+                                          </AnchorPane>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="241.0" prefWidth="917.0">
+                                             <children>
+                                                <TableView layoutX="40.0" layoutY="-21.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                  <columns>
+                                                    <TableColumn id="vitalsDateclmn" prefWidth="68.0" text="Date" />
+                                                    <TableColumn id="vitalsHeightclmn" prefWidth="82.0" text="Height" />
+                                                      <TableColumn prefWidth="82.0" text="Weight" />
+                                                      <TableColumn id="vitalsPulseclmn" prefWidth="82.0" text="Pulse" />
+                                                      <TableColumn id="vitalsRespirationclmn" prefWidth="82.0" text="Respiration" />
+                                                      <TableColumn id="vitalsTemperatureclmn" prefWidth="82.0" text="Temperature" />
+                                                      <TableColumn id="vitalsBloodPressclmn" prefWidth="169.0" text="Blood Pressure" />
+                                                  </columns>
+                                                </TableView>
+                                             </children>
+                                          </AnchorPane>
+                                      </items>
+                                    </SplitPane>
+                                 </children>
+                              </AnchorPane>
+                        </content>
+                      </Tab>
+                      <Tab text="Medical Hx">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="437.0" prefWidth="646.0">
+                                 <children>
+                                    <Separator layoutX="457.0" layoutY="109.0" orientation="VERTICAL" prefHeight="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                    <TextArea id="medHxMedicationsarea" layoutX="14.0" layoutY="56.0" prefHeight="86.0" prefWidth="434.0" />
+                                    <TextArea id="medHxSurgeriesarea" layoutX="15.0" layoutY="184.0" prefHeight="96.0" prefWidth="434.0" />
+                                    <TextArea id="medHxAyurvedaarea" layoutX="14.0" layoutY="344.0" prefHeight="96.0" prefWidth="434.0" />
+                                    <TextArea id="medHxPhysioarea" layoutX="14.0" layoutY="500.0" prefHeight="96.0" prefWidth="434.0" />
+                                    <TextArea id="medHxInjuriesarea" layoutX="471.0" layoutY="56.0" prefHeight="86.0" prefWidth="434.0" />
+                                    <TextArea id="medHxFamilyHxarea" layoutX="471.0" layoutY="186.0" prefHeight="92.0" prefWidth="434.0" />
+                                    <TextArea id="medHxSocailHxarea" layoutX="471.0" layoutY="346.0" prefHeight="92.0" prefWidth="434.0" />
+                                    <TextArea id="medHxOtherarea" layoutX="471.0" layoutY="502.0" prefHeight="92.0" prefWidth="434.0" />
+                                    <Button id="medHxSavebtn" layoutX="710.0" layoutY="610.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="143.0" text="save" />
+                                    <Label layoutX="15.0" layoutY="39.0" prefHeight="17.0" prefWidth="433.0" text="medications" />
+                                    <Label layoutX="15.0" layoutY="169.0" prefHeight="17.0" prefWidth="433.0" text="surgeries" />
+                                    <Label layoutX="15.0" layoutY="325.0" prefHeight="17.0" prefWidth="433.0" text="ayurvedic treatments" />
+                                    <Label layoutX="15.0" layoutY="483.0" prefHeight="17.0" prefWidth="433.0" text="physiotherapy" />
+                                    <Label layoutX="472.0" layoutY="39.0" prefHeight="17.0" prefWidth="433.0" text="prior injuries/accidents" />
+                                    <Label layoutX="472.0" layoutY="169.0" prefHeight="17.0" prefWidth="433.0" text="family history" />
+                                    <Label layoutX="472.0" layoutY="325.0" prefHeight="17.0" prefWidth="433.0" text="social history" />
+                                    <Label layoutX="472.0" layoutY="483.0" prefHeight="17.0" prefWidth="433.0" text="other" />
+                                 </children>
+                              </AnchorPane>
+                        </content>
+                      </Tab>
+                    </tabs>
+                  </TabPane>
+               </children></AnchorPane>
+      </content>
+    </Tab>
+      <Tab text="SOAP Exam">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <TabPane layoutY="-1.0" prefHeight="376.0" prefWidth="600.0" side="LEFT" stylesheets="@verticaltabpanetext.css" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <tabs>
+                      <Tab text="Subjective">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <SplitPane dividerPositions="0.6846986089644513" layoutX="37.0" layoutY="30.0" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                      <items>
+                                        <AnchorPane accessibleText="kkk" minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                                             <children>
+                                                <Separator layoutX="14.0" layoutY="109.0" prefHeight="0.0" prefWidth="917.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="150.0" />
+                                                <Separator layoutX="23.0" layoutY="228.0" prefHeight="0.0" prefWidth="917.0" AnchorPane.bottomAnchor="150.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                                                <Label layoutX="14.0" layoutY="14.0" text="Complaint Details" textFill="#320fa4">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label layoutX="14.0" layoutY="56.0" text="complaint" />
+                                                <Label layoutX="14.0" layoutY="101.0" text="Region" />
+                                                <Label layoutX="233.0" layoutY="101.0" text="Location" />
+                                                <Label layoutX="459.0" layoutY="101.0" text="Frequency" />
+                                                <Label layoutX="669.0" layoutY="101.0" text="Severity" />
+                                                <TextField layoutX="74.0" layoutY="52.0" prefHeight="25.0" prefWidth="754.0" AnchorPane.leftAnchor="100.0" />
+                                                <TextField layoutX="279.0" layoutY="97.0" />
+                                                <Label layoutX="14.0" layoutY="153.0" text="Reported Symptoms" textFill="#320fa4">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label layoutX="12.0" layoutY="290.0" text="Aggrevated/Relieving Factors" textFill="#320fa4">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <ChoiceBox layoutX="66.0" layoutY="97.0" prefWidth="150.0" />
+                                                <Label layoutX="12.0" layoutY="203.0" text="Symptoms" />
+                                                <TextField layoutX="78.0" layoutY="199.0" prefHeight="25.0" prefWidth="310.0" AnchorPane.leftAnchor="100.0" />
+                                                <CheckBox layoutX="16.0" layoutY="246.0" mnemonicParsing="false" text="Pain" />
+                                                <CheckBox layoutX="143.0" layoutY="246.0" mnemonicParsing="false" text="Stiffness" />
+                                                <CheckBox layoutX="243.0" layoutY="246.0" mnemonicParsing="false" text="Weakness" />
+                                                <CheckBox layoutX="354.0" layoutY="246.0" mnemonicParsing="false" text="Numbness" />
+                                                <Label layoutX="487.0" layoutY="246.0" text="other" />
+                                                <TextField layoutX="516.0" layoutY="242.0" prefHeight="25.0" prefWidth="338.0" />
+                                                <ChoiceBox layoutX="514.0" layoutY="97.0" prefHeight="25.0" prefWidth="81.0" />
+                                                <ChoiceBox layoutX="711.0" layoutY="97.0" prefHeight="25.0" prefWidth="82.0" />
+                                                <Label layoutX="12.0" layoutY="322.0" text="Aggrevated by:" />
+                                                <TextField layoutX="7.0" layoutY="339.0" prefHeight="25.0" prefWidth="338.0" />
+                                                <Label layoutX="455.0" layoutY="322.0" text="Relieved by:" />
+                                                <TextField layoutX="455.0" layoutY="339.0" prefHeight="25.0" prefWidth="338.0" />
+                                                <Button layoutX="354.0" layoutY="339.0" mnemonicParsing="false" text="+" />
+                                                <Button layoutX="801.0" layoutY="339.0" mnemonicParsing="false" text="+" />
+                                                <TextArea layoutX="9.0" layoutY="376.0" prefHeight="57.0" prefWidth="334.0" />
+                                                <TextArea layoutX="455.0" layoutY="376.0" prefHeight="56.0" prefWidth="334.0" />
+                                                <Button layoutX="801.0" layoutY="392.0" mnemonicParsing="false" text="Add Subjective" AnchorPane.rightAnchor="20.0" />
+                                                <Button layoutX="788.0" layoutY="12.0" mnemonicParsing="false" text="Detailed View" AnchorPane.rightAnchor="40.0" />
+                                             </children>
+                                          </AnchorPane>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                                             <children>
+                                                <TableView layoutX="-14.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="0.0">
+                                                  <columns>
+                                                    <TableColumn prefWidth="86.0" text="Region" />
+                                                    <TableColumn prefWidth="88.0" text="Location" />
+                                                      <TableColumn prefWidth="461.0" text="Symptoms" />
+                                                      <TableColumn minWidth="0.0" prefWidth="84.0" text="Severity" />
+                                                      <TableColumn prefWidth="197.0" text="Relieving/Aggrevated Factors" />
+                                                  </columns>
+                                                </TableView>
+                                             </children></AnchorPane>
+                                      </items>
+                                    </SplitPane>
+                                 </children></AnchorPane>
+                        </content>
+                      </Tab>
+                      <Tab text="Objective">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <TabPane layoutX="14.0" layoutY="60.0" prefHeight="436.0" prefWidth="919.0" stylesheets="@revertHorizontaltabpane.css" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="20.0">
+                                      <tabs>
+                                        <Tab text="    Observation    ">
+                                          <content>
+                                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                   <children>
+                                                      <Label layoutX="14.0" layoutY="39.0" text="Observation :" />
+                                                      <TextArea layoutX="14.0" layoutY="56.0" prefHeight="86.0" prefWidth="855.0" AnchorPane.leftAnchor="14.0" />
+                                                      <Label layoutX="14.0" layoutY="170.0" text="Recent Observation : Date " />
+                                                      <TextField editable="false" layoutX="165.0" layoutY="166.0" prefHeight="18.0" prefWidth="149.0" />
+                                                      <TextArea layoutX="14.0" layoutY="191.0" prefHeight="93.0" prefWidth="855.0" />
+                                                      <Label layoutX="14.0" layoutY="327.0" text="Other available observations :" />
+                                                      <Label layoutX="14.0" layoutY="14.0" text="Observation" textFill="#2b0fd1">
+                                                         <font>
+                                                            <Font size="14.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <Button layoutX="734.0" layoutY="142.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="135.0" text="Save" />
+                                                      <TableView layoutX="14.0" layoutY="344.0" prefHeight="200.0" prefWidth="848.0">
+                                                        <columns>
+                                                          <TableColumn prefWidth="85.0" text="Date" />
+                                                          <TableColumn prefWidth="762.0" text="Observations" />
+                                                        </columns>
+                                                      </TableView>
+                                                   </children>
+                                                </AnchorPane>
+                                          </content>
+                                        </Tab>
+                                        <Tab text="    Palpation    ">
+                                          <content>
+                                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="407.0" prefWidth="919.0">
+                                                   <children>
+                                                      <Label layoutX="14.0" layoutY="39.0" text="Palpation :" />
+                                                      <TextArea layoutX="14.0" layoutY="56.0" prefHeight="100.0" prefWidth="859.0" AnchorPane.leftAnchor="10.0" />
+                                                      <Label layoutX="14.0" layoutY="188.0" text="Recent Palpation : Date " />
+                                                      <TextField layoutX="141.0" layoutY="184.0" />
+                                                      <TextArea layoutX="10.0" layoutY="209.0" prefHeight="100.0" prefWidth="859.0" />
+                                                      <Label layoutX="10.0" layoutY="354.0" text="Other available palpation details :" />
+                                                      <Label layoutX="14.0" layoutY="14.0" text="Palpation" textFill="#1815a4">
+                                                         <font>
+                                                            <Font size="14.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <Button layoutX="715.0" layoutY="156.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="154.0" text="Save" />
+                                                      <TableView layoutX="10.0" layoutY="371.0" prefHeight="219.0" prefWidth="857.0">
+                                                        <columns>
+                                                          <TableColumn prefWidth="75.0" text="Date" />
+                                                          <TableColumn prefWidth="593.0" text="Palpation" />
+                                                        </columns>
+                                                      </TableView>
+                                                   </children>
+                                                </AnchorPane>
+                                          </content>
+                                        </Tab>
+                                          <Tab text="    Special Tests    ">
+                                             <content>
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="407.0" prefWidth="919.0">
+                                                   <children>
+                                                      <Separator layoutX="14.0" layoutY="192.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                                                      <Separator layoutX="14.0" layoutY="365.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                                                      <Label layoutX="289.0" layoutY="45.0" text="Test :" />
+                                                      <Label layoutX="555.0" layoutY="45.0" text="Result : " />
+                                                      <Label layoutX="14.0" layoutY="41.0" text="Region :" />
+                                                      <ComboBox layoutX="58.0" layoutY="41.0" prefWidth="150.0" />
+                                                      <TextField layoutX="325.0" layoutY="41.0" prefHeight="25.0" prefWidth="196.0" />
+                                                      <TextField layoutX="597.0" layoutY="41.0" prefHeight="25.0" prefWidth="289.0" />
+                                                      <Label layoutX="14.0" layoutY="78.0" text="Comments : " />
+                                                      <TextArea layoutX="14.0" layoutY="95.0" prefHeight="42.0" prefWidth="871.0" />
+                                                      <Button layoutX="809.0" layoutY="156.0" mnemonicParsing="false" text="Add results" />
+                                                      <Label layoutX="14.0" layoutY="203.0" text="Current session :" />
+                                                      <TableView layoutX="14.0" layoutY="226.0" prefHeight="131.0" prefWidth="868.0">
+                                                        <columns>
+                                                          <TableColumn minWidth="0.0" prefWidth="103.0" text="Region" />
+                                                            <TableColumn prefWidth="136.0" text="Test" />
+                                                            <TableColumn prefWidth="130.0" text="Result" />
+                                                            <TableColumn prefWidth="497.0" text="Comments" />
+                                                        </columns>
+                                                      </TableView>
+                                                      <Label layoutX="14.0" layoutY="368.0" text="Previous tests :" />
+                                                      <Label layoutX="16.0" layoutY="14.0" text="Special Tests" textFill="#331683">
+                                                         <font>
+                                                            <Font size="14.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <TableView layoutX="14.0" layoutY="385.0" prefHeight="203.0" prefWidth="868.0">
+                                                         <columns>
+                                                            <TableColumn prefWidth="63.0" text="Date" />
+                                                            <TableColumn minWidth="0.0" prefWidth="103.0" text="Region" />
+                                                            <TableColumn prefWidth="136.0" text="Test" />
+                                                            <TableColumn prefWidth="130.0" text="Result" />
+                                                            <TableColumn prefWidth="400.0" text="Comments" />
+                                                         </columns>
+                                                      </TableView>
+                                                   </children>
+                                                </AnchorPane>
+                                             </content>
+                                          </Tab>
+                                          <Tab text="       ROM       ">
+                                             <content>
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="407.0" prefWidth="919.0">
+                                                   <children>
+                                                      <Label layoutX="14.0" layoutY="14.0" text="Rom Exams" textFill="#341cbc">
+                                                         <font>
+                                                            <Font size="14.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <Label layoutX="14.0" layoutY="46.0" text="Region :" />
+                                                      <TextField layoutX="65.0" layoutY="42.0" />
+                                                      <Label layoutX="261.0" layoutY="46.0" text="type :" />
+                                                      <TextField layoutX="299.0" layoutY="42.0" />
+                                                      <Label layoutX="14.0" layoutY="90.0" text="Flexion :" />
+                                                      <Label layoutX="170.0" layoutY="90.0" text="Extention :" />
+                                                      <Label layoutX="320.0" layoutY="90.0" text="LLF :" />
+                                                      <Label layoutX="469.0" layoutY="90.0" text="RLF :" />
+                                                      <Label layoutX="621.0" layoutY="90.0" text="LR :" />
+                                                      <Label layoutX="771.0" layoutY="90.0" text="RR :" />
+                                                      <ComboBox layoutX="14.0" layoutY="107.0" prefHeight="25.0" prefWidth="124.0" />
+                                                      <ComboBox layoutX="170.0" layoutY="107.0" prefHeight="25.0" prefWidth="124.0" />
+                                                      <ComboBox layoutX="320.0" layoutY="107.0" prefHeight="25.0" prefWidth="124.0" />
+                                                      <ComboBox layoutX="469.0" layoutY="107.0" prefHeight="25.0" prefWidth="124.0" />
+                                                      <ComboBox layoutX="621.0" layoutY="107.0" prefHeight="25.0" prefWidth="124.0" />
+                                                      <ComboBox layoutX="771.0" layoutY="107.0" prefHeight="25.0" prefWidth="124.0" />
+                                                      <Label layoutX="14.0" layoutY="144.0" text="with pain from :" />
+                                                      <Label layoutX="172.0" layoutY="144.0" text="with pain from :" />
+                                                      <Label layoutX="320.0" layoutY="144.0" text="with pain from :" />
+                                                      <Label layoutX="469.0" layoutY="144.0" text="with pain from :" />
+                                                      <Label layoutX="621.0" layoutY="144.0" text="with pain from :" />
+                                                      <Label layoutX="771.0" layoutY="144.0" text="with pain from :" />
+                                                      <ComboBox layoutX="14.0" layoutY="161.0" prefHeight="25.0" prefWidth="124.0" />
+                                                      <ComboBox layoutX="170.0" layoutY="161.0" prefHeight="25.0" prefWidth="124.0" />
+                                                      <ComboBox layoutX="320.0" layoutY="161.0" prefHeight="25.0" prefWidth="124.0" />
+                                                      <ComboBox layoutX="469.0" layoutY="161.0" prefHeight="25.0" prefWidth="124.0" />
+                                                      <ComboBox layoutX="621.0" layoutY="161.0" prefHeight="25.0" prefWidth="124.0" />
+                                                      <ComboBox layoutX="771.0" layoutY="161.0" prefHeight="25.0" prefWidth="124.0" />
+                                                      <Label layoutX="14.0" layoutY="213.0" text="total loss : " />
+                                                      <TextField layoutX="76.0" layoutY="209.0" prefHeight="25.0" prefWidth="53.0" />
+                                                      <Label layoutX="142.0" layoutY="213.0" text=" % " />
+                                                      <Label layoutX="14.0" layoutY="244.0" text="Comments :" />
+                                                      <TextArea layoutX="14.0" layoutY="261.0" prefHeight="38.0" prefWidth="880.0" />
+                                                      <Separator layoutX="3.0" layoutY="336.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                                                      <Button layoutX="727.0" layoutY="311.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="167.0" text="Save" />
+                                                      <TableView layoutX="14.0" layoutY="373.0" prefHeight="200.0" prefWidth="881.0">
+                                                        <columns>
+                                                          <TableColumn prefWidth="67.0" text="Date" />
+                                                          <TableColumn prefWidth="75.0" text="Region" />
+                                                            <TableColumn prefWidth="75.0" text="Flexion">
+                                                               <columns>
+                                                                  <TableColumn prefWidth="26.0" text="tot." />
+                                                                  <TableColumn prefWidth="26.0" text="p/f" />
+                                                               </columns>
+                                                            </TableColumn>
+                                                            <TableColumn prefWidth="64.0" text="Extention">
+                                                               <columns>
+                                                                  <TableColumn prefWidth="26.0" text="tot." />
+                                                                  <TableColumn prefWidth="26.0" text="p/f" />
+                                                               </columns>
+                                                            </TableColumn>
+                                                            <TableColumn prefWidth="64.0" text="LLF">
+                                                               <columns>
+                                                                  <TableColumn prefWidth="26.0" text="tot." />
+                                                                  <TableColumn prefWidth="26.0" text="p/f" />
+                                                               </columns>
+                                                            </TableColumn>
+                                                            <TableColumn prefWidth="64.0" text="RLF">
+                                                               <columns>
+                                                                  <TableColumn prefWidth="26.0" text="tot." />
+                                                                  <TableColumn prefWidth="26.0" text="p/f" />
+                                                               </columns>
+                                                            </TableColumn>
+                                                            <TableColumn prefWidth="64.0" text="LR">
+                                                               <columns>
+                                                                  <TableColumn prefWidth="26.0" text="tot." />
+                                                                  <TableColumn prefWidth="26.0" text="p/f" />
+                                                               </columns>
+                                                            </TableColumn>
+                                                            <TableColumn prefWidth="64.0" text="RR">
+                                                               <columns>
+                                                                  <TableColumn prefWidth="26.0" text="tot." />
+                                                                  <TableColumn prefWidth="26.0" text="p/f" />
+                                                               </columns>
+                                                            </TableColumn>
+                                                            <TableColumn prefWidth="70.0" text="total loss%" />
+                                                            <TableColumn prefWidth="356.0" text="comments" />
+                                                        </columns>
+                                                      </TableView>
+                                                      <Label layoutX="14.0" layoutY="339.0" prefHeight="17.0" prefWidth="95.0" text="Previous Results " />
+                                                   </children></AnchorPane>
+                                             </content>
+                                          </Tab>
+                                          <Tab text="    Muscle-Power    ">
+                                             <content>
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="407.0" prefWidth="919.0">
+                                                   <children>
+                                                      <Label layoutX="14.0" layoutY="6.0" text="Muscle-Power" textFill="#2d30b9">
+                                                         <font>
+                                                            <Font size="14.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <Label layoutX="14.0" layoutY="42.0" text="Region :" />
+                                                      <TextField layoutX="14.0" layoutY="59.0" />
+                                                      <Label layoutX="241.0" layoutY="42.0" text="Muscle :" />
+                                                      <TextField layoutX="241.0" layoutY="59.0" />
+                                                      <Label layoutX="464.0" layoutY="42.0" text="power :" />
+                                                      <ComboBox layoutX="464.0" layoutY="59.0" prefWidth="150.0" />
+                                                      <Label layoutX="14.0" layoutY="99.0" text="Comments :" />
+                                                      <TextField layoutX="14.0" layoutY="116.0" prefHeight="25.0" prefWidth="602.0" />
+                                                      <Separator layoutY="181.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                                                      <Label layoutX="14.0" layoutY="184.0" text="Recently added  :" />
+                                                      <Label layoutX="14.0" layoutY="343.0" text="previous records :" />
+                                                      <TableView layoutX="14.0" layoutY="360.0" prefHeight="228.0" prefWidth="874.0">
+                                                         <columns>
+                                                            <TableColumn prefWidth="75.0" text="Date" />
+                                                            <TableColumn prefWidth="75.0" text="Muscle" />
+                                                            <TableColumn prefWidth="75.0" text="Region" />
+                                                            <TableColumn prefWidth="75.0" text="Power" />
+                                                            <TableColumn prefWidth="572.0" text="Comments" />
+                                                         </columns>
+                                                      </TableView>
+                                                      <TableView layoutX="14.0" layoutY="201.0" prefHeight="122.0" prefWidth="874.0">
+                                                         <columns>
+                                                            <TableColumn prefWidth="75.0" text="Muscle" />
+                                                            <TableColumn prefWidth="75.0" text="Region" />
+                                                            <TableColumn prefWidth="75.0" text="Power" />
+                                                            <TableColumn prefWidth="646.0" text="Comments" />
+                                                         </columns>
+                                                      </TableView>
+                                                      <Separator layoutX="-11.0" layoutY="342.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                                                      <Button layoutX="506.0" layoutY="156.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="110.0" text="Save" />
+                                                   </children></AnchorPane>
+                                             </content>
+                                          </Tab>
+                                          <Tab text="    Diagnostic Studies    ">
+                                             <content>
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="407.0" prefWidth="919.0">
+                                                   <children>
+                                                      <Label layoutX="14.0" layoutY="14.0" text="Diagnostic Studies" textFill="#1a0ea1">
+                                                         <font>
+                                                            <Font size="14.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <Label layoutX="14.0" layoutY="47.0" text="Date : " />
+                                                      <DatePicker layoutX="56.0" layoutY="43.0" prefHeight="25.0" prefWidth="146.0" />
+                                                      <Label layoutX="281.0" layoutY="47.0" text="Type of study :" />
+                                                      <ComboBox layoutX="366.0" layoutY="43.0" prefWidth="150.0" />
+                                                      <Button layoutX="14.0" layoutY="89.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="188.0" text="Upload File" />
+                                                      <Label layoutX="17.0" layoutY="134.0" text="impression :" />
+                                                      <TextArea layoutX="17.0" layoutY="151.0" prefHeight="48.0" prefWidth="869.0" />
+                                                      <Button layoutX="748.0" layoutY="216.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="110.0" text="Save" />
+                                                      <Separator layoutX="17.0" layoutY="248.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                                                      <Label layoutX="17.0" layoutY="251.0" text="Summary" />
+                                                      <Label layoutX="583.0" layoutY="47.0" text="Region : " />
+                                                      <TextField layoutX="630.0" layoutY="43.0" prefHeight="25.0" prefWidth="173.0" />
+                                                      <TableView layoutX="17.0" layoutY="274.0" prefHeight="311.0" prefWidth="860.0">
+                                                        <columns>
+                                                          <TableColumn prefWidth="75.0" text="Date" />
+                                                          <TableColumn prefWidth="75.0" text="Type" />
+                                                            <TableColumn prefWidth="75.0" text="Region" />
+                                                            <TableColumn prefWidth="545.0" text="Impression" />
+                                                            <TableColumn prefWidth="87.0" text="Attachment" />
+                                                        </columns>
+                                                      </TableView>
+                                                      <Label layoutX="224.0" layoutY="93.0" prefHeight="17.0" prefWidth="289.0" text="filename" />
+                                                   </children></AnchorPane>
+                                             </content>
+                                          </Tab>
+                                          <Tab text="    Neurological Studies    ">
+                                             <content>
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="407.0" prefWidth="919.0">
+                                                   <children>
+                                                      <Label layoutX="14.0" layoutY="14.0" text="Neurological Studies : " textFill="#3d1ab2">
+                                                         <font>
+                                                            <Font size="14.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <Label layoutX="14.0" layoutY="55.0" text="Date of study : " />
+                                                      <DatePicker layoutX="14.0" layoutY="72.0" />
+                                                      <Label layoutX="244.0" layoutY="55.0" text="type of study : " />
+                                                      <TextField layoutX="244.0" layoutY="72.0" />
+                                                      <Label layoutX="469.0" layoutY="55.0" text="Region : " />
+                                                      <TextField layoutX="469.0" layoutY="72.0" />
+                                                      <Button layoutX="14.0" layoutY="109.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="163.0" text="Upload File" />
+                                                      <Label layoutX="14.0" layoutY="149.0" text="Impression : " />
+                                                      <TextArea layoutX="14.0" layoutY="166.0" prefHeight="38.0" prefWidth="876.0" />
+                                                      <Separator layoutX="28.0" layoutY="245.0" prefHeight="0.0" prefWidth="909.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                                                      <Button layoutX="750.0" layoutY="211.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="108.0" text="Save" />
+                                                      <Label layoutX="14.0" layoutY="267.0" text="Impression : " />
+                                                      <TableView layoutX="14.0" layoutY="284.0" prefHeight="303.0" prefWidth="877.0">
+                                                        <columns>
+                                                          <TableColumn prefWidth="75.0" text="Date" />
+                                                          <TableColumn prefWidth="75.0" text="Type" />
+                                                            <TableColumn prefWidth="75.0" text="Region" />
+                                                            <TableColumn prefWidth="554.0" text="Impression" />
+                                                            <TableColumn prefWidth="96.0" text="Attachment" />
+                                                        </columns>
+                                                      </TableView>
+                                                      <Label layoutX="205.0" layoutY="113.0" prefHeight="17.0" prefWidth="187.0" text="file name" />
+                                                   </children></AnchorPane>
+                                             </content>
+                                          </Tab>
+                                      </tabs>
+                                    </TabPane>
+                                 </children></AnchorPane>
+                        </content>
+                      </Tab>
+                        <Tab text="Analysis">
+                           <content>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <Label layoutX="14.0" layoutY="21.0" text="patient's condition" />
+                                    <Label layoutX="373.0" layoutY="21.0" text="patient's progressing" />
+                                    <ChoiceBox layoutX="113.0" layoutY="17.0" prefHeight="25.0" prefWidth="161.0" />
+                                    <ChoiceBox layoutX="485.0" layoutY="17.0" prefHeight="25.0" prefWidth="161.0" />
+                                    <Label layoutX="14.0" layoutY="80.0" text="Treatment is effective" />
+                                    <RadioButton layoutX="163.0" layoutY="80.0" mnemonicParsing="false" text="yes" />
+                                    <RadioButton layoutX="255.0" layoutY="80.0" mnemonicParsing="false" text="no">
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="treatmentEffectiveBtnGrp" />
+                                       </toggleGroup>
+                                    </RadioButton>
+                                    <RadioButton layoutX="338.0" layoutY="80.0" mnemonicParsing="false" text="Unable to detect at the moment" toggleGroup="$treatmentEffectiveBtnGrp" />
+                                    <Label layoutX="14.0" layoutY="132.0" prefHeight="17.0" prefWidth="57.0" text="prognosis" />
+                                    <ChoiceBox layoutX="113.0" layoutY="128.0" prefHeight="25.0" prefWidth="161.0" />
+                                    <Label layoutX="14.0" layoutY="176.0" text="comments" />
+                                    <TextArea layoutX="13.0" layoutY="193.0" prefHeight="42.0" prefWidth="864.0" />
+                                    <Separator layoutY="300.0" prefHeight="0.0" prefWidth="919.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                                    <Label layoutX="13.0" layoutY="316.0" prefHeight="17.0" prefWidth="146.0" text="Previous Analysis" />
+                                    <TableView layoutX="13.0" layoutY="341.0" prefHeight="297.0" prefWidth="860.0">
+                                      <columns>
+                                        <TableColumn prefWidth="75.0" text="Date" />
+                                        <TableColumn prefWidth="75.0" text="Condition" />
+                                          <TableColumn prefWidth="75.0" text="Progress" />
+                                          <TableColumn prefWidth="108.0" text="effectiveness" />
+                                          <TableColumn text="prognosis" />
+                                          <TableColumn prefWidth="442.0" text="Comments" />
+                                      </columns>
+                                    </TableView>
+                                    <Button layoutX="13.0" layoutY="243.0" mnemonicParsing="false" text="Save" />
+                                 </children></AnchorPane>
+                           </content>
+                        </Tab>
+                        <Tab text="Plan">
+                           <content>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <ListView layoutX="14.0" layoutY="285.0" prefHeight="95.0" prefWidth="637.0" />
+                                    <Label layoutX="14.0" layoutY="25.0" text="Treatment" />
+                                    <TextField layoutX="14.0" layoutY="42.0" prefHeight="25.0" prefWidth="394.0" />
+                                    <Label layoutX="460.0" layoutY="25.0" text="Frequency" />
+                                    <ChoiceBox layoutX="460.0" layoutY="42.0" prefWidth="150.0" />
+                                    <Label layoutX="698.0" layoutY="25.0" text="Duration" />
+                                    <ChoiceBox layoutX="698.0" layoutY="42.0" prefWidth="150.0" />
+                                    <TableView layoutX="14.0" layoutY="132.0" prefHeight="87.0" prefWidth="832.0">
+                                      <columns>
+                                        <TableColumn minWidth="0.0" prefWidth="149.0" text="Frequency" />
+                                          <TableColumn prefWidth="131.0" text="Duration" />
+                                        <TableColumn prefWidth="551.0" text="Treatment" />
+                                      </columns>
+                                    </TableView>
+                                    <Label layoutX="14.0" layoutY="250.0" text="Proposed adjustive techniques" />
+                                    <Button layoutX="610.0" layoutY="540.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="236.0" text="Save Complete Treatment Plan" />
+                                    <TextField layoutX="211.0" layoutY="246.0" prefHeight="25.0" prefWidth="442.0" />
+                                    <Button layoutX="725.0" layoutY="246.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="121.0" text="Add" />
+                                    <Label layoutX="14.0" layoutY="409.0" text="Longterm treatment goal" />
+                                    <Label layoutX="468.0" layoutY="409.0" text="Current treatment plan goal" />
+                                    <TextArea layoutX="14.0" layoutY="426.0" prefHeight="90.0" prefWidth="401.0" />
+                                    <TextArea layoutX="468.0" layoutY="426.0" prefHeight="89.0" prefWidth="376.0" />
+                                    <Button layoutX="17.0" layoutY="540.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="188.0" text="View Previous Treatment Plans" />
+                                 </children></AnchorPane>
+                           </content>
+                        </Tab>
+                    </tabs>
+                  </TabPane>
+               </children>
+            </AnchorPane>
+         </content>
+      </Tab>
+  </tabs>
+</TabPane>

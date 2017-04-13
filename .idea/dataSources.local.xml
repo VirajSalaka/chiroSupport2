@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="jdbc:mysql://127.0.0.1/chirosupport" uuid="b85b614e-6f88-4f76-a98c-00ef4261a2bf">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" />
+      <secret-storage>master_key</secret-storage>
+      <first-sync>true</first-sync>
+      <user-name>root</user-name>
+    </data-source>
+    <data-source name="hibernate-annotation.cfg.xml/Hibernate" uuid="2eec01c2-288f-4c42-99cd-184f5a18c715">
+      <database-info product="MySQL" version="5.5.5-10.1.21-MariaDB" jdbc-version="4.1" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-6.0.6 ( Revision: 3dab84f4d9bede3cdd14d57b99e9e98a02a5b97d )">
+        <extra-name-characters>#@</extra-name-characters>
+        <identifier-quote-string>`</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower" />
+      <secret-storage>master_key</secret-storage>
+      <user-name>root</user-name>
+      <resolve-scope>chirosupport:</resolve-scope>
+    </data-source>
+    <data-source name="hibernateannotation.cfg.xml/Hibernate" uuid="848a222c-a8ad-43a3-8ecb-a68db5fc3285">
+      <database-info product="MySQL" version="5.5.5-10.1.21-MariaDB" jdbc-version="4.1" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-6.0.6 ( Revision: 3dab84f4d9bede3cdd14d57b99e9e98a02a5b97d )">
+        <extra-name-characters>#@</extra-name-characters>
+        <identifier-quote-string>`</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower" />
+      <user-name>root</user-name>
+      <user-password>dfd8dfc5dfc5dfdedf9bdf98df99</user-password>
+      <resolve-scope>chirosupport:</resolve-scope>
+    </data-source>
+  </component>
+</project>
