@@ -552,7 +552,7 @@
                                     <ChoiceBox layoutX="460.0" layoutY="42.0" prefWidth="150.0" />
                                     <Label layoutX="698.0" layoutY="25.0" text="Duration" />
                                     <ChoiceBox layoutX="698.0" layoutY="42.0" prefWidth="150.0" />
-                                    <TableView layoutX="14.0" layoutY="132.0" prefHeight="87.0" prefWidth="832.0">
+                                    <TableView layoutX="27.0" layoutY="85.0" prefHeight="134.0" prefWidth="819.0">
                                       <columns>
                                         <TableColumn minWidth="0.0" prefWidth="149.0" text="Frequency" />
                                           <TableColumn prefWidth="131.0" text="Duration" />

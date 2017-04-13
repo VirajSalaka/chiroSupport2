@@ -18,7 +18,7 @@ public class MedicalHx {
     @Column(name="id", nullable=false, unique=true)
     private int id;
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name="patient_id", nullable=false)
     private Patient patient;
 

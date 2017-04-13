@@ -1,19 +1,16 @@
 package com.mycompany.chiroSupport.patientProfile;
 
+import com.mycompany.chiroSupport.patientCase.MedicalHx;
 import com.mycompany.chiroSupport.patientCase.PatientCase;
+import com.mycompany.chiroSupport.patientCase.VitalsReport;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
+import javax.persistence.*;
 
 @Entity
 @Table(name="patient",
@@ -46,6 +43,14 @@ public class Patient implements java.io.Serializable {
     @Column(name="contactNo", length=9)
     private int contactNo;
 
+    @OneToMany(mappedBy = "patient", cascade = CascadeType.ALL)
+    private List<VitalsReport> vitalsReports;
+
+    @OneToOne(mappedBy = "patient", cascade = CascadeType.ALL)
+    private MedicalHx medicalHx;
+
+    @OneToMany(mappedBy = "patient", cascade = CascadeType.ALL)
+    private List<PatientCase> patientCaseList;
 
 
     public Patient( String name, int nicNo, int bhtNo,String dob, int gender,String address,int contactNo){
@@ -58,8 +63,6 @@ public class Patient implements java.io.Serializable {
         this.contactNo = contactNo;
     }
 
-    public Patient() {
-    }
 
     //reference number will be
     public void setRefNo(int refNo){
@@ -104,29 +107,6 @@ public class Patient implements java.io.Serializable {
     }
 
     /*
-   to create Patient's profile and add it to the database
-    */
-    /*public void saveInDatabase () throws SQLException, ClassNotFoundException {
-        Connection conn= null;//DBConnection.getInstance().getConnection();
-
-        String query = "insert into patient (name,nicNo,bhtNo,gender,dob,address,contactNo)  values (?,?,?,?,?,?,?)";
-        PreparedStatement preparedStmt = conn.prepareStatement(query);
-
-        preparedStmt.setString (1,name);
-        preparedStmt.setInt(2,nicNo);
-        preparedStmt.setInt(3,bhtNo);
-        preparedStmt.setInt(4,gender);
-        preparedStmt.setString(5,dob);
-        preparedStmt.setString(6,address);
-        preparedStmt.setInt(7,contactNo);
-
-        preparedStmt.execute();
-
-        conn.close();
-
-    }*/
-
-    /*
    display available patients to the physiotherapist
     */
     public void addToQueue(){
@@ -134,4 +114,27 @@ public class Patient implements java.io.Serializable {
     }
 
 
+    public List<VitalsReport> getVitalsReports() {
+        return vitalsReports;
+    }
+
+    public void setVitalsReports(List<VitalsReport> vitalsReports) {
+        this.vitalsReports = vitalsReports;
+    }
+
+    public MedicalHx getMedicalHx() {
+        return medicalHx;
+    }
+
+    public void setMedicalHx(MedicalHx medicalHx) {
+        this.medicalHx = medicalHx;
+    }
+
+    public List<PatientCase> getPatientCaseList() {
+        return patientCaseList;
+    }
+
+    public void setPatientCaseList(List<PatientCase> patientCaseList) {
+        this.patientCaseList = patientCaseList;
+    }
 }

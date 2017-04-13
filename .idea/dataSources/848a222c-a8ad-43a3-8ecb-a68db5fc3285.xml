@@ -33,124 +33,133 @@
       <Position>4</Position>
       <DataType>text|0</DataType>
     </column>
-    <column id="15" parent="8" name="medications">
-      <Position>5</Position>
-      <DataType>text|0</DataType>
-    </column>
-    <column id="16" parent="8" name="exPhysio">
-      <Position>6</Position>
-      <DataType>text|0</DataType>
-    </column>
-    <column id="17" parent="8" name="familyHX">
+    <column id="15" parent="8" name="familyHX">
       <Position>7</Position>
       <DataType>text|0</DataType>
     </column>
-    <column id="18" parent="8" name="socialHX">
+    <column id="16" parent="8" name="socialHX">
       <Position>8</Position>
       <DataType>text|0</DataType>
     </column>
-    <column id="19" parent="8" name="injury">
+    <column id="17" parent="8" name="injury">
       <Position>9</Position>
       <DataType>text|0</DataType>
     </column>
-    <column id="20" parent="8" name="other">
+    <column id="18" parent="8" name="other">
       <Position>10</Position>
       <DataType>text|0</DataType>
     </column>
-    <key id="21" parent="8" name="PRIMARY">
+    <column id="19" parent="8" name="medication">
+      <Position>5</Position>
+      <DataType>text|0</DataType>
+    </column>
+    <column id="20" parent="8" name="exPhysiotherapy">
+      <Position>6</Position>
+      <DataType>text|0</DataType>
+    </column>
+    <index id="21" parent="8" name="patient_id">
+      <ColNames>patient_id</ColNames>
+    </index>
+    <key id="22" parent="8" name="PRIMARY">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="22" parent="9" name="refNo">
+    <foreign-key id="23" parent="8" name="medicalhx_ibfk_1">
+      <ColNames>patient_id</ColNames>
+      <RefSchemaName>chirosupport</RefSchemaName>
+      <RefTableName>patient</RefTableName>
+      <RefColNames>refNo</RefColNames>
+    </foreign-key>
+    <column id="24" parent="9" name="refNo">
       <Position>1</Position>
       <DataType>int(11) unsigned|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="23" parent="9" name="name">
+    <column id="25" parent="9" name="name">
       <Position>2</Position>
       <DataType>varchar(150)|0</DataType>
     </column>
-    <column id="24" parent="9" name="nicNo">
+    <column id="26" parent="9" name="nicNo">
       <Position>3</Position>
       <DataType>int(9)|0</DataType>
     </column>
-    <column id="25" parent="9" name="bhtNo">
+    <column id="27" parent="9" name="bhtNo">
       <Position>4</Position>
       <DataType>int(8)|0</DataType>
     </column>
-    <column id="26" parent="9" name="dob">
+    <column id="28" parent="9" name="dob">
       <Position>5</Position>
       <DataType>date|0</DataType>
     </column>
-    <column id="27" parent="9" name="gender">
+    <column id="29" parent="9" name="gender">
       <Position>6</Position>
       <DataType>tinyint(4)|0</DataType>
     </column>
-    <column id="28" parent="9" name="address">
+    <column id="30" parent="9" name="address">
       <Position>7</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="29" parent="9" name="contactNo">
+    <column id="31" parent="9" name="contactNo">
       <Position>8</Position>
       <DataType>int(9)|0</DataType>
     </column>
-    <key id="30" parent="9" name="PRIMARY">
+    <key id="32" parent="9" name="PRIMARY">
       <ColNames>refNo</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="31" parent="10" name="id">
+    <column id="33" parent="10" name="id">
       <Position>1</Position>
       <DataType>bigint(20) unsigned|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="32" parent="10" name="patient_id">
+    <column id="34" parent="10" name="patient_id">
       <Position>2</Position>
       <DataType>int(10) unsigned|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="33" parent="10" name="date">
+    <column id="35" parent="10" name="date">
       <Position>3</Position>
       <DataType>date|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="34" parent="10" name="height">
+    <column id="36" parent="10" name="height">
       <Position>4</Position>
       <DataType>smallint(5) unsigned|0</DataType>
     </column>
-    <column id="35" parent="10" name="weight">
+    <column id="37" parent="10" name="weight">
       <Position>5</Position>
       <DataType>decimal(5,2) unsigned|0</DataType>
     </column>
-    <column id="36" parent="10" name="pulse">
+    <column id="38" parent="10" name="pulse">
       <Position>6</Position>
       <DataType>tinyint(3) unsigned|0</DataType>
     </column>
-    <column id="37" parent="10" name="respiration">
+    <column id="39" parent="10" name="respiration">
       <Position>7</Position>
       <DataType>tinyint(3) unsigned|0</DataType>
     </column>
-    <column id="38" parent="10" name="temperature">
+    <column id="40" parent="10" name="temperature">
       <Position>8</Position>
       <DataType>decimal(5,2) unsigned|0</DataType>
     </column>
-    <column id="39" parent="10" name="bloodPressueLB">
+    <column id="41" parent="10" name="bloodPressureLB">
       <Position>9</Position>
       <DataType>tinyint(3) unsigned|0</DataType>
     </column>
-    <column id="40" parent="10" name="bloodPressueUB">
+    <column id="42" parent="10" name="bloodPressureUB">
       <Position>10</Position>
       <DataType>tinyint(3) unsigned|0</DataType>
     </column>
-    <index id="41" parent="10" name="patient_id">
+    <index id="43" parent="10" name="patient_id">
       <ColNames>patient_id</ColNames>
     </index>
-    <key id="42" parent="10" name="PRIMARY">
+    <key id="44" parent="10" name="PRIMARY">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="43" parent="10" name="vitalsreport_ibfk_1">
+    <foreign-key id="45" parent="10" name="vitalsreport_ibfk_1">
       <ColNames>patient_id</ColNames>
       <RefSchemaName>chirosupport</RefSchemaName>
       <RefTableName>patient</RefTableName>
