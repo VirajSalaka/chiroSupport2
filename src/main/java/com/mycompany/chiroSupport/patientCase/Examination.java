@@ -1,9 +1,7 @@
 package com.mycompany.chiroSupport.patientCase;
 
 
-import com.mycompany.chiroSupport.patientCase.objective.Observation;
-import com.mycompany.chiroSupport.patientCase.objective.Palpation;
-import com.mycompany.chiroSupport.patientCase.objective.SpecialTest;
+import com.mycompany.chiroSupport.patientCase.objective.*;
 
 import javax.persistence.*;
 import java.util.List;
@@ -35,8 +33,14 @@ public class Examination {
     @OneToOne(mappedBy = "examination", cascade = CascadeType.ALL)
     private Palpation palpation;
 
-    @OneToOne(mappedBy = "examination", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "examination", cascade = CascadeType.ALL)
     private List<SpecialTest> specialTestList;
+
+    @OneToMany(mappedBy = "examination", cascade = CascadeType.ALL)
+    private List<Rom> romTestList;
+
+    @OneToMany(mappedBy = "examination", cascade = CascadeType.ALL)
+    private List<MusclePower> musclePowerList;
 
     public Examination(PatientCase patientCase){
         this.patientCase = patientCase;
@@ -81,5 +85,29 @@ public class Examination {
 
     public void setSpecialTestList(List<SpecialTest> specialTestList) {
         this.specialTestList = specialTestList;
+    }
+
+    public List<Rom> getRomTestList() {
+        return romTestList;
+    }
+
+    public void setRomTestList(List<Rom> romTestList) {
+        this.romTestList = romTestList;
+    }
+
+    public Observation getObservation() {
+        return observation;
+    }
+
+    public void setObservation(Observation observation) {
+        this.observation = observation;
+    }
+
+    public List<MusclePower> getMusclePowerList() {
+        return musclePowerList;
+    }
+
+    public void setMusclePowerList(List<MusclePower> musclePowerList) {
+        this.musclePowerList = musclePowerList;
     }
 }
