@@ -2,6 +2,8 @@ package com.mycompany.chiroSupport.patientCase;
 
 
 import com.mycompany.chiroSupport.patientCase.objective.Observation;
+import com.mycompany.chiroSupport.patientCase.objective.Palpation;
+import com.mycompany.chiroSupport.patientCase.objective.SpecialTest;
 
 import javax.persistence.*;
 import java.util.List;
@@ -30,6 +32,12 @@ public class Examination {
     @OneToOne(mappedBy = "examination", cascade = CascadeType.ALL)
     private Observation observation;
 
+    @OneToOne(mappedBy = "examination", cascade = CascadeType.ALL)
+    private Palpation palpation;
+
+    @OneToOne(mappedBy = "examination", cascade = CascadeType.ALL)
+    private List<SpecialTest> specialTestList;
+
     public Examination(PatientCase patientCase){
         this.patientCase = patientCase;
     }
@@ -57,5 +65,21 @@ public class Examination {
 
     public void setSubjectiveList(List<Subjective> subjectiveList) {
         this.subjectiveList = subjectiveList;
+    }
+
+    public Palpation getPalpation() {
+        return palpation;
+    }
+
+    public void setPalpation(Palpation palpation) {
+        this.palpation = palpation;
+    }
+
+    public List<SpecialTest> getSpecialTestList() {
+        return specialTestList;
+    }
+
+    public void setSpecialTestList(List<SpecialTest> specialTestList) {
+        this.specialTestList = specialTestList;
     }
 }
