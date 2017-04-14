@@ -14,323 +14,352 @@
     <table id="8" parent="2" name="examination"/>
     <table id="9" parent="2" name="medicalhx"/>
     <table id="10" parent="2" name="observation"/>
-    <table id="11" parent="2" name="patient"/>
-    <table id="12" parent="2" name="patientcase"/>
-    <table id="13" parent="2" name="subjective"/>
-    <table id="14" parent="2" name="vitalsreport"/>
-    <column id="15" parent="8" name="id">
+    <table id="11" parent="2" name="palpation"/>
+    <table id="12" parent="2" name="patient"/>
+    <table id="13" parent="2" name="patientcase"/>
+    <table id="14" parent="2" name="subjective"/>
+    <table id="15" parent="2" name="vitalsreport"/>
+    <column id="16" parent="8" name="id">
       <Position>1</Position>
       <DataType>bigint(20) unsigned|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="16" parent="8" name="case_id">
+    <column id="17" parent="8" name="case_id">
       <Position>2</Position>
       <DataType>bigint(20) unsigned|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="17" parent="8" name="createdDate">
+    <column id="18" parent="8" name="createdDate">
       <Position>3</Position>
       <DataType>date|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="18" parent="8" name="case_id">
+    <index id="19" parent="8" name="case_id">
       <ColNames>case_id</ColNames>
     </index>
-    <key id="19" parent="8" name="PRIMARY">
+    <key id="20" parent="8" name="PRIMARY">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="20" parent="8" name="examination_ibfk_1">
+    <foreign-key id="21" parent="8" name="examination_ibfk_1">
       <ColNames>case_id</ColNames>
       <RefSchemaName>chirosupport</RefSchemaName>
       <RefTableName>patientcase</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="21" parent="9" name="id">
+    <column id="22" parent="9" name="id">
       <Position>1</Position>
       <DataType>int(10) unsigned|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="22" parent="9" name="patient_id">
+    <column id="23" parent="9" name="patient_id">
       <Position>2</Position>
       <DataType>int(10) unsigned|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="23" parent="9" name="surgery">
+    <column id="24" parent="9" name="surgery">
       <Position>3</Position>
       <DataType>text|0</DataType>
     </column>
-    <column id="24" parent="9" name="ayurveda">
+    <column id="25" parent="9" name="ayurveda">
       <Position>4</Position>
       <DataType>text|0</DataType>
     </column>
-    <column id="25" parent="9" name="familyHX">
+    <column id="26" parent="9" name="familyHX">
       <Position>7</Position>
       <DataType>text|0</DataType>
     </column>
-    <column id="26" parent="9" name="socialHX">
+    <column id="27" parent="9" name="socialHX">
       <Position>8</Position>
       <DataType>text|0</DataType>
     </column>
-    <column id="27" parent="9" name="injury">
+    <column id="28" parent="9" name="injury">
       <Position>9</Position>
       <DataType>text|0</DataType>
     </column>
-    <column id="28" parent="9" name="other">
+    <column id="29" parent="9" name="other">
       <Position>10</Position>
       <DataType>text|0</DataType>
     </column>
-    <column id="29" parent="9" name="medication">
+    <column id="30" parent="9" name="medication">
       <Position>5</Position>
       <DataType>text|0</DataType>
     </column>
-    <column id="30" parent="9" name="exPhysiotherapy">
+    <column id="31" parent="9" name="exPhysiotherapy">
       <Position>6</Position>
       <DataType>text|0</DataType>
     </column>
-    <index id="31" parent="9" name="patient_id">
+    <index id="32" parent="9" name="patient_id">
       <ColNames>patient_id</ColNames>
     </index>
-    <key id="32" parent="9" name="PRIMARY">
+    <key id="33" parent="9" name="PRIMARY">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="33" parent="9" name="medicalhx_ibfk_1">
+    <foreign-key id="34" parent="9" name="medicalhx_ibfk_1">
       <ColNames>patient_id</ColNames>
       <RefSchemaName>chirosupport</RefSchemaName>
       <RefTableName>patient</RefTableName>
       <RefColNames>refNo</RefColNames>
     </foreign-key>
-    <column id="34" parent="10" name="id">
+    <column id="35" parent="10" name="id">
       <Position>1</Position>
       <DataType>bigint(20) unsigned|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="35" parent="10" name="exam_id">
+    <column id="36" parent="10" name="exam_id">
       <Position>2</Position>
       <DataType>bigint(20) unsigned|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="36" parent="10" name="description">
+    <column id="37" parent="10" name="description">
       <Position>3</Position>
       <DataType>text|0</DataType>
     </column>
-    <index id="37" parent="10" name="exam_id">
+    <index id="38" parent="10" name="exam_id">
       <ColNames>exam_id</ColNames>
     </index>
-    <key id="38" parent="10" name="PRIMARY">
+    <key id="39" parent="10" name="PRIMARY">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="39" parent="10" name="observation_ibfk_1">
+    <foreign-key id="40" parent="10" name="observation_ibfk_1">
       <ColNames>exam_id</ColNames>
       <RefSchemaName>chirosupport</RefSchemaName>
       <RefTableName>examination</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="40" parent="11" name="refNo">
-      <Position>1</Position>
-      <DataType>int(11) unsigned|0</DataType>
-      <NotNull>1</NotNull>
-      <SequenceIdentity>1</SequenceIdentity>
-    </column>
-    <column id="41" parent="11" name="name">
-      <Position>2</Position>
-      <DataType>varchar(150)|0</DataType>
-    </column>
-    <column id="42" parent="11" name="nicNo">
-      <Position>3</Position>
-      <DataType>int(9)|0</DataType>
-    </column>
-    <column id="43" parent="11" name="bhtNo">
-      <Position>4</Position>
-      <DataType>int(8)|0</DataType>
-    </column>
-    <column id="44" parent="11" name="dob">
-      <Position>5</Position>
-      <DataType>date|0</DataType>
-    </column>
-    <column id="45" parent="11" name="gender">
-      <Position>6</Position>
-      <DataType>tinyint(4)|0</DataType>
-    </column>
-    <column id="46" parent="11" name="address">
-      <Position>7</Position>
-      <DataType>varchar(255)|0</DataType>
-    </column>
-    <column id="47" parent="11" name="contactNo">
-      <Position>8</Position>
-      <DataType>int(9)|0</DataType>
-    </column>
-    <key id="48" parent="11" name="PRIMARY">
-      <ColNames>refNo</ColNames>
-      <Primary>1</Primary>
-    </key>
-    <column id="49" parent="12" name="id">
+    <column id="41" parent="11" name="id">
       <Position>1</Position>
       <DataType>bigint(20) unsigned|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="50" parent="12" name="patient_id">
+    <column id="42" parent="11" name="exam_id">
       <Position>2</Position>
-      <DataType>int(10) unsigned|0</DataType>
+      <DataType>bigint(20) unsigned|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="51" parent="12" name="case_name">
+    <column id="43" parent="11" name="description">
       <Position>3</Position>
-      <DataType>varchar(255)|0</DataType>
-      <NotNull>1</NotNull>
+      <DataType>text|0</DataType>
     </column>
-    <column id="52" parent="12" name="createdDate">
-      <Position>4</Position>
-      <DataType>date|0</DataType>
-      <NotNull>1</NotNull>
-    </column>
-    <index id="53" parent="12" name="patient_id">
-      <ColNames>patient_id</ColNames>
+    <index id="44" parent="11" name="exam_id">
+      <ColNames>exam_id</ColNames>
     </index>
-    <key id="54" parent="12" name="PRIMARY">
+    <key id="45" parent="11" name="PRIMARY">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="55" parent="12" name="patientcase_ibfk_1">
-      <ColNames>patient_id</ColNames>
+    <foreign-key id="46" parent="11" name="palpation_ibfk_1">
+      <ColNames>exam_id</ColNames>
       <RefSchemaName>chirosupport</RefSchemaName>
-      <RefTableName>patient</RefTableName>
-      <RefColNames>refNo</RefColNames>
+      <RefTableName>examination</RefTableName>
+      <RefColNames>id</RefColNames>
     </foreign-key>
+    <column id="47" parent="12" name="refNo">
+      <Position>1</Position>
+      <DataType>int(11) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="48" parent="12" name="name">
+      <Position>2</Position>
+      <DataType>varchar(150)|0</DataType>
+    </column>
+    <column id="49" parent="12" name="nicNo">
+      <Position>3</Position>
+      <DataType>int(9)|0</DataType>
+    </column>
+    <column id="50" parent="12" name="bhtNo">
+      <Position>4</Position>
+      <DataType>int(8)|0</DataType>
+    </column>
+    <column id="51" parent="12" name="dob">
+      <Position>5</Position>
+      <DataType>date|0</DataType>
+    </column>
+    <column id="52" parent="12" name="gender">
+      <Position>6</Position>
+      <DataType>tinyint(4)|0</DataType>
+    </column>
+    <column id="53" parent="12" name="address">
+      <Position>7</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="54" parent="12" name="contactNo">
+      <Position>8</Position>
+      <DataType>int(9)|0</DataType>
+    </column>
+    <key id="55" parent="12" name="PRIMARY">
+      <ColNames>refNo</ColNames>
+      <Primary>1</Primary>
+    </key>
     <column id="56" parent="13" name="id">
       <Position>1</Position>
       <DataType>bigint(20) unsigned|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="57" parent="13" name="exam_id">
+    <column id="57" parent="13" name="patient_id">
       <Position>2</Position>
-      <DataType>bigint(20) unsigned|0</DataType>
+      <DataType>int(10) unsigned|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="58" parent="13" name="complaint">
+    <column id="58" parent="13" name="case_name">
       <Position>3</Position>
       <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="59" parent="13" name="region">
+    <column id="59" parent="13" name="createdDate">
       <Position>4</Position>
-      <DataType>varchar(50)|0</DataType>
+      <DataType>date|0</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="60" parent="13" name="location">
-      <Position>5</Position>
-      <DataType>varchar(50)|0</DataType>
-    </column>
-    <column id="61" parent="13" name="frequency">
-      <Position>6</Position>
-      <DataType>tinyint(4)|0</DataType>
-    </column>
-    <column id="62" parent="13" name="severity">
-      <Position>7</Position>
-      <DataType>tinyint(4)|0</DataType>
-    </column>
-    <column id="63" parent="13" name="pain">
-      <Position>8</Position>
-      <DataType>tinyint(1)|0</DataType>
-    </column>
-    <column id="64" parent="13" name="stiffness">
-      <Position>9</Position>
-      <DataType>tinyint(1)|0</DataType>
-    </column>
-    <column id="65" parent="13" name="weakness">
-      <Position>10</Position>
-      <DataType>tinyint(1)|0</DataType>
-    </column>
-    <column id="66" parent="13" name="numbness">
-      <Position>11</Position>
-      <DataType>tinyint(1)|0</DataType>
-    </column>
-    <column id="67" parent="13" name="symptoms">
-      <Position>12</Position>
-      <DataType>varchar(255)|0</DataType>
-    </column>
-    <column id="68" parent="13" name="other">
-      <Position>13</Position>
-      <DataType>varchar(255)|0</DataType>
-    </column>
-    <column id="69" parent="13" name="aggrevatedFactors">
-      <Position>14</Position>
-      <DataType>text|0</DataType>
-    </column>
-    <column id="70" parent="13" name="relievingFactors">
-      <Position>15</Position>
-      <DataType>text|0</DataType>
-    </column>
-    <index id="71" parent="13" name="exam_id">
-      <ColNames>exam_id</ColNames>
+    <index id="60" parent="13" name="patient_id">
+      <ColNames>patient_id</ColNames>
     </index>
-    <key id="72" parent="13" name="PRIMARY">
+    <key id="61" parent="13" name="PRIMARY">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="73" parent="13" name="subjective_ibfk_1">
-      <ColNames>exam_id</ColNames>
+    <foreign-key id="62" parent="13" name="patientcase_ibfk_1">
+      <ColNames>patient_id</ColNames>
       <RefSchemaName>chirosupport</RefSchemaName>
-      <RefTableName>examination</RefTableName>
-      <RefColNames>id</RefColNames>
+      <RefTableName>patient</RefTableName>
+      <RefColNames>refNo</RefColNames>
     </foreign-key>
-    <column id="74" parent="14" name="id">
+    <column id="63" parent="14" name="id">
       <Position>1</Position>
       <DataType>bigint(20) unsigned|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="75" parent="14" name="patient_id">
+    <column id="64" parent="14" name="exam_id">
+      <Position>2</Position>
+      <DataType>bigint(20) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="65" parent="14" name="complaint">
+      <Position>3</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="66" parent="14" name="region">
+      <Position>4</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="67" parent="14" name="location">
+      <Position>5</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="68" parent="14" name="frequency">
+      <Position>6</Position>
+      <DataType>tinyint(4)|0</DataType>
+    </column>
+    <column id="69" parent="14" name="severity">
+      <Position>7</Position>
+      <DataType>tinyint(4)|0</DataType>
+    </column>
+    <column id="70" parent="14" name="pain">
+      <Position>8</Position>
+      <DataType>tinyint(1)|0</DataType>
+    </column>
+    <column id="71" parent="14" name="stiffness">
+      <Position>9</Position>
+      <DataType>tinyint(1)|0</DataType>
+    </column>
+    <column id="72" parent="14" name="weakness">
+      <Position>10</Position>
+      <DataType>tinyint(1)|0</DataType>
+    </column>
+    <column id="73" parent="14" name="numbness">
+      <Position>11</Position>
+      <DataType>tinyint(1)|0</DataType>
+    </column>
+    <column id="74" parent="14" name="symptoms">
+      <Position>12</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="75" parent="14" name="other">
+      <Position>13</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="76" parent="14" name="aggrevatedFactors">
+      <Position>14</Position>
+      <DataType>text|0</DataType>
+    </column>
+    <column id="77" parent="14" name="relievingFactors">
+      <Position>15</Position>
+      <DataType>text|0</DataType>
+    </column>
+    <index id="78" parent="14" name="exam_id">
+      <ColNames>exam_id</ColNames>
+    </index>
+    <key id="79" parent="14" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="80" parent="14" name="subjective_ibfk_1">
+      <ColNames>exam_id</ColNames>
+      <RefSchemaName>chirosupport</RefSchemaName>
+      <RefTableName>examination</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="81" parent="15" name="id">
+      <Position>1</Position>
+      <DataType>bigint(20) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="82" parent="15" name="patient_id">
       <Position>2</Position>
       <DataType>int(10) unsigned|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="76" parent="14" name="date">
+    <column id="83" parent="15" name="date">
       <Position>3</Position>
       <DataType>date|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="77" parent="14" name="height">
+    <column id="84" parent="15" name="height">
       <Position>4</Position>
       <DataType>smallint(5) unsigned|0</DataType>
     </column>
-    <column id="78" parent="14" name="weight">
+    <column id="85" parent="15" name="weight">
       <Position>5</Position>
       <DataType>decimal(5,2) unsigned|0</DataType>
     </column>
-    <column id="79" parent="14" name="pulse">
+    <column id="86" parent="15" name="pulse">
       <Position>6</Position>
       <DataType>tinyint(3) unsigned|0</DataType>
     </column>
-    <column id="80" parent="14" name="respiration">
+    <column id="87" parent="15" name="respiration">
       <Position>7</Position>
       <DataType>tinyint(3) unsigned|0</DataType>
     </column>
-    <column id="81" parent="14" name="temperature">
+    <column id="88" parent="15" name="temperature">
       <Position>8</Position>
       <DataType>decimal(5,2) unsigned|0</DataType>
     </column>
-    <column id="82" parent="14" name="bloodPressureLB">
+    <column id="89" parent="15" name="bloodPressureLB">
       <Position>9</Position>
       <DataType>tinyint(3) unsigned|0</DataType>
     </column>
-    <column id="83" parent="14" name="bloodPressureUB">
+    <column id="90" parent="15" name="bloodPressureUB">
       <Position>10</Position>
       <DataType>tinyint(3) unsigned|0</DataType>
     </column>
-    <index id="84" parent="14" name="patient_id">
+    <index id="91" parent="15" name="patient_id">
       <ColNames>patient_id</ColNames>
     </index>
-    <key id="85" parent="14" name="PRIMARY">
+    <key id="92" parent="15" name="PRIMARY">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="86" parent="14" name="vitalsreport_ibfk_1">
+    <foreign-key id="93" parent="15" name="vitalsreport_ibfk_1">
       <ColNames>patient_id</ColNames>
       <RefSchemaName>chirosupport</RefSchemaName>
       <RefTableName>patient</RefTableName>

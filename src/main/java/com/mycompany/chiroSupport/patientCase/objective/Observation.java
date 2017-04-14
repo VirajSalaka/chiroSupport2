@@ -22,7 +22,7 @@ public class Observation {
     @JoinColumn(name="exam_id", nullable=false)
     private Examination examination;
 
-    @Column(name="description")
+    @Column(name="description", nullable=false)
     private String description;
 
     public Observation(Examination examination){
