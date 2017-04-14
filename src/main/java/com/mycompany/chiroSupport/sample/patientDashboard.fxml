@@ -462,7 +462,8 @@
                                                             <TableColumn prefWidth="87.0" text="Attachment" />
                                                         </columns>
                                                       </TableView>
-                                                      <Label layoutX="224.0" layoutY="93.0" prefHeight="17.0" prefWidth="289.0" text="filename" />
+                                                      <Label layoutX="366.0" layoutY="93.0" prefHeight="17.0" prefWidth="289.0" text="filename" />
+                                                      <ComboBox layoutX="206.0" layoutY="89.0" prefHeight="25.0" prefWidth="67.0" />
                                                    </children></AnchorPane>
                                              </content>
                                           </Tab>
