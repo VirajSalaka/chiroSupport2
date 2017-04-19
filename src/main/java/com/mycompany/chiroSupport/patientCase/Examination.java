@@ -42,6 +42,15 @@ public class Examination {
     @OneToMany(mappedBy = "examination", cascade = CascadeType.ALL)
     private List<MusclePower> musclePowerList;
 
+    @OneToMany(mappedBy = "examination", cascade = CascadeType.ALL)
+    private List<DiagnosticStudy> diagnosticStudyList;
+
+    @OneToMany(mappedBy = "examination", cascade = CascadeType.ALL)
+    private List<NeurologicalStudy> neurologicalStudyList;
+
+    @OneToOne(mappedBy = "examination", cascade = CascadeType.ALL)
+    private Analysis analysis;
+
     public Examination(PatientCase patientCase){
         this.patientCase = patientCase;
     }

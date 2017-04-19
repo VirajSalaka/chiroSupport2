@@ -4,10 +4,12 @@ package com.mycompany.chiroSupport.sample;
 import com.mycompany.chiroSupport.patientCase.VitalsReport;
 import com.mycompany.chiroSupport.patientProfile.Patient;
 import com.mycompany.chiroSupport.util.HibernateUtil;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import org.hibernate.Session;
 
 
@@ -15,6 +17,9 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class ReceptionistDataEntryController implements Initializable {
+
+    @FXML
+    public AnchorPane registrationTab;
 
     @FXML
     public DatePicker dobfld;
@@ -42,6 +47,8 @@ public class ReceptionistDataEntryController implements Initializable {
 
     @FXML
     private int gender;
+
+
 
 
     /*
@@ -112,4 +119,5 @@ public class ReceptionistDataEntryController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
     }
+
 }
