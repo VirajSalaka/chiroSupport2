@@ -8,18 +8,24 @@ import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ListCell;
-import javafx.scene.control.ListView;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
+import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 import javafx.util.Callback;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 /**
@@ -45,6 +51,8 @@ public class patientQueueController implements Initializable{
         newPatientList.add(p);
     }
 
+
+
     public void initialize(URL location, ResourceBundle resources) {
 
         addPeople(new Patient("sarath",123232,234343,"03-03-2014",1,"adfsdaf",1223232));
@@ -60,6 +68,7 @@ public class patientQueueController implements Initializable{
         Query query = session.createQuery("from com.mycompany.chiroSupport.patientProfile.PatientQueueItem");
 
 
+
         List<PatientQueueItem> list = query.list();
 
         for (PatientQueueItem pqi:list){
@@ -68,6 +77,9 @@ public class patientQueueController implements Initializable{
             System.out.println(p.getName());
             addPeople(p);
         }
+
+                session.getTransaction().commit();
+        
 
 
         newPatientObservableList = FXCollections.observableList(newPatientList);
@@ -84,30 +96,103 @@ public class patientQueueController implements Initializable{
                     protected void updateItem(Patient patient, boolean bln) {
                         super.updateItem(patient, bln);
                         if (patient != null) {
-                            setText(patient.getName() + ":" + patient.getNicNo());
+                            setText(patient.getName() + " : " + patient.getNicNo());
+
+
                         }
                     }
 
                 };
 
+
                 return cell;
             }
         });
 
-        newPatientListView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Patient>() {
+
+
+
+
+///////////////because found better way using mouseEvent
+
+        /*newPatientListView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Patient>() {
 
 
             public void changed(ObservableValue<? extends Patient> observable, Patient oldValue, Patient newValue) {
-                // Your action here
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Error");
-                alert.setHeaderText("Look, an Error Dialog");
-                alert.setContentText("Ooops, there was an error!"+newValue.getName());
+
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setTitle("Confirmation Dialog with Custom Actions");
+                alert.setHeaderText("Look, a Confirmation Dialog with Custom Actions");
+                alert.setContentText("Choose your option.");
+
+                ButtonType buttonTypeOne = new ButtonType("One");
+                ButtonType buttonTypeTwo = new ButtonType("Two");
+                ButtonType buttonTypeThree = new ButtonType("Three");
+                ButtonType buttonTypeCancel = new ButtonType("Cancel", ButtonBar.ButtonData.CANCEL_CLOSE);
+
+                alert.getButtonTypes().setAll(buttonTypeOne, buttonTypeTwo, buttonTypeThree, buttonTypeCancel);
+
+                Optional<ButtonType> result = alert.showAndWait();
+                if (result.get() == buttonTypeOne){
+                    System.out.println("one");
 
 
-                alert.showAndWait();
+
+                } else if (result.get() == buttonTypeTwo) {
+
+                    System.out.println("two");
+                } else if (result.get() == buttonTypeThree) {
+
+                    System.out.println("three");
+                } else {
+
+                }
                 System.out.println("Selected item: " );
             }
-        });
+        });*/
     }
+
+    public void newPatientListViewClicked(MouseEvent mouseEvent) {
+        System.out.println(newPatientListView.getSelectionModel().getSelectedItem().getName());
+
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Confirmation Dialog with Custom Actions");
+        alert.setHeaderText("Look, a Confirmation Dialog with Custom Actions");
+        alert.setContentText("Choose your option.");
+
+        ButtonType buttonTypeOne = new ButtonType("One");
+        ButtonType buttonTypeTwo = new ButtonType("Two");
+        ButtonType buttonTypeThree = new ButtonType("Three");
+        ButtonType buttonTypeCancel = new ButtonType("Cancel", ButtonBar.ButtonData.CANCEL_CLOSE);
+
+        alert.getButtonTypes().setAll(buttonTypeOne, buttonTypeTwo, buttonTypeThree, buttonTypeCancel);
+
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.get() == buttonTypeOne){
+            System.out.println("one");
+            Node node=(Node) mouseEvent.getSource();
+            Stage stage=(Stage) node.getScene().getWindow();
+            Parent root = null;/* Exception */
+            try {
+                root = FXMLLoader.load(getClass().getResource("/receptionistDataEntry.fxml"));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+
+
+        } else if (result.get() == buttonTypeTwo) {
+
+            System.out.println("two");
+        } else if (result.get() == buttonTypeThree) {
+
+            System.out.println("three");
+        } else {
+
+        }
+        System.out.println("Selected item: " );
+    }
+
 }
