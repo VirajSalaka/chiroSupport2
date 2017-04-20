@@ -4,10 +4,6 @@ import com.mycompany.chiroSupport.patientCase.MedicalHx;
 import com.mycompany.chiroSupport.patientCase.PatientCase;
 import com.mycompany.chiroSupport.patientCase.VitalsReport;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.*;
@@ -54,13 +50,17 @@ public class Patient implements java.io.Serializable {
 
 
     public Patient( String name, int nicNo, int bhtNo,String dob, int gender,String address,int contactNo){
-        this.name = name;
-        this.nicNo = nicNo;
-        this.bhtNo = bhtNo;
-        this.dob = dob;
-        this.gender = gender;
-        this.address = address;
-        this.contactNo = contactNo;
+        this.setName(name);
+        this.setNicNo(nicNo);
+        this.setBhtNo(bhtNo);
+        this.setDob(dob);
+        this.setGender(gender);
+        this.setAddress(address);
+        this.setContactNo(contactNo);
+    }
+
+    public Patient(){
+
     }
 
 
@@ -128,6 +128,34 @@ public class Patient implements java.io.Serializable {
 
     public void setMedicalHx(MedicalHx medicalHx) {
         this.medicalHx = medicalHx;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setNicNo(int nicNo) {
+        this.nicNo = nicNo;
+    }
+
+    public void setBhtNo(int bhtNo) {
+        this.bhtNo = bhtNo;
+    }
+
+    public void setDob(String dob) {
+        this.dob = dob;
+    }
+
+    public void setGender(int gender) {
+        this.gender = gender;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public void setContactNo(int contactNo) {
+        this.contactNo = contactNo;
     }
 
 //    public List<PatientCase> getPatientCaseList() {

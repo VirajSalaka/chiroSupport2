@@ -1,6 +1,7 @@
 package com.mycompany.chiroSupport.sample;
 
 import com.mycompany.chiroSupport.patientProfile.Patient;
+import com.mycompany.chiroSupport.patientProfile.PatientQueueItem;
 import com.mycompany.chiroSupport.util.HibernateUtil;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -13,8 +14,9 @@ import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.util.Callback;
 import org.hibernate.Session;
+import org.hibernate.query.Query;
 
-import javax.persistence.Query;
+
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -36,11 +38,11 @@ public class patientQueueController implements Initializable{
 
     public ObservableList<Patient> newPatientObservableList;
 
-    public List<Patient> newpatientList = new ArrayList<Patient>();
+    public List<Patient> newPatientList = new ArrayList<Patient>();
 
     public void addPeople(Patient p){
 
-        newpatientList.add(p);
+        newPatientList.add(p);
     }
 
     public void initialize(URL location, ResourceBundle resources) {
@@ -51,10 +53,24 @@ public class patientQueueController implements Initializable{
         addPeople(new Patient("sarah",156232,234343,"03-03-2014",1,"adfsdaf",1223232));
         addPeople(new Patient("upul",983232,234343,"03-03-2014",1,"adfsdaf",1223232));
 
+        Session session = HibernateUtil.getSessionAnnotationFactory().getCurrentSession();
+
+        session.beginTransaction();
+
+        Query query = session.createQuery("from com.mycompany.chiroSupport.patientProfile.PatientQueueItem");
 
 
+        List<PatientQueueItem> list = query.list();
 
-        newPatientObservableList = FXCollections.observableList(newpatientList);
+        for (PatientQueueItem pqi:list){
+            PatientQueueItem item = (PatientQueueItem)pqi;
+            Patient p = item.getPatient();
+            System.out.println(p.getName());
+            addPeople(p);
+        }
+
+
+        newPatientObservableList = FXCollections.observableList(newPatientList);
         newPatientListView.setItems(newPatientObservableList);
 
         newPatientListView.setCellFactory(new Callback<ListView<Patient>, ListCell<Patient>>(){

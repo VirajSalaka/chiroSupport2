@@ -25,8 +25,10 @@ public class PatientQueueItem {
 
 
     public PatientQueueItem(Patient patient){
-        this.patient = patient;
+        this.setPatient(patient);
     }
+
+    public PatientQueueItem(){}
 
     public int getGivenNumber() {
         return givenNumber;
@@ -42,5 +44,13 @@ public class PatientQueueItem {
 
     public void setStatus(int status) {
         this.status = status;
+    }
+
+    public void setGivenNumber(int givenNumber) {
+        this.givenNumber = givenNumber;
+    }
+
+    public void setPatient(Patient patient) {
+        this.patient = patient;
     }
 }
