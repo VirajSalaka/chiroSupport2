@@ -1,14 +1,20 @@
 package com.mycompany.chiroSupport.sample;
 
 import com.mycompany.chiroSupport.patientProfile.Patient;
+import com.mycompany.chiroSupport.util.HibernateUtil;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.util.Callback;
+import org.hibernate.Session;
 
+import javax.persistence.Query;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -44,6 +50,10 @@ public class patientQueueController implements Initializable{
         addPeople(new Patient("pasindu",343232,234343,"03-03-2014",1,"adfsdaf",1223232));
         addPeople(new Patient("sarah",156232,234343,"03-03-2014",1,"adfsdaf",1223232));
         addPeople(new Patient("upul",983232,234343,"03-03-2014",1,"adfsdaf",1223232));
+
+
+
+
         newPatientObservableList = FXCollections.observableList(newpatientList);
         newPatientListView.setItems(newPatientObservableList);
 
@@ -65,6 +75,22 @@ public class patientQueueController implements Initializable{
                 };
 
                 return cell;
+            }
+        });
+
+        newPatientListView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Patient>() {
+
+
+            public void changed(ObservableValue<? extends Patient> observable, Patient oldValue, Patient newValue) {
+                // Your action here
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error");
+                alert.setHeaderText("Look, an Error Dialog");
+                alert.setContentText("Ooops, there was an error!"+newValue.getName());
+
+
+                alert.showAndWait();
+                System.out.println("Selected item: " );
             }
         });
     }

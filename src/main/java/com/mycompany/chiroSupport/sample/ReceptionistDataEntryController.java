@@ -3,6 +3,7 @@ package com.mycompany.chiroSupport.sample;
 
 import com.mycompany.chiroSupport.patientCase.VitalsReport;
 import com.mycompany.chiroSupport.patientProfile.Patient;
+import com.mycompany.chiroSupport.patientProfile.PatientQueueItem;
 import com.mycompany.chiroSupport.util.HibernateUtil;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -65,6 +66,7 @@ public class ReceptionistDataEntryController implements Initializable {
         String dob = String.valueOf(dobfld.getValue());
 
         Patient patient  = new Patient(name,nicNo,bhtNo,dob,gender,address,contactNo);
+        PatientQueueItem patientQueueItem = new PatientQueueItem(patient);
         try {
             // to save patient object in the database
             Session session = HibernateUtil.getSessionAnnotationFactory().getCurrentSession();
@@ -74,11 +76,12 @@ public class ReceptionistDataEntryController implements Initializable {
 
             //Save the Model object
             session.save(patient);
+            session.save(patientQueueItem);
 
             //Commit transaction
             session.getTransaction().commit();
 
-            System.out.println("Employee ID="+patient.getRefNo());
+            System.out.println("Employee ID="+patientQueueItem.getPatient().getName());
 
 
 

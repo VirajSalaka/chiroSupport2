@@ -49,8 +49,8 @@ public class Patient implements java.io.Serializable {
     @OneToOne(mappedBy = "patient", cascade = CascadeType.ALL)
     private MedicalHx medicalHx;
 
-    @OneToMany(mappedBy = "patient", cascade = CascadeType.ALL)
-    private List<PatientCase> patientCaseList;
+//    @OneToMany(mappedBy = "patient", cascade = CascadeType.ALL)
+//    private List<PatientCase> patientCaseList;
 
 
     public Patient( String name, int nicNo, int bhtNo,String dob, int gender,String address,int contactNo){
@@ -130,11 +130,11 @@ public class Patient implements java.io.Serializable {
         this.medicalHx = medicalHx;
     }
 
-    public List<PatientCase> getPatientCaseList() {
-        return patientCaseList;
-    }
-
-    public void setPatientCaseList(List<PatientCase> patientCaseList) {
-        this.patientCaseList = patientCaseList;
-    }
+//    public List<PatientCase> getPatientCaseList() {
+//        return patientCaseList;
+//    }
+//
+//    public void setPatientCaseList(List<PatientCase> patientCaseList) {
+//        this.patientCaseList = patientCaseList;
+//    }
 }

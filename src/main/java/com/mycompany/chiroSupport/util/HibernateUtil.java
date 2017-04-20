@@ -4,8 +4,11 @@ package com.mycompany.chiroSupport.util;
 
 import java.util.Properties;
 
+import com.mycompany.chiroSupport.patientCase.MedicalHx;
+import com.mycompany.chiroSupport.patientCase.PatientCase;
 import com.mycompany.chiroSupport.patientCase.VitalsReport;
 import com.mycompany.chiroSupport.patientProfile.Patient;
+import com.mycompany.chiroSupport.patientProfile.PatientQueueItem;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
@@ -49,6 +52,9 @@ public class HibernateUtil {
             Configuration configuration = new Configuration();
             configuration.addAnnotatedClass(Patient.class);
             configuration.addAnnotatedClass(VitalsReport.class);
+            configuration.addAnnotatedClass(MedicalHx.class);
+            configuration.addAnnotatedClass(PatientQueueItem.class);
+            //configuration.addAnnotatedClass(PatientCase.class);
             configuration.configure("hibernateannotation.cfg.xml");
             System.out.println("Hibernate Annotation Configuration loaded");
 

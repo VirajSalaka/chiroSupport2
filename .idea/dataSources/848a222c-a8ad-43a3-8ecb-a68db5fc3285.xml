@@ -414,6 +414,7 @@
       <Position>1</Position>
       <DataType>int(10) unsigned|0</DataType>
       <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
     </column>
     <column id="108" parent="18" name="patient_id">
       <Position>2</Position>
@@ -423,6 +424,7 @@
     <column id="109" parent="18" name="status">
       <Position>3</Position>
       <DataType>tinyint(4)|0</DataType>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
     </column>
     <index id="110" parent="18" name="patient_id">
       <ColNames>patient_id</ColNames>
