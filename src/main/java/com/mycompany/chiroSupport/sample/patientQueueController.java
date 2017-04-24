@@ -79,7 +79,7 @@ public class patientQueueController implements Initializable{
         }
 
                 session.getTransaction().commit();
-        
+
 
 
         newPatientObservableList = FXCollections.observableList(newPatientList);

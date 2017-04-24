@@ -3,7 +3,6 @@ package com.mycompany.chiroSupport.patientCase;
 import com.mycompany.chiroSupport.patientProfile.Patient;
 
 import javax.persistence.*;
-import java.util.Date;
 
 /**
  * Created by Salaka on 4/11/2017.
@@ -48,8 +47,11 @@ public class VitalsReport {
     private int bloodPressureUB;
 
     public VitalsReport(Patient patient, String date){
-        this.patient = patient;
-        this.date = date;
+        this.setPatient(patient);
+        this.setDate(date);
+    }
+
+    public VitalsReport(){
     }
 
     public long getId() {
@@ -121,5 +123,17 @@ public class VitalsReport {
 
     public void setBloodPressureUB(int bloodPressureUB) {
         this.bloodPressureUB = bloodPressureUB;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public void setPatient(Patient patient) {
+        this.patient = patient;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
     }
 }

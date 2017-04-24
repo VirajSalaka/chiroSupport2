@@ -20,7 +20,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="678.0" prefWidth="1018.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="678.0" prefWidth="1018.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.chiroSupport.sample.patientDashboardController">
   <tabs>
     <Tab text="Patient Profile">
       <content>
@@ -31,7 +31,7 @@
       <content>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
-                  <TabPane layoutX="34.0" layoutY="29.0" prefHeight="255.0" prefWidth="431.0" side="LEFT" stylesheets="@verticaltabpanetext.css" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <TabPane layoutX="34.0" layoutY="29.0" prefHeight="255.0" prefWidth="431.0" side="LEFT" stylesheets="@com/mycompany/chiroSupport/sample/verticaltabpanetext.css" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <tabs>
                       <Tab text="Vitals">
                         <content>
@@ -40,7 +40,7 @@
                                   <AnchorPane layoutX="191.0" layoutY="110.0" minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" />
                                     <SplitPane dividerPositions="0.5681818181818182" layoutX="31.0" layoutY="10.0" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                       <items>
-                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="271.0" prefWidth="648.0">
+                                        <AnchorPane fx:id="VitalsPane" minHeight="0.0" minWidth="0.0" prefHeight="271.0" prefWidth="648.0">
                                              <children>
                                                 <Label layoutX="27.0" layoutY="14.0" prefHeight="17.0" prefWidth="96.0" text="Date" />
                                                 <Label layoutX="27.0" layoutY="46.0" prefHeight="17.0" prefWidth="96.0" text="Height" />
@@ -49,22 +49,22 @@
                                                 <Label layoutX="27.0" layoutY="149.0" prefHeight="17.0" prefWidth="96.0" text="Respiration" />
                                                 <Label layoutX="27.0" layoutY="182.0" prefHeight="17.0" prefWidth="96.0" text="Temperature" />
                                                 <Label layoutX="27.0" layoutY="217.0" prefHeight="17.0" prefWidth="96.0" text="Blood Pressure" />
-                                                <DatePicker id="vitalsDatefld" layoutX="123.0" layoutY="10.0" />
-                                                <TextField id="vitalsHeightfld" layoutX="123.0" layoutY="42.0" />
-                                                <TextField id="vitalsWeightfld" layoutX="123.0" layoutY="79.0" />
-                                                <TextField id="vitalsPulsefld" layoutX="123.0" layoutY="112.0" />
-                                                <TextField id="vitalsRespirationsfld" layoutX="123.0" layoutY="145.0" />
-                                                <TextField id="vitalsTemperaturefld" layoutX="123.0" layoutY="178.0" />
-                                                <TextField id="vitalsBloodPressUBfld" layoutX="123.0" layoutY="213.0" prefHeight="25.0" prefWidth="62.0" />
+                                                <DatePicker id="vitalsDatefld" fx:id="vitalsDateFld" layoutX="123.0" layoutY="10.0" />
+                                                <TextField id="vitalsHeightfld" fx:id="vitalsHeightFld" layoutX="123.0" layoutY="42.0" />
+                                                <TextField id="vitalsWeightfld" fx:id="vitalsWeightFld" layoutX="123.0" layoutY="79.0" />
+                                                <TextField id="vitalsPulsefld" fx:id="vitalsPulseFld" layoutX="123.0" layoutY="112.0" />
+                                                <TextField id="vitalsRespirationsfld" fx:id="vitalsRespirationFld" layoutX="123.0" layoutY="145.0" />
+                                                <TextField id="vitalsTemperaturefld" fx:id="vitalsTemperatureFld" layoutX="123.0" layoutY="178.0" />
+                                                <TextField id="vitalsBloodPressUBfld" fx:id="vitalsBloodPressureUBFld" layoutX="123.0" layoutY="213.0" prefHeight="25.0" prefWidth="62.0" />
                                                 <Label layoutX="192.0" layoutY="217.0" prefHeight="17.0" prefWidth="11.0" text="/" />
-                                                <TextField id="vitalsBloodPressLBfld" layoutX="210.0" layoutY="213.0" prefHeight="25.0" prefWidth="62.0" />
+                                                <TextField id="vitalsBloodPressLBfld" fx:id="vitalsBloodPressureLBFld" layoutX="210.0" layoutY="213.0" prefHeight="25.0" prefWidth="62.0" />
                                                 <Label layoutX="282.0" layoutY="46.0" prefHeight="17.0" prefWidth="29.0" text="cm" />
                                                 <Label layoutX="283.0" layoutY="83.0" prefHeight="17.0" prefWidth="29.0" text="kg" />
                                                 <Label layoutX="283.0" layoutY="116.0" prefHeight="17.0" prefWidth="29.0" text="bpm" />
                                                 <Label layoutX="282.0" layoutY="149.0" prefHeight="17.0" prefWidth="29.0" text="bpm" />
                                                 <Label layoutX="283.0" layoutY="182.0" prefHeight="17.0" prefWidth="29.0" text="F" />
                                                 <Label layoutX="283.0" layoutY="217.0" prefHeight="17.0" prefWidth="42.0" text="mmHg" />
-                                                <Button id="vitalsSavefld" layoutX="230.0" layoutY="270.0" mnemonicParsing="false" text="Save" />
+                                                <Button id="vitalsSavefld" fx:id="vitalsSaveBtn" layoutX="230.0" layoutY="270.0" mnemonicParsing="false" onMouseClicked="#vitalsSave" text="Save" />
                                              </children>
                                           </AnchorPane>
                                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="241.0" prefWidth="917.0">
@@ -123,7 +123,7 @@
          <content>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
-                  <TabPane layoutY="-1.0" prefHeight="376.0" prefWidth="600.0" side="LEFT" stylesheets="@verticaltabpanetext.css" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <TabPane layoutY="-1.0" prefHeight="376.0" prefWidth="600.0" side="LEFT" stylesheets="@com/mycompany/chiroSupport/sample/verticaltabpanetext.css" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <tabs>
                       <Tab text="Subjective">
                         <content>
@@ -201,7 +201,7 @@
                         <content>
                           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                  <children>
-                                    <TabPane layoutX="14.0" layoutY="60.0" prefHeight="436.0" prefWidth="919.0" stylesheets="@revertHorizontaltabpane.css" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="20.0">
+                                    <TabPane layoutX="14.0" layoutY="60.0" prefHeight="436.0" prefWidth="919.0" stylesheets="@com/mycompany/chiroSupport/sample/revertHorizontaltabpane.css" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="20.0">
                                       <tabs>
                                         <Tab text="    Observation    ">
                                           <content>
