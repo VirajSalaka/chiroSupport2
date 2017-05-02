@@ -26,8 +26,9 @@ public class Observation {
     private String description;
 
     public Observation(Examination examination){
-        this.examination = examination;
+        this.setExamination(examination);
     }
+    public  Observation(){}
 
     public long getId() {
         return id;
@@ -37,12 +38,19 @@ public class Observation {
         return examination;
     }
 
-
     public String getDescription() {
         return description;
     }
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public void setExamination(Examination examination) {
+        this.examination = examination;
     }
 }

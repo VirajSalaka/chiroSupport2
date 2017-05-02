@@ -35,8 +35,9 @@ public class SpecialTest {
     private String Comments;
 
     public SpecialTest(Examination examination){
-        this.examination=examination;
+        this.setExamination(examination);
     }
+    public SpecialTest(){}
 
     public String getRegion() {
         return region;
@@ -76,5 +77,13 @@ public class SpecialTest {
 
     public Examination getExamination() {
         return examination;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public void setExamination(Examination examination) {
+        this.examination = examination;
     }
 }

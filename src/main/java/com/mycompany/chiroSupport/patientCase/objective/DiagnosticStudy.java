@@ -38,8 +38,10 @@ public class DiagnosticStudy {
     private String impression;
 
     public DiagnosticStudy(Examination examination){
-        this.examination=examination;
+        this.setExamination(examination);
     }
+
+    public DiagnosticStudy(){}
 
     public long getId() {
         return id;
@@ -87,5 +89,13 @@ public class DiagnosticStudy {
 
     public void setImpression(String impression) {
         this.impression = impression;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public void setExamination(Examination examination) {
+        this.examination = examination;
     }
 }

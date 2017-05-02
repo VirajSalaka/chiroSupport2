@@ -25,8 +25,9 @@ public class Palpation {
     private String description;
 
     public Palpation(Examination examination){
-        this.examination = examination;
+        this.setExamination(examination);
     }
+    public Palpation(){}
 
     public long getId() {
         return id;
@@ -43,5 +44,13 @@ public class Palpation {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public void setExamination(Examination examination) {
+        this.examination = examination;
     }
 }

@@ -2,31 +2,74 @@ package com.mycompany.chiroSupport.patientCase.objective;
 
 import com.mycompany.chiroSupport.patientCase.Examination;
 
+import javax.persistence.*;
+
 /**
  * Created by Salaka on 4/14/2017.
  */
+@Entity
+@Table(name="rom",
+        uniqueConstraints={@UniqueConstraint(columnNames={"id"})})
 public class Rom {
+
+    @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @Column(name="id", nullable=false, unique=true)
     private long id;
+
+    @ManyToOne
+    @JoinColumn(name="exam_id", nullable=false)
     private Examination examination;
+
+    @Column(name="rom_type", nullable=false)
     private String romType;
+
+    @Column(name="flexion")
     private int flexion;
+
+    @Column(name="flexion_pain")
     private int flexionPain;
+
+    @Column(name="extention")
     private int extention;
+
+    @Column(name="extention_pain")
     private int extentionPain;
+
+    @Column(name="llf")
     private int llf;
+
+    @Column(name="llf_pain")
     private int llfPain;
+
+    @Column(name="rlf")
     private int rlf;
+
+    @Column(name="rlf_pain")
     private int rlfPain;
+
+    @Column(name="lr")
     private int lr;
+
+    @Column(name="lr_pain")
     private int lrPain;
+
+    @Column(name="rr")
     private int rr;
+
+    @Column(name="rr_pain")
     private int rrPain;
+
+    @Column(name="total_loss")
     private int totalLoss;
+
+    @Column(name="comments")
     private String comments;
 
     public Rom(Examination examination){
-        this.examination = examination;
+        this.setExamination(examination);
     }
+    public Rom(){}
 
     public long getId() {
         return id;
@@ -154,5 +197,13 @@ public class Rom {
 
     public void setComments(String comments) {
         this.comments = comments;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public void setExamination(Examination examination) {
+        this.examination = examination;
     }
 }

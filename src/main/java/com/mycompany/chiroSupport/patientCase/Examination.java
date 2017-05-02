@@ -24,7 +24,7 @@ public class Examination {
     @Column(name="createdDate", nullable=false)
     private String date;
 
-    @OneToMany(mappedBy = "patientCase", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "examination", cascade = CascadeType.ALL)
     private List<Subjective> subjectiveList;
 
     @OneToOne(mappedBy = "examination", cascade = CascadeType.ALL)
@@ -52,13 +52,14 @@ public class Examination {
     private Analysis analysis;
 
     public Examination(PatientCase patientCase){
-        this.patientCase = patientCase;
+        this.setPatientCase(patientCase);
     }
+
+    public Examination(){}
 
     public long getId() {
         return id;
     }
-
 
     public PatientCase getPatientCase() {
         return patientCase;
@@ -118,5 +119,13 @@ public class Examination {
 
     public void setMusclePowerList(List<MusclePower> musclePowerList) {
         this.musclePowerList = musclePowerList;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public void setPatientCase(PatientCase patientCase) {
+        this.patientCase = patientCase;
     }
 }

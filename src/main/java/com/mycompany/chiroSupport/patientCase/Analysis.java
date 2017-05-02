@@ -7,7 +7,7 @@ import javax.persistence.*;
  */
 
 @Entity
-@Table(name="neurologicalstudy",
+@Table(name="analysis",
         uniqueConstraints={@UniqueConstraint(columnNames={"id"})})
 public class Analysis {
 
@@ -36,8 +36,9 @@ public class Analysis {
     private String comments;
 
     public Analysis(Examination examination){
-        this.examination = examination;
+        this.setExamination(examination);
     }
+    public Analysis(){}
 
     public long getId() {
         return id;
@@ -46,7 +47,6 @@ public class Analysis {
     public Examination getExamination() {
         return examination;
     }
-
 
     public int getPatientCondition() {
         return patientCondition;
@@ -86,5 +86,13 @@ public class Analysis {
 
     public void setComments(String comments) {
         this.comments = comments;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public void setExamination(Examination examination) {
+        this.examination = examination;
     }
 }

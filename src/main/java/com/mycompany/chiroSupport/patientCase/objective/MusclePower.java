@@ -35,8 +35,10 @@ public class MusclePower {
     private String comments;
 
     public MusclePower(Examination examination){
-        this.examination=examination;
+        this.setExamination(examination);
     }
+
+    public MusclePower(){}
 
     public long getId() {
         return id;
@@ -78,5 +80,13 @@ public class MusclePower {
 
     public void setComments(String comments) {
         this.comments = comments;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public void setExamination(Examination examination) {
+        this.examination = examination;
     }
 }

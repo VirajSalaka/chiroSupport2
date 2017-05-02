@@ -7,7 +7,7 @@ import javax.persistence.*;
  */
 
 @Entity
-@Table(name="examination",
+@Table(name="subjective",
         uniqueConstraints={@UniqueConstraint(columnNames={"id"})})
 public class Subjective {
 
@@ -53,15 +53,17 @@ public class Subjective {
     @Column(name="other")
     private String other;
 
-    @Column(name="aggrevatedFactors")
+    @Column(name="aggrevated_factors")
     private String aggrevatedFactors;
 
-    @Column(name="relievingFactors")
+    @Column(name="relieving_factors")
     private String relievingFactors;
 
     public Subjective(Examination examination){
-        this.examination= examination;
+        this.setExamination(examination);
     }
+
+    public Subjective(){}
 
     public long getId() {
         return id;
@@ -173,5 +175,13 @@ public class Subjective {
 
     public void setRelievingFactors(String relievingFactors) {
         this.relievingFactors = relievingFactors;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public void setExamination(Examination examination) {
+        this.examination = examination;
     }
 }
