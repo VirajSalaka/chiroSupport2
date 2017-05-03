@@ -4,6 +4,8 @@ import com.mycompany.chiroSupport.patientCase.Examination;
 import com.mycompany.chiroSupport.patientCase.PatientCase;
 import com.mycompany.chiroSupport.patientCase.Subjective;
 import com.mycompany.chiroSupport.patientCase.VitalsReport;
+import com.mycompany.chiroSupport.patientCase.objective.Observation;
+import com.mycompany.chiroSupport.patientCase.objective.Palpation;
 import com.mycompany.chiroSupport.patientProfile.Patient;
 import com.mycompany.chiroSupport.patientProfile.PatientQueueItem;
 import com.mycompany.chiroSupport.util.HibernateUtil;
@@ -87,6 +89,37 @@ public class patientDashboardController implements Initializable{
     @FXML
     private Button subjectiveDetailedViewBtn;
 
+    //Observation
+    @FXML
+    private TextArea newObservationArea;
+    @FXML
+    private TextField recentObservationDateFld;
+    @FXML
+    private TextArea recentObservationArea;
+    @FXML
+    private Button observationSaveBtn;
+
+    //Palpation
+    @FXML
+    private TextArea newPalpationArea;
+    @FXML
+    private TextField recentPalpationDateFld;
+    @FXML
+    private TextArea recentPalpationArea;
+    @FXML
+    private Button palpationSaveBtn;
+    
+    //special Tests
+    @FXML
+    private ChoiceBox<String> specialTestsRegionComboBox;
+    @FXML
+    private TextField specialTestsTestFld;
+    @FXML
+    private TextField specialTestsResultFld;
+    @FXML
+    private TextArea specialTestsCommentsArea;
+    @FXML
+    private Button specialTestsAddResultsBtn;
 
 
     public Patient getPatient() {
@@ -188,6 +221,7 @@ public class patientDashboardController implements Initializable{
             e.printStackTrace();
         }
 
+        session = HibernateUtil.getSessionAnnotationFactory().getCurrentSession();
         try {
             // to save patient object in the database
 
@@ -220,32 +254,27 @@ public class patientDashboardController implements Initializable{
 
 
             alert.showAndWait();
+        }finally {
+            session.close();
         }
 
 
     }
 
     public void SubjectiveSave(MouseEvent mouseEvent) {
-        if (patientCase == null){
-            patientCase = new PatientCase("low back pain","2020/11/11");
-            patientCase.setPatient(patient);
-        }
 
 
         String complaint = subjectiveComplaintFld.getText();
         String region = subjectiveRegionComboBox.getValue();
         String location = subjectiveLocationFld.getText();
-        String frequency = "1";                              //subjectiveFrequencyComboBox.getValue();
-        String severity =  "1";                               //subjectiveSeverityComboBox.getValue();
+        String frequency = subjectiveFrequencyComboBox.getValue();
+        String severity = subjectiveSeverityComboBox.getValue();
         String symptoms = subjectiveSymptomsFld.getText();
         String other = subjectiveOtherFld.getText();
         String aggrevatedByFactors = subjectiveAggrevatedByArea.getText();
         String relievedByFactors = subjectiveRelievedByArea.getText();
 
-        if(examination == null){
-            examination = new Examination(patientCase);
-            examination.setDate("2020-11-11");
-        }
+
         Subjective subjective = new Subjective(examination);
 
         if (complaint.length() !=0){
@@ -265,7 +294,7 @@ public class patientDashboardController implements Initializable{
         }
 
         if (frequency.length()>0){
-            // setvalues accordingly
+
         }
 
         if (severity.length()>0){
@@ -311,21 +340,87 @@ public class patientDashboardController implements Initializable{
         if (relievedByFactors.length()>0){
             subjective.setRelievingFactors(relievedByFactors);
         }
-
         session = HibernateUtil.getSessionAnnotationFactory().getCurrentSession();
-        session.beginTransaction();
-        session.save(patientCase);
-        session.save(examination);
-        session.save(subjective);
+        try {
+            session.beginTransaction();
+            session.save(subjective);
+            session.getTransaction().commit();
+        }finally{
+            session.close();
+        }
+    }
 
-        session.getTransaction().commit();
+    public void observationSave(MouseEvent mouseEvent) {
+        String observationText = newObservationArea.getText();
+        Observation observation;
+        if (observationText.length()>0) {
+            observation = new Observation(examination);
+            observation.setDescription(observationText);
 
+
+            session = HibernateUtil.getSessionAnnotationFactory().getCurrentSession();
+            try {
+                session.beginTransaction();
+                session.save(observation);
+                session.getTransaction().commit();
+            } finally {
+                session.close();
+            }
+        }else{
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("No observation to be added");
+            alert.setHeaderText("Look, an Error Dialog");
+            alert.setContentText("Ooops, there was an error!");
+
+
+            alert.showAndWait();
+        }
     }
 
 
+    public void palpationSave(MouseEvent mouseEvent) {
+        String palpationText = newPalpationArea.getText();
+        Palpation palpation;
+        if (palpationText.length()>0) {
+            palpation = new Palpation(examination);
+            palpation.setDescription(palpationText);
+
+
+            session = HibernateUtil.getSessionAnnotationFactory().getCurrentSession();
+            try {
+                session.beginTransaction();
+                session.save(palpation);
+                session.getTransaction().commit();
+            } finally {
+                session.close();
+            }
+        }else{
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("No Palpation to be added");
+            alert.setHeaderText("Look, an Error Dialog");
+            alert.setContentText("Ooops, there was an error!");
+
+
+            alert.showAndWait();
+        }
+    }
+
+    public void specialResultsSave(MouseEvent mouseEvent) {
+    }
+    
+
 
     public void initialize(URL location, ResourceBundle resources) {
-        subjectiveRegionComboBox.getItems().addAll("aaa","bbb","ccc");
+        subjectiveRegionComboBox.getItems().addAll("head","neck","chest","Shoulder L", "shoulder R", "upper abdomen",
+                "lower abdomen", "back", "arm L", "arm R", "palm L", "palm R","hip joint","Leg L", "leg R", "ankle L",
+                "ankle R", "foot L", "foot R");
+
+        specialTestsRegionComboBox.getItems().addAll("head","neck","chest","Shoulder L", "shoulder R", "upper abdomen",
+                "lower abdomen", "back", "arm L", "arm R", "palm L", "palm R","hip joint","Leg L", "leg R", "ankle L",
+                "ankle R", "foot L", "foot R");
+
+        subjectiveFrequencyComboBox.getItems().addAll("always","once an hour","every six hours","daily", "more than once a week", "other");
+        subjectiveSeverityComboBox.getItems().addAll("high","high-medium", "medium", "low-medium","low");
         //start transaction
         try {
             session = HibernateUtil.getSessionAnnotationFactory().getCurrentSession();
@@ -335,13 +430,25 @@ public class patientDashboardController implements Initializable{
             List<Patient> list = query.list();
             patient = list.get(0);
 
+            if (patientCase == null){
+                patientCase = new PatientCase("low back pain","2020/11/11");
+                patientCase.setPatient(patient);
+            }
+
+            if(examination == null){
+                examination = new Examination(patientCase);
+                examination.setDate("2020-11-11");
+            }
+
+            session.save(patientCase);
+            session.save(examination);
+
             t.commit();
         }finally {
             session.close();
         }
         //session.getTransaction().commit();
     }
-
 
 
 }
