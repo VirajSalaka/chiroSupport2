@@ -257,12 +257,12 @@
                                                    <children>
                                                       <Separator layoutX="14.0" layoutY="192.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
                                                       <Separator layoutX="14.0" layoutY="365.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
-                                                      <Label layoutX="289.0" layoutY="45.0" text="Test :" />
-                                                      <Label layoutX="555.0" layoutY="45.0" text="Result : " />
+                                                      <Label layoutX="448.0" layoutY="45.0" text="Test :" />
+                                                      <Label layoutX="675.0" layoutY="45.0" text="Result : " />
                                                       <Label layoutX="14.0" layoutY="41.0" text="Region :" />
                                                       <ChoiceBox fx:id="specialTestsRegionComboBox" layoutX="58.0" layoutY="41.0" prefWidth="150.0" />
-                                                      <TextField fx:id="specialTestsTestFld" layoutX="325.0" layoutY="41.0" prefHeight="25.0" prefWidth="196.0" />
-                                                      <TextField fx:id="specialTestsResultFld" layoutX="597.0" layoutY="41.0" prefHeight="25.0" prefWidth="289.0" />
+                                                      <TextField fx:id="specialTestsTestFld" layoutX="490.0" layoutY="41.0" prefHeight="25.0" prefWidth="172.0" />
+                                                      <TextField fx:id="specialTestsResultFld" layoutX="734.0" layoutY="41.0" prefHeight="25.0" prefWidth="152.0" />
                                                       <Label layoutX="14.0" layoutY="78.0" text="Comments : " />
                                                       <TextArea fx:id="specialTestsCommentsArea" layoutX="14.0" layoutY="95.0" prefHeight="42.0" prefWidth="871.0" />
                                                       <Button fx:id="specialTestsAddResultsBtn" layoutX="809.0" layoutY="156.0" mnemonicParsing="false" onMouseClicked="#specialResultsSave" text="Add results" />
@@ -290,6 +290,8 @@
                                                             <TableColumn prefWidth="400.0" text="Comments" />
                                                          </columns>
                                                       </TableView>
+                                                      <Label layoutX="223.0" layoutY="45.0" text="location :" />
+                                                      <TextField fx:id="specialTestsLocationFld" layoutX="272.0" layoutY="41.0" />
                                                    </children>
                                                 </AnchorPane>
                                              </content>
@@ -304,40 +306,40 @@
                                                          </font>
                                                       </Label>
                                                       <Label layoutX="14.0" layoutY="46.0" text="Region :" />
-                                                      <TextField layoutX="65.0" layoutY="42.0" />
+                                                      <TextField fx:id="romRegionFld" layoutX="65.0" layoutY="42.0" />
                                                       <Label layoutX="261.0" layoutY="46.0" text="type :" />
-                                                      <TextField layoutX="299.0" layoutY="42.0" />
+                                                      <TextField fx:id="romTypeFld" layoutX="299.0" layoutY="42.0" />
                                                       <Label layoutX="14.0" layoutY="90.0" text="Flexion :" />
                                                       <Label layoutX="170.0" layoutY="90.0" text="Extention :" />
                                                       <Label layoutX="320.0" layoutY="90.0" text="LLF :" />
                                                       <Label layoutX="469.0" layoutY="90.0" text="RLF :" />
                                                       <Label layoutX="621.0" layoutY="90.0" text="LR :" />
                                                       <Label layoutX="771.0" layoutY="90.0" text="RR :" />
-                                                      <ComboBox layoutX="14.0" layoutY="107.0" prefHeight="25.0" prefWidth="124.0" />
-                                                      <ComboBox layoutX="170.0" layoutY="107.0" prefHeight="25.0" prefWidth="124.0" />
-                                                      <ComboBox layoutX="320.0" layoutY="107.0" prefHeight="25.0" prefWidth="124.0" />
-                                                      <ComboBox layoutX="469.0" layoutY="107.0" prefHeight="25.0" prefWidth="124.0" />
-                                                      <ComboBox layoutX="621.0" layoutY="107.0" prefHeight="25.0" prefWidth="124.0" />
-                                                      <ComboBox layoutX="771.0" layoutY="107.0" prefHeight="25.0" prefWidth="124.0" />
+                                                      <ChoiceBox fx:id="romFlexionChoiceBox" layoutX="14.0" layoutY="107.0" prefHeight="25.0" prefWidth="124.0" />
+                                                      <ChoiceBox fx:id="romExtentionChoiceBox" layoutX="170.0" layoutY="107.0" prefHeight="25.0" prefWidth="124.0" />
+                                                      <ChoiceBox fx:id="romLLFChoiceBox" layoutX="320.0" layoutY="107.0" prefHeight="25.0" prefWidth="124.0" />
+                                                      <ChoiceBox fx:id="romRLFChoiceBox" layoutX="469.0" layoutY="107.0" prefHeight="25.0" prefWidth="124.0" />
+                                                      <ChoiceBox fx:id="romLRChoiceBox" layoutX="621.0" layoutY="107.0" prefHeight="25.0" prefWidth="124.0" />
+                                                      <ChoiceBox fx:id="romRRChoiceBox" layoutX="771.0" layoutY="107.0" prefHeight="25.0" prefWidth="124.0" />
                                                       <Label layoutX="14.0" layoutY="144.0" text="with pain from :" />
                                                       <Label layoutX="172.0" layoutY="144.0" text="with pain from :" />
                                                       <Label layoutX="320.0" layoutY="144.0" text="with pain from :" />
                                                       <Label layoutX="469.0" layoutY="144.0" text="with pain from :" />
                                                       <Label layoutX="621.0" layoutY="144.0" text="with pain from :" />
                                                       <Label layoutX="771.0" layoutY="144.0" text="with pain from :" />
-                                                      <ComboBox layoutX="14.0" layoutY="161.0" prefHeight="25.0" prefWidth="124.0" />
-                                                      <ComboBox layoutX="170.0" layoutY="161.0" prefHeight="25.0" prefWidth="124.0" />
-                                                      <ComboBox layoutX="320.0" layoutY="161.0" prefHeight="25.0" prefWidth="124.0" />
-                                                      <ComboBox layoutX="469.0" layoutY="161.0" prefHeight="25.0" prefWidth="124.0" />
-                                                      <ComboBox layoutX="621.0" layoutY="161.0" prefHeight="25.0" prefWidth="124.0" />
-                                                      <ComboBox layoutX="771.0" layoutY="161.0" prefHeight="25.0" prefWidth="124.0" />
+                                                      <ChoiceBox fx:id="romFlexionPainChoiceBox" layoutX="14.0" layoutY="161.0" prefHeight="25.0" prefWidth="124.0" />
+                                                      <ChoiceBox fx:id="romExtentionPainChoiceBox" layoutX="170.0" layoutY="161.0" prefHeight="25.0" prefWidth="124.0" />
+                                                      <ChoiceBox fx:id="romLLFPainChoiceBox" layoutX="320.0" layoutY="161.0" prefHeight="25.0" prefWidth="124.0" />
+                                                      <ChoiceBox fx:id="romRLFPainChoiceBox" layoutX="469.0" layoutY="161.0" prefHeight="25.0" prefWidth="124.0" />
+                                                      <ChoiceBox fx:id="romLRPainChoiceBox" layoutX="621.0" layoutY="161.0" prefHeight="25.0" prefWidth="124.0" />
+                                                      <ChoiceBox fx:id="romRRPainChoiceBox" layoutX="771.0" layoutY="161.0" prefHeight="25.0" prefWidth="124.0" />
                                                       <Label layoutX="14.0" layoutY="213.0" text="total loss : " />
-                                                      <TextField layoutX="76.0" layoutY="209.0" prefHeight="25.0" prefWidth="53.0" />
+                                                      <TextField fx:id="romTotalLossFld" layoutX="76.0" layoutY="209.0" prefHeight="25.0" prefWidth="53.0" />
                                                       <Label layoutX="142.0" layoutY="213.0" text=" % " />
                                                       <Label layoutX="14.0" layoutY="244.0" text="Comments :" />
-                                                      <TextArea layoutX="14.0" layoutY="261.0" prefHeight="38.0" prefWidth="880.0" />
+                                                      <TextArea fx:id="romCommentsArea" layoutX="14.0" layoutY="261.0" prefHeight="38.0" prefWidth="880.0" />
                                                       <Separator layoutX="3.0" layoutY="336.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
-                                                      <Button layoutX="727.0" layoutY="311.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="167.0" text="Save" />
+                                                      <Button fx:id="romSaveBtn" layoutX="727.0" layoutY="311.0" mnemonicParsing="false" onMouseClicked="#romSave" prefHeight="25.0" prefWidth="167.0" text="Save" />
                                                       <TableView layoutX="14.0" layoutY="373.0" prefHeight="200.0" prefWidth="881.0">
                                                         <columns>
                                                           <TableColumn prefWidth="67.0" text="Date" />

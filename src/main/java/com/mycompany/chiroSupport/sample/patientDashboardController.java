@@ -6,6 +6,8 @@ import com.mycompany.chiroSupport.patientCase.Subjective;
 import com.mycompany.chiroSupport.patientCase.VitalsReport;
 import com.mycompany.chiroSupport.patientCase.objective.Observation;
 import com.mycompany.chiroSupport.patientCase.objective.Palpation;
+import com.mycompany.chiroSupport.patientCase.objective.Rom;
+import com.mycompany.chiroSupport.patientCase.objective.SpecialTest;
 import com.mycompany.chiroSupport.patientProfile.Patient;
 import com.mycompany.chiroSupport.patientProfile.PatientQueueItem;
 import com.mycompany.chiroSupport.util.HibernateUtil;
@@ -115,11 +117,47 @@ public class patientDashboardController implements Initializable{
     @FXML
     private TextField specialTestsTestFld;
     @FXML
+    private TextField specialTestsLocationFld;
+    @FXML
     private TextField specialTestsResultFld;
     @FXML
     private TextArea specialTestsCommentsArea;
     @FXML
     private Button specialTestsAddResultsBtn;
+
+    //ROM
+    @FXML
+    private TextField romRegionFld;
+    @FXML
+    private TextField romTypeFld;
+    @FXML
+    private ChoiceBox<String> romFlexionChoiceBox;
+    @FXML
+    private ChoiceBox<String> romExtentionChoiceBox;
+    @FXML
+    private ChoiceBox<String> romLLFChoiceBox;
+    @FXML
+    private ChoiceBox<String> romRLFChoiceBox;
+    @FXML
+    private ChoiceBox<String> romLRChoiceBox;
+    @FXML
+    private ChoiceBox<String> romRRChoiceBox;
+    @FXML
+    private ChoiceBox<String> romFlexionPainChoiceBox;
+    @FXML
+    private ChoiceBox<String> romExtentionPainChoiceBox;
+    @FXML
+    private ChoiceBox<String> romLLFPainChoiceBox;
+    @FXML
+    private ChoiceBox<String> romRLFPainChoiceBox;
+    @FXML
+    private ChoiceBox<String> romLRPainChoiceBox;
+    @FXML
+    private ChoiceBox<String> romRRPainChoiceBox;
+    @FXML
+    private TextField romTotalLossFld;
+    @FXML
+    private TextArea romCommentsArea;
 
 
     public Patient getPatient() {
@@ -406,6 +444,143 @@ public class patientDashboardController implements Initializable{
     }
 
     public void specialResultsSave(MouseEvent mouseEvent) {
+        String region = specialTestsRegionComboBox.getValue();
+        String location = specialTestsLocationFld.getText();
+        String test = specialTestsTestFld.getText();
+        String result = specialTestsResultFld.getText();
+        String comments = specialTestsResultFld.getText();
+
+        SpecialTest specialTest;
+
+        if(region.length()>0 && test.length()>0 && result.length()>0){
+            specialTest = new SpecialTest(examination);
+            specialTest.setRegion(region);
+            specialTest.setLocation(location);
+            specialTest.setTest(test);
+            specialTest.setResult(result);
+            specialTest.setComments(comments);
+
+            session = HibernateUtil.getSessionAnnotationFactory().getCurrentSession();
+            try {
+                session.beginTransaction();
+                session.save(specialTest);
+                session.getTransaction().commit();
+            } finally {
+                session.close();
+            }
+
+
+        }
+    }
+
+    public void romSave(MouseEvent mouseEvent) {
+
+        String flexion = null;
+        String flexionPain = null;
+        String extention = null;
+        String llf = null;
+        String rlf = null;
+        String lr = null;
+        String rr = null;
+        String extentionPain = null;
+        String llfPain = null;
+        String rlfPain = null;
+        String lrPain = null;
+        String rrPain = null;
+
+        String region = romRegionFld.getText();
+        String type = romTypeFld.getText();
+        flexion = romFlexionChoiceBox.getValue();
+        flexionPain = romFlexionPainChoiceBox.getValue();
+        extention = romExtentionChoiceBox.getValue();
+        llf = romLLFChoiceBox.getValue();
+        rlf = romRLFChoiceBox.getValue();
+        lr =romLRChoiceBox.getValue();
+        rr = romRRChoiceBox.getValue();
+        extentionPain = romExtentionPainChoiceBox.getValue();
+        llfPain = romLLFPainChoiceBox.getValue();
+        rlfPain = romRLFPainChoiceBox.getValue();
+        lrPain = romLRPainChoiceBox.getValue();
+        rrPain = romRRPainChoiceBox.getValue();
+        String totalLoss = romTotalLossFld.getText();
+        String comments =  romCommentsArea.getText();
+
+        if (region.length()>0 && type.length()>0){
+            Rom rom = new Rom(examination);
+            rom.setRegion(region);
+            rom.setRomType(type);
+
+            if(!extention.equals("not relevant")){
+                rom.setExtention(Integer.parseInt(extention));
+            }
+            if(!flexion.equals("not relevant")){
+                rom.setFlexion(Integer.parseInt(flexion));
+            }
+            if(!llf.equals("not relevant")){
+                rom.setLlf(Integer.parseInt(llf));
+            }
+            if(!rlf.equals("not relevant")){
+                rom.setRlf(Integer.parseInt(rlf));
+            }
+            if(!lr.equals("not relevant")){
+                rom.setLr(Integer.parseInt(lr));
+            }
+            if(!rr.equals("not relevant")){
+                rom.setRr(Integer.parseInt(rr));
+            }
+            if(!extentionPain.equals("not relevant")){
+                rom.setExtentionPain(Integer.parseInt(extentionPain));
+            }
+            if(!flexionPain.equals("not relevant")){
+                rom.setFlexionPain(Integer.parseInt(flexionPain));
+            }
+            if(!llfPain.equals("not relevant")){
+                rom.setLlfPain(Integer.parseInt(llfPain));
+            }
+            if(!rlfPain.equals("not relevant")){
+                rom.setRlfPain(Integer.parseInt(rlfPain));
+            }
+            if(!lrPain.equals("not relevant")){
+                rom.setLrPain(Integer.parseInt(lrPain));
+            }
+            if(!rrPain.equals("not relevant")){
+                rom.setRrPain(Integer.parseInt(rrPain));
+            }
+
+            try {
+                if (totalLoss.length() > 0) {
+                    rom.setTotalLoss(Integer.parseInt(totalLoss));
+                }
+            }catch (Exception e) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Integer for totalLoss please ");
+                alert.setHeaderText("Look, an Error Dialog");
+                alert.setContentText("Ooops, there was an error!");
+                alert.showAndWait();
+
+            }
+
+            if(comments.length() >0){
+                rom.setComments(comments);
+            }
+            session = HibernateUtil.getSessionAnnotationFactory().getCurrentSession();
+            try {
+                session.beginTransaction();
+                session.save(rom);
+                session.getTransaction().commit();
+            } finally {
+                session.close();
+            }
+        }else{
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Not completed Rom Test");
+            alert.setHeaderText("Look, an Error Dialog");
+            alert.setContentText("Ooops, there was an error!");
+
+
+            alert.showAndWait();
+        }
+
     }
     
 
@@ -421,6 +596,33 @@ public class patientDashboardController implements Initializable{
 
         subjectiveFrequencyComboBox.getItems().addAll("always","once an hour","every six hours","daily", "more than once a week", "other");
         subjectiveSeverityComboBox.getItems().addAll("high","high-medium", "medium", "low-medium","low");
+
+        romExtentionChoiceBox.getItems().addAll("not relevant","99","90","80","70","60","50","40","30","20","10","0");
+        romExtentionPainChoiceBox.getItems().addAll("not relevant","99","90","80","70","60","50","40","30","20","10","0");
+        romFlexionChoiceBox.getItems().addAll("not relevant","100","99","80","70","60","50","40","30","20","10","0");
+        romFlexionPainChoiceBox.getItems().addAll("not relevant","99","90","80","70","60","50","40","30","20","10","0");
+        romLLFChoiceBox.getItems().addAll("not relevant","100","99","80","70","60","50","40","30","20","10","0");
+        romLLFPainChoiceBox.getItems().addAll("not relevant","99","90","80","70","60","50","40","30","20","10","0");
+        romRLFChoiceBox.getItems().addAll("not relevant","100","99","80","70","60","50","40","30","20","10","0");
+        romRLFPainChoiceBox.getItems().addAll("not relevant","99","90","80","70","60","50","40","30","20","10","0");
+        romLRChoiceBox.getItems().addAll("not relevant","100","99","80","70","60","50","40","30","20","10","0");
+        romLRPainChoiceBox.getItems().addAll("not relevant","99","90","80","70","60","50","40","30","20","10","0");
+        romRRChoiceBox.getItems().addAll("not relevant","100","99","80","70","60","50","40","30","20","10","0");
+        romRRPainChoiceBox.getItems().addAll("not relevant","99","90","80","70","60","50","40","30","20","10","0");
+
+        romExtentionChoiceBox.setValue("not relevant");
+        romExtentionPainChoiceBox.setValue("not relevant");
+        romFlexionChoiceBox.setValue("not relevant");
+        romFlexionPainChoiceBox.setValue("not relevant");
+        romLLFChoiceBox.setValue("not relevant");
+        romLLFPainChoiceBox.setValue("not relevant");
+        romRLFChoiceBox.setValue("not relevant");
+        romRLFPainChoiceBox.setValue("not relevant");
+        romLRChoiceBox.setValue("not relevant");
+        romLRPainChoiceBox.setValue("not relevant");
+        romRRChoiceBox.setValue("not relevant");
+        romRRPainChoiceBox.setValue("not relevant");
+
         //start transaction
         try {
             session = HibernateUtil.getSessionAnnotationFactory().getCurrentSession();
@@ -447,8 +649,9 @@ public class patientDashboardController implements Initializable{
         }finally {
             session.close();
         }
-        //session.getTransaction().commit();
+
     }
+
 
 
 }

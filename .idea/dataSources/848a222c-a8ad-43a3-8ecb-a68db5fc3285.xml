@@ -640,11 +640,11 @@
       <Position>13</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="160" parent="22" name="aggrevatedFactors">
+    <column id="160" parent="22" name="aggrevated_factors">
       <Position>14</Position>
       <DataType>text|0</DataType>
     </column>
-    <column id="161" parent="22" name="relievingFactors">
+    <column id="161" parent="22" name="relieving_factors">
       <Position>15</Position>
       <DataType>text|0</DataType>
     </column>

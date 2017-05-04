@@ -28,6 +28,9 @@ public class SpecialTest {
     @Column(name="location")
     private String location;
 
+    @Column(name="test")
+    private String test;
+
     @Column(name="test_result", nullable=false)
     private String result;
 
@@ -85,5 +88,13 @@ public class SpecialTest {
 
     public void setExamination(Examination examination) {
         this.examination = examination;
+    }
+
+    public String getTest() {
+        return test;
+    }
+
+    public void setTest(String test) {
+        this.test = test;
     }
 }

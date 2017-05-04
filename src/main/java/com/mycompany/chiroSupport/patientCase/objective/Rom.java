@@ -21,6 +21,9 @@ public class Rom {
     @JoinColumn(name="exam_id", nullable=false)
     private Examination examination;
 
+    @Column(name="region", nullable =false)
+    private String region;
+
     @Column(name="rom_type", nullable=false)
     private String romType;
 
@@ -205,5 +208,13 @@ public class Rom {
 
     public void setExamination(Examination examination) {
         this.examination = examination;
+    }
+
+    public String getRegion() {
+        return region;
+    }
+
+    public void setRegion(String region) {
+        this.region = region;
     }
 }
