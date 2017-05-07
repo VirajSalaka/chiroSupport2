@@ -42,6 +42,8 @@ public class patientDashboardController implements Initializable{
     private Examination examination;
     private File diagnosticStudySourceFile;
     private int diagnosticStudyCount = 0;
+    private File neurologicalStudySourceFile;
+    private int neurologicalStudyCount = 0;
 
     //vitalsReport
     @FXML
@@ -193,6 +195,22 @@ public class patientDashboardController implements Initializable{
     @FXML
     private TextArea diagnosticStudiesImpressionArea;
 
+    //neurological studies
+    //Diagnostic studies
+    @FXML
+    private DatePicker neurologicalStudiesDateFld;
+    @FXML
+    private TextField neurologicalStudiesRegionFld;
+    @FXML
+    private TextField neurologicalStudiesTypeOfStudyFld;
+    @FXML
+    private Button neurologicalStudiesUploadFileBtn;
+    @FXML
+    private Label neurologicalStudiesFileNameLabel;
+    @FXML
+    private TextArea neurologicalStudiesImpressionArea;
+
+    //neurological studies
 
 
     public Patient getPatient() {
@@ -691,9 +709,11 @@ public class patientDashboardController implements Initializable{
             StringBuilder sb = new StringBuilder();
             sb.append("C:\\Users\\Salaka\\Desktop\\Econ\\");
             sb.append(patient.getName());
-            sb.append("exam_id");
-            sb.append(examination.getId());
+            //sb.append("\\exam_");
+            sb.append(examination.getDate());
+            //sb.append("\\diagnosticStudies\\");
             sb.append(type);
+         //   sb.append("\\");
             sb.append(String.valueOf(diagnosticStudyCount));
             sb.append(".");
             sb.append(FilenameUtils.getExtension(diagnosticStudySourceFile.toPath().toString()));
@@ -709,6 +729,7 @@ public class patientDashboardController implements Initializable{
                     session.beginTransaction();
                     session.save(diagnosticStudy);
                     session.getTransaction().commit();
+                    diagnosticStudyCount++;
                 } finally {
                     session.close();
                 }
@@ -731,10 +752,95 @@ public class patientDashboardController implements Initializable{
             alert.setContentText("Ooops, there was an error!");
             alert.showAndWait();
         }
+    }
 
-
-
+    public void neurologicalStudyUploadFile(MouseEvent mouseEvent) {
+        Node node=(Node) mouseEvent.getSource();
+        Stage stage=(Stage) node.getScene().getWindow();
+        Parent root = null;/* Exception */
+        try {
+            root = FXMLLoader.load(getClass().getResource("/patientDashboard.fxml"));
+        } catch (IOException e) {
+            e.printStackTrace();
         }
+
+        FileChooser fileChooser = new FileChooser();
+        FileChooser.ExtensionFilter extensionFilter= new FileChooser.ExtensionFilter("TXT files (*.pdf)","*.pdf");
+        fileChooser.getExtensionFilters().add(extensionFilter);
+        File file = fileChooser.showSaveDialog(stage);
+        neurologicalStudySourceFile = file;
+        neurologicalStudiesFileNameLabel.setText(file.toPath().toString());
+
+    }
+
+
+    public void neurologicalStudySave(MouseEvent mouseEvent) {
+        String date = String.valueOf(neurologicalStudiesDateFld.getValue());
+        String type = neurologicalStudiesTypeOfStudyFld.getText();
+        String region = neurologicalStudiesRegionFld.getText();
+        String impression = neurologicalStudiesImpressionArea.getText();
+
+        if(!date.equals(null) && type.length()>0 && !neurologicalStudySourceFile.equals(null)){
+            NeurologicalStudy neurologicalStudy = new NeurologicalStudy(examination);
+            neurologicalStudy.setDateOfStudy(date);
+            neurologicalStudy.setStudyType(type);
+
+            if(region.length()>0){
+                neurologicalStudy.setRegion(region);
+            }
+            if(impression.length()>0){
+                neurologicalStudy.setImpression(impression);
+            }
+
+            StringBuilder sb = new StringBuilder();
+            sb.append("C:\\Users\\Salaka\\Desktop\\Econ\\");
+            sb.append(patient.getName());
+            //sb.append("\\exam_");
+            sb.append(examination.getDate());
+            //sb.append("\\neurological_studies\\");
+            sb.append(type);
+            sb.append("_");
+            sb.append(String.valueOf(neurologicalStudyCount));
+            sb.append(".");
+            sb.append(FilenameUtils.getExtension(neurologicalStudySourceFile.toPath().toString()));
+
+            System.out.println(sb.toString());
+
+            File savingFile = new File(sb.toString());
+            neurologicalStudy.setFileName(sb.toString());
+
+            if (neurologicalStudySourceFile != null) {
+                try {
+                    Files.copy(neurologicalStudySourceFile.toPath(),savingFile.toPath());
+                    session = HibernateUtil.getSessionAnnotationFactory().getCurrentSession();
+                    try {
+                        session.beginTransaction();
+                        session.save(neurologicalStudy);
+                        session.getTransaction().commit();
+                        neurologicalStudyCount++;
+                    } finally {
+                        session.close();
+                    }
+
+
+
+                } catch (IOException ex) {
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setTitle("Exception in File Upload");
+                    alert.setHeaderText("Look, an Error Dialog");
+                    alert.setContentText("Ooops, there was an error!"+ex.toString());
+                    alert.showAndWait();
+                }
+            }
+
+        }else{
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Complete properly");
+            alert.setHeaderText("Look, an Error Dialog");
+            alert.setContentText("Ooops, there was an error!");
+            alert.showAndWait();
+        }
+    }
 
 
     public void initialize(URL location, ResourceBundle resources) {
@@ -808,9 +914,5 @@ public class patientDashboardController implements Initializable{
         }finally {
             session.close();
         }
-    }
-
-
-    public void neurologicalStudiesSave(MouseEvent mouseEvent) {
     }
 }
