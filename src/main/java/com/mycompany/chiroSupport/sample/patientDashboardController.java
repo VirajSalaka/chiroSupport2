@@ -4,22 +4,29 @@ import com.mycompany.chiroSupport.patientCase.Examination;
 import com.mycompany.chiroSupport.patientCase.PatientCase;
 import com.mycompany.chiroSupport.patientCase.Subjective;
 import com.mycompany.chiroSupport.patientCase.VitalsReport;
-import com.mycompany.chiroSupport.patientCase.objective.Observation;
-import com.mycompany.chiroSupport.patientCase.objective.Palpation;
-import com.mycompany.chiroSupport.patientCase.objective.Rom;
-import com.mycompany.chiroSupport.patientCase.objective.SpecialTest;
+import com.mycompany.chiroSupport.patientCase.objective.*;
 import com.mycompany.chiroSupport.patientProfile.Patient;
 import com.mycompany.chiroSupport.patientProfile.PatientQueueItem;
 import com.mycompany.chiroSupport.util.HibernateUtil;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
+import java.io.File;
+import java.io.IOException;
 import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -158,6 +165,30 @@ public class patientDashboardController implements Initializable{
     private TextField romTotalLossFld;
     @FXML
     private TextArea romCommentsArea;
+
+    //Muscle - Power
+    @FXML
+    private TextField musclePowerRegionFld;
+    @FXML
+    private TextField musclePowerMuscleFld;
+    @FXML
+    private ChoiceBox<String> musclePowerPowerChoiceBox;
+    @FXML
+    private TextField musclePowerCommentsFld;
+
+    //Diagnostic studies
+    @FXML
+    private DatePicker diagnosticStudiesDateFld;
+    @FXML
+    private TextField diagnosticStudiesRegionFld;
+    @FXML
+    private ChoiceBox<String> diagnosticStudiesTypeOfStudyFld;
+    @FXML
+    private Button diagnosticStudiesUploadFileBtn;
+    @FXML
+    private Label diagnosticStudiesFileNameLabel;
+    @FXML
+    private TextArea diagnosticStudiesImpressionArea;
 
 
     public Patient getPatient() {
@@ -576,14 +607,80 @@ public class patientDashboardController implements Initializable{
             alert.setTitle("Not completed Rom Test");
             alert.setHeaderText("Look, an Error Dialog");
             alert.setContentText("Ooops, there was an error!");
-
-
             alert.showAndWait();
         }
 
     }
-    
 
+
+    public void musclePowerSave(MouseEvent mouseEvent) {
+        String region = musclePowerRegionFld.getText();
+        String muscle = musclePowerMuscleFld.getText();
+        String power = musclePowerPowerChoiceBox.getValue();
+        String comments = musclePowerCommentsFld.getText();
+
+        if(region.length()>0 || muscle.length()>0 ||power.equals("not relevant")){
+            MusclePower musclePower = new MusclePower(examination);
+            musclePower.setRegion(region);
+            musclePower.setMuscle(muscle);
+            musclePower.setPowerLevel(Integer.parseInt(power));
+
+            if(comments.length()>0){
+                musclePower.setComments(comments);
+            }
+
+            session = HibernateUtil.getSessionAnnotationFactory().getCurrentSession();
+            try {
+                session.beginTransaction();
+                session.save(musclePower);
+                session.getTransaction().commit();
+            } finally {
+                session.close();
+            }
+
+        }else{
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Not completed Muscle power fill properly");
+            alert.setHeaderText("Look, an Error Dialog");
+            alert.setContentText("Ooops, there was an error!");
+            alert.showAndWait();
+        }
+    }
+
+    public void diagnosticStudiesUploadFile(MouseEvent mouseEvent) {
+        Node node=(Node) mouseEvent.getSource();
+        Stage stage=(Stage) node.getScene().getWindow();
+        Parent root = null;/* Exception */
+        try {
+            root = FXMLLoader.load(getClass().getResource("/patientDashboard.fxml"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        FileChooser fileChooser = new FileChooser();
+        FileChooser.ExtensionFilter extensionFilter= new FileChooser.ExtensionFilter("TXT files (*.pdf)","*.pdf");
+        fileChooser.getExtensionFilters().add(extensionFilter);
+        File file = fileChooser.showSaveDialog(stage);
+
+        File savingFile = new File("C:\\Users\\Salaka\\Desktop\\Econ\\TestingJavaFx.pdf");
+        if (file != null) {
+            try {
+                Files.copy(file.toPath(),savingFile.toPath());
+                diagnosticStudiesFileNameLabel.setText(file.toPath().toString());
+            } catch (IOException ex) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Exception in File Upload");
+                alert.setHeaderText("Look, an Error Dialog");
+                alert.setContentText("Ooops, there was an error!");
+                alert.showAndWait();
+            }
+        }
+
+    }
+
+    public void diagnosticStudiesSave(MouseEvent mouseEvent) {
+        
+    }
 
     public void initialize(URL location, ResourceBundle resources) {
         subjectiveRegionComboBox.getItems().addAll("head","neck","chest","Shoulder L", "shoulder R", "upper abdomen",
@@ -599,15 +696,15 @@ public class patientDashboardController implements Initializable{
 
         romExtentionChoiceBox.getItems().addAll("not relevant","99","90","80","70","60","50","40","30","20","10","0");
         romExtentionPainChoiceBox.getItems().addAll("not relevant","99","90","80","70","60","50","40","30","20","10","0");
-        romFlexionChoiceBox.getItems().addAll("not relevant","100","99","80","70","60","50","40","30","20","10","0");
+        romFlexionChoiceBox.getItems().addAll("not relevant","99","90","80","70","60","50","40","30","20","10","0");
         romFlexionPainChoiceBox.getItems().addAll("not relevant","99","90","80","70","60","50","40","30","20","10","0");
-        romLLFChoiceBox.getItems().addAll("not relevant","100","99","80","70","60","50","40","30","20","10","0");
+        romLLFChoiceBox.getItems().addAll("not relevant","99","90","80","70","60","50","40","30","20","10","0");
         romLLFPainChoiceBox.getItems().addAll("not relevant","99","90","80","70","60","50","40","30","20","10","0");
-        romRLFChoiceBox.getItems().addAll("not relevant","100","99","80","70","60","50","40","30","20","10","0");
+        romRLFChoiceBox.getItems().addAll("not relevant","99","90","80","70","60","50","40","30","20","10","0");
         romRLFPainChoiceBox.getItems().addAll("not relevant","99","90","80","70","60","50","40","30","20","10","0");
-        romLRChoiceBox.getItems().addAll("not relevant","100","99","80","70","60","50","40","30","20","10","0");
+        romLRChoiceBox.getItems().addAll("not relevant","99","90","80","70","60","50","40","30","20","10","0");
         romLRPainChoiceBox.getItems().addAll("not relevant","99","90","80","70","60","50","40","30","20","10","0");
-        romRRChoiceBox.getItems().addAll("not relevant","100","99","80","70","60","50","40","30","20","10","0");
+        romRRChoiceBox.getItems().addAll("not relevant","99","90","80","70","60","50","40","30","20","10","0");
         romRRPainChoiceBox.getItems().addAll("not relevant","99","90","80","70","60","50","40","30","20","10","0");
 
         romExtentionChoiceBox.setValue("not relevant");
@@ -622,6 +719,11 @@ public class patientDashboardController implements Initializable{
         romLRPainChoiceBox.setValue("not relevant");
         romRRChoiceBox.setValue("not relevant");
         romRRPainChoiceBox.setValue("not relevant");
+
+        musclePowerPowerChoiceBox.getItems().addAll("not selected","99","90","80","70","60","50","40","30","20","10","0");
+        musclePowerPowerChoiceBox.setValue("not selected");
+
+        diagnosticStudiesFileNameLabel.setText("no file is selected");
 
         //start transaction
         try {
@@ -649,9 +751,9 @@ public class patientDashboardController implements Initializable{
         }finally {
             session.close();
         }
-
     }
 
 
-
+    public void neurologicalStudiesSave(MouseEvent mouseEvent) {
+    }
 }
