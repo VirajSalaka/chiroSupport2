@@ -17,6 +17,7 @@ import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import org.apache.commons.io.FilenameUtils;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
@@ -39,6 +40,8 @@ public class patientDashboardController implements Initializable{
     private PatientCase patientCase;
     private Session session;
     private Examination examination;
+    private File diagnosticStudySourceFile;
+    private int diagnosticStudyCount = 0;
 
     //vitalsReport
     @FXML
@@ -182,13 +185,14 @@ public class patientDashboardController implements Initializable{
     @FXML
     private TextField diagnosticStudiesRegionFld;
     @FXML
-    private ChoiceBox<String> diagnosticStudiesTypeOfStudyFld;
+    private ChoiceBox<String> diagnosticStudiesTypeOfStudyChoiceBox;
     @FXML
     private Button diagnosticStudiesUploadFileBtn;
     @FXML
     private Label diagnosticStudiesFileNameLabel;
     @FXML
     private TextArea diagnosticStudiesImpressionArea;
+
 
 
     public Patient getPatient() {
@@ -661,12 +665,56 @@ public class patientDashboardController implements Initializable{
         FileChooser.ExtensionFilter extensionFilter= new FileChooser.ExtensionFilter("TXT files (*.pdf)","*.pdf");
         fileChooser.getExtensionFilters().add(extensionFilter);
         File file = fileChooser.showSaveDialog(stage);
+        diagnosticStudySourceFile = file;
+        diagnosticStudiesFileNameLabel.setText(file.toPath().toString());
 
-        File savingFile = new File("C:\\Users\\Salaka\\Desktop\\Econ\\TestingJavaFx.pdf");
-        if (file != null) {
+    }
+
+    public void diagnosticStudiesSave(MouseEvent mouseEvent) {
+        String date = String.valueOf(diagnosticStudiesDateFld.getValue());
+        String type = diagnosticStudiesTypeOfStudyChoiceBox.getValue();
+        String region = diagnosticStudiesRegionFld.getText();
+        String impression = diagnosticStudiesImpressionArea.getText();
+
+        if(!date.equals(null) && !type.equals("not selected") && !diagnosticStudySourceFile.equals(null)){
+            DiagnosticStudy diagnosticStudy = new DiagnosticStudy(examination);
+            diagnosticStudy.setDateOfStudy(date);
+            diagnosticStudy.setStudyType(type);
+
+            if(region.length()>0){
+                diagnosticStudy.setRegion(region);
+            }
+            if(impression.length()>0){
+                diagnosticStudy.setImpression(impression);
+            }
+
+            StringBuilder sb = new StringBuilder();
+            sb.append("C:\\Users\\Salaka\\Desktop\\Econ\\");
+            sb.append(patient.getName());
+            sb.append("exam_id");
+            sb.append(examination.getId());
+            sb.append(type);
+            sb.append(String.valueOf(diagnosticStudyCount));
+            sb.append(".");
+            sb.append(FilenameUtils.getExtension(diagnosticStudySourceFile.toPath().toString()));
+
+            File savingFile = new File(sb.toString());
+            diagnosticStudy.setFileName(sb.toString());
+
+            if (diagnosticStudySourceFile != null) {
             try {
-                Files.copy(file.toPath(),savingFile.toPath());
-                diagnosticStudiesFileNameLabel.setText(file.toPath().toString());
+                Files.copy(diagnosticStudySourceFile.toPath(),savingFile.toPath());
+                session = HibernateUtil.getSessionAnnotationFactory().getCurrentSession();
+                try {
+                    session.beginTransaction();
+                    session.save(diagnosticStudy);
+                    session.getTransaction().commit();
+                } finally {
+                    session.close();
+                }
+
+
+
             } catch (IOException ex) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Exception in File Upload");
@@ -676,11 +724,18 @@ public class patientDashboardController implements Initializable{
             }
         }
 
-    }
+        }else{
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Complete properly");
+            alert.setHeaderText("Look, an Error Dialog");
+            alert.setContentText("Ooops, there was an error!");
+            alert.showAndWait();
+        }
 
-    public void diagnosticStudiesSave(MouseEvent mouseEvent) {
-        
-    }
+
+
+        }
+
 
     public void initialize(URL location, ResourceBundle resources) {
         subjectiveRegionComboBox.getItems().addAll("head","neck","chest","Shoulder L", "shoulder R", "upper abdomen",
@@ -724,6 +779,8 @@ public class patientDashboardController implements Initializable{
         musclePowerPowerChoiceBox.setValue("not selected");
 
         diagnosticStudiesFileNameLabel.setText("no file is selected");
+        diagnosticStudiesTypeOfStudyChoiceBox.getItems().addAll("not selected","x ray","CR scan", "ECG", "Scanning report");
+        diagnosticStudiesTypeOfStudyChoiceBox.setValue("not selected");
 
         //start transaction
         try {

@@ -22,7 +22,7 @@ public class DiagnosticStudy {
     @JoinColumn(name="exam_id", nullable=false)
     private Examination examination;
 
-    @Column(name="dateOfStudy")
+    @Column(name="date_of_study")
     private String dateOfStudy;
 
     @Column(name="study_type", nullable=false)
