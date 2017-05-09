@@ -51,6 +51,9 @@ public class Examination {
     @OneToOne(mappedBy = "examination", cascade = CascadeType.ALL)
     private Analysis analysis;
 
+    @OneToMany(mappedBy = "examination", cascade = CascadeType.ALL)
+    private List<Treatment> treatmentList;
+
     public Examination(PatientCase patientCase){
         this.setPatientCase(patientCase);
     }
@@ -127,5 +130,37 @@ public class Examination {
 
     public void setPatientCase(PatientCase patientCase) {
         this.patientCase = patientCase;
+    }
+
+    public List<DiagnosticStudy> getDiagnosticStudyList() {
+        return diagnosticStudyList;
+    }
+
+    public void setDiagnosticStudyList(List<DiagnosticStudy> diagnosticStudyList) {
+        this.diagnosticStudyList = diagnosticStudyList;
+    }
+
+    public List<NeurologicalStudy> getNeurologicalStudyList() {
+        return neurologicalStudyList;
+    }
+
+    public void setNeurologicalStudyList(List<NeurologicalStudy> neurologicalStudyList) {
+        this.neurologicalStudyList = neurologicalStudyList;
+    }
+
+    public Analysis getAnalysis() {
+        return analysis;
+    }
+
+    public void setAnalysis(Analysis analysis) {
+        this.analysis = analysis;
+    }
+
+    public List<Treatment> getTreatmentList() {
+        return treatmentList;
+    }
+
+    public void setTreatmentList(List<Treatment> treatmentList) {
+        this.treatmentList = treatmentList;
     }
 }
