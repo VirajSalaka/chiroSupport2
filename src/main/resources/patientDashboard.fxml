@@ -541,11 +541,11 @@
                               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                  <children>
                                     <Label layoutX="14.0" layoutY="25.0" text="Treatment" />
-                                    <TextField layoutX="14.0" layoutY="42.0" prefHeight="25.0" prefWidth="394.0" />
+                                    <TextField fx:id="treatmentTreatmentFld" layoutX="14.0" layoutY="42.0" prefHeight="25.0" prefWidth="394.0" />
                                     <Label layoutX="460.0" layoutY="25.0" text="Frequency" />
-                                    <ChoiceBox layoutX="460.0" layoutY="42.0" prefWidth="150.0" />
+                                    <ChoiceBox fx:id="treatmentFrequencyChoiceBox" layoutX="460.0" layoutY="42.0" prefWidth="150.0" />
                                     <Label layoutX="698.0" layoutY="25.0" text="Duration" />
-                                    <ChoiceBox layoutX="698.0" layoutY="42.0" prefWidth="150.0" />
+                                    <ChoiceBox fx:id="treatmentDurationChoiceBox" layoutX="698.0" layoutY="42.0" prefWidth="150.0" />
                                     <TableView layoutX="25.0" layoutY="215.0" prefHeight="134.0" prefWidth="819.0">
                                       <columns>
                                         <TableColumn minWidth="0.0" prefWidth="149.0" text="Frequency" />
@@ -554,14 +554,14 @@
                                       </columns>
                                     </TableView>
                                     <Button layoutX="610.0" layoutY="540.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="236.0" text="Save Complete Treatment Plan" />
-                                    <Button layoutX="722.0" layoutY="178.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="121.0" text="Add" />
+                                    <Button fx:id="treatmentAddBtn" layoutX="722.0" layoutY="178.0" mnemonicParsing="false" onMouseClicked="#treatmentSave" prefHeight="25.0" prefWidth="121.0" text="Add" />
                                     <Label layoutX="14.0" layoutY="409.0" text="Longterm treatment goal" />
                                     <Label layoutX="468.0" layoutY="409.0" text="Current treatment plan goal" />
                                     <TextArea layoutX="14.0" layoutY="426.0" prefHeight="90.0" prefWidth="401.0" />
                                     <TextArea layoutX="468.0" layoutY="426.0" prefHeight="89.0" prefWidth="376.0" />
                                     <Button layoutX="17.0" layoutY="540.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="188.0" text="View Previous Treatment Plans" />
                                     <Label layoutX="17.0" layoutY="85.0" prefHeight="17.0" prefWidth="96.0" text="Any adjustments" />
-                                    <TextArea layoutX="13.0" layoutY="103.0" prefHeight="55.0" prefWidth="835.0" />
+                                    <TextArea fx:id="treatmentAdjustmentsArea" layoutX="13.0" layoutY="103.0" prefHeight="55.0" prefWidth="835.0" />
                                  </children></AnchorPane>
                            </content>
                         </Tab>

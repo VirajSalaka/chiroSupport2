@@ -64,6 +64,7 @@ public class HibernateUtil {
             configuration.addAnnotatedClass(Palpation.class);
             configuration.addAnnotatedClass(Rom.class);
             configuration.addAnnotatedClass(SpecialTest.class);
+            configuration.addAnnotatedClass(Treatment.class);
             configuration.configure("hibernateannotation.cfg.xml");
             System.out.println("Hibernate Annotation Configuration loaded");
 

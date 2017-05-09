@@ -222,6 +222,16 @@ public class patientDashboardController implements Initializable{
     @FXML
     private TextArea analysisCommentsArea;
 
+    //treatment
+    @FXML
+    private TextField treatmentTreatmentFld;
+    @FXML
+    private ChoiceBox<String> treatmentFrequencyChoiceBox;
+    @FXML
+    private ChoiceBox<String> treatmentDurationChoiceBox;
+    @FXML
+    private TextArea treatmentAdjustmentsArea;
+
 
     public Patient getPatient() {
         return patient;
@@ -900,6 +910,42 @@ public class patientDashboardController implements Initializable{
         }
     }
 
+    public void treatmentSave(MouseEvent mouseEvent) {
+        String treatmentName = treatmentTreatmentFld.getText();
+        String frequency = treatmentFrequencyChoiceBox.getValue();
+        String duration = treatmentDurationChoiceBox.getValue();
+        String adjustments = treatmentAdjustmentsArea.getText();
+
+        if(treatmentName.length()>0 ){
+            Treatment treatment = new Treatment(examination);
+            treatment.setTreatmentName(treatmentName);
+            treatment.setFrequency(frequency);
+            treatment.setDuration(duration);
+            if(adjustments.length()>0){
+                treatment.setAdjustments(adjustments);
+            }
+
+            session = HibernateUtil.getSessionAnnotationFactory().getCurrentSession();
+            try {
+                session.beginTransaction();
+                session.save(treatment);
+                session.getTransaction().commit();
+
+            } finally {
+                session.close();
+            }
+
+
+        }else{
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Fill treatment first");
+            alert.setHeaderText("Look, an Error Dialog");
+            alert.setContentText("Ooops, there was an error!");
+            alert.showAndWait();
+        }
+
+    }
+
 
     public void initialize(URL location, ResourceBundle resources) {
         subjectiveRegionComboBox.getItems().addAll("head","neck","chest","Shoulder L", "shoulder R", "upper abdomen",
@@ -955,6 +1001,10 @@ public class patientDashboardController implements Initializable{
         analysisPrognosisChoiceBox.setValue("undetermined");
         analysisTreatmentEffectiveUnableRadioBtn.setSelected(true);
 
+        treatmentFrequencyChoiceBox.getItems().addAll("none","as needed","daily","three times weekly","five times weekly", "once weekly" ,"twice weekly","twice monthly","monthly");
+        treatmentDurationChoiceBox.getItems().addAll("none","indefinitely","one week","two weeks", "three weeks","one month","six weeks","two months", "three months","one year");
+        treatmentFrequencyChoiceBox.setValue("none");
+        treatmentDurationChoiceBox.setValue("none");
         //start transaction
         try {
             session = HibernateUtil.getSessionAnnotationFactory().getCurrentSession();
@@ -982,5 +1032,4 @@ public class patientDashboardController implements Initializable{
             session.close();
         }
     }
-
 }
