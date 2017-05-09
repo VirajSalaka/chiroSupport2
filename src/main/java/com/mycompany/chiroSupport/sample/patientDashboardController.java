@@ -1,9 +1,6 @@
 package com.mycompany.chiroSupport.sample;
 
-import com.mycompany.chiroSupport.patientCase.Examination;
-import com.mycompany.chiroSupport.patientCase.PatientCase;
-import com.mycompany.chiroSupport.patientCase.Subjective;
-import com.mycompany.chiroSupport.patientCase.VitalsReport;
+import com.mycompany.chiroSupport.patientCase.*;
 import com.mycompany.chiroSupport.patientCase.objective.*;
 import com.mycompany.chiroSupport.patientProfile.Patient;
 import com.mycompany.chiroSupport.patientProfile.PatientQueueItem;
@@ -196,7 +193,6 @@ public class patientDashboardController implements Initializable{
     private TextArea diagnosticStudiesImpressionArea;
 
     //neurological studies
-    //Diagnostic studies
     @FXML
     private DatePicker neurologicalStudiesDateFld;
     @FXML
@@ -210,7 +206,21 @@ public class patientDashboardController implements Initializable{
     @FXML
     private TextArea neurologicalStudiesImpressionArea;
 
-    //neurological studies
+    //analysis
+    @FXML
+    private ChoiceBox<String> analysisPatientConditionChoiceBox;
+    @FXML
+    private ChoiceBox<String> analysisPatientProgressingChoiceBox;
+    @FXML
+    private RadioButton analysisTreatmentEffectiveYesRadioBtn;
+    @FXML
+    private RadioButton analysisTreatmentEffectiveNoRadioBtn;
+    @FXML
+    private RadioButton analysisTreatmentEffectiveUnableRadioBtn;
+    @FXML
+    private ChoiceBox<String> analysisPrognosisChoiceBox;
+    @FXML
+    private TextArea analysisCommentsArea;
 
 
     public Patient getPatient() {
@@ -843,6 +853,54 @@ public class patientDashboardController implements Initializable{
     }
 
 
+    public void analysisSave(MouseEvent mouseEvent) {
+        String patientCondition = analysisPatientConditionChoiceBox.getValue();
+        String patientProgressing = analysisPatientProgressingChoiceBox.getValue();
+        String patientPrognosis = analysisPrognosisChoiceBox.getValue();
+        String comments = analysisCommentsArea.getText();
+
+        if (patientCondition.equals("not selected") && patientProgressing.equals("not selected") && patientPrognosis.equals("undetermined") &&
+                comments.length() == 0 && analysisTreatmentEffectiveUnableRadioBtn.isSelected()) {
+
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Nothing to save :/");
+            alert.setHeaderText("Look, an Error Dialog");
+            alert.setContentText("Ooops, there was an error!");
+            alert.showAndWait();
+        } else {
+            Analysis analysis = new Analysis(examination);
+            analysis.setPatientCondition(patientCondition);
+            analysis.setPatientProgress(patientProgressing);
+            analysis.setPrognosis(patientPrognosis);
+
+            if (analysisTreatmentEffectiveUnableRadioBtn.isSelected()) {
+                analysis.setEffectiveness(0);
+            }
+            if (analysisTreatmentEffectiveNoRadioBtn.isSelected()) {
+                analysis.setEffectiveness(1);
+            }
+            if (analysisTreatmentEffectiveYesRadioBtn.isSelected()) {
+                analysis.setEffectiveness(2);
+            }
+
+            if (comments.length() > 0) {
+                analysis.setComments(comments);
+            }
+
+            session = HibernateUtil.getSessionAnnotationFactory().getCurrentSession();
+            try {
+                session.beginTransaction();
+                session.save(analysis);
+                session.getTransaction().commit();
+
+            } finally {
+                session.close();
+            }
+
+        }
+    }
+
+
     public void initialize(URL location, ResourceBundle resources) {
         subjectiveRegionComboBox.getItems().addAll("head","neck","chest","Shoulder L", "shoulder R", "upper abdomen",
                 "lower abdomen", "back", "arm L", "arm R", "palm L", "palm R","hip joint","Leg L", "leg R", "ankle L",
@@ -888,6 +946,15 @@ public class patientDashboardController implements Initializable{
         diagnosticStudiesTypeOfStudyChoiceBox.getItems().addAll("not selected","x ray","CR scan", "ECG", "Scanning report");
         diagnosticStudiesTypeOfStudyChoiceBox.setValue("not selected");
 
+        analysisPatientConditionChoiceBox.getItems().addAll("not selected","resolved","marked improvement","moderate improvement",
+                "slight improvement","no change","somewhat worse", "worse");
+        analysisPatientProgressingChoiceBox.getItems().addAll("not selected","expected rate", "faster rate", "slower rate", "negative rate");
+        analysisPrognosisChoiceBox.getItems().addAll("undetermined","poor","fair","good","excellent");
+        analysisPatientConditionChoiceBox.setValue("not selected");
+        analysisPatientProgressingChoiceBox.setValue("not selected");
+        analysisPrognosisChoiceBox.setValue("undetermined");
+        analysisTreatmentEffectiveUnableRadioBtn.setSelected(true);
+
         //start transaction
         try {
             session = HibernateUtil.getSessionAnnotationFactory().getCurrentSession();
@@ -915,4 +982,5 @@ public class patientDashboardController implements Initializable{
             session.close();
         }
     }
+
 }

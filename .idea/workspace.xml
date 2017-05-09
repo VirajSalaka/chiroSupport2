@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d5d57ec1-044f-4ae6-a6d6-ae99e1fd3698" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/chiroSupport/patientCase/objective/NeurologicalStudy.java" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/chiroSupport/patientCase/objective/NeurologicalStudy.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources/848a222c-a8ad-43a3-8ecb-a68db5fc3285.xml" afterPath="$PROJECT_DIR$/.idea/dataSources/848a222c-a8ad-43a3-8ecb-a68db5fc3285.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/chiroSupport/patientCase/Analysis.java" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/chiroSupport/patientCase/Analysis.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/chiroSupport/sample/patientDashboardController.java" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/chiroSupport/sample/patientDashboardController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/patientDashboard.fxml" afterPath="$PROJECT_DIR$/src/main/resources/patientDashboard.fxml" />
     </list>
@@ -44,9 +46,22 @@
       <file leaf-file-name="patientDashboardController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/chiroSupport/sample/patientDashboardController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="32">
-              <caret line="709" column="57" lean-forward="false" selection-start-line="709" selection-start-column="57" selection-end-line="709" selection-end-column="57" />
+            <state relative-caret-position="117">
+              <caret line="878" column="0" lean-forward="false" selection-start-line="878" selection-start-column="0" selection-end-line="878" selection-end-column="0" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Analysis.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/chiroSupport/patientCase/Analysis.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="100">
+              <caret line="65" column="0" lean-forward="true" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
+              <folding>
+                <element signature="e#1562#1563#0" expanded="true" />
+                <element signature="e#1598#1599#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -54,9 +69,41 @@
       <file leaf-file-name="NeurologicalStudy.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/chiroSupport/patientCase/objective/NeurologicalStudy.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
-              <caret line="34" column="28" lean-forward="true" selection-start-line="34" selection-start-column="28" selection-end-line="34" selection-end-column="28" />
-              <folding />
+            <state relative-caret-position="544">
+              <caret line="34" column="28" lean-forward="false" selection-start-line="34" selection-start-column="28" selection-end-line="34" selection-end-column="28" />
+              <folding>
+                <element signature="imports" expanded="false" />
+                <element signature="e#946#947#0" expanded="false" />
+                <element signature="e#994#995#0" expanded="false" />
+                <element signature="e#1054#1055#0" expanded="false" />
+                <element signature="e#1079#1080#0" expanded="false" />
+                <element signature="e#1122#1123#0" expanded="false" />
+                <element signature="e#1156#1157#0" expanded="false" />
+                <element signature="e#1194#1195#0" expanded="false" />
+                <element signature="e#1228#1229#0" expanded="false" />
+                <element signature="e#1275#1276#0" expanded="false" />
+                <element signature="e#1314#1315#0" expanded="false" />
+                <element signature="e#1350#1351#0" expanded="false" />
+                <element signature="e#1382#1383#0" expanded="false" />
+                <element signature="e#1432#1433#0" expanded="false" />
+                <element signature="e#1474#1475#0" expanded="false" />
+                <element signature="e#1507#1508#0" expanded="false" />
+                <element signature="e#1536#1537#0" expanded="false" />
+                <element signature="e#1580#1581#0" expanded="false" />
+                <element signature="e#1616#1617#0" expanded="false" />
+                <element signature="e#1651#1652#0" expanded="false" />
+                <element signature="e#1682#1683#0" expanded="false" />
+                <element signature="e#1730#1731#0" expanded="false" />
+                <element signature="e#1770#1771#0" expanded="false" />
+                <element signature="e#1807#1808#0" expanded="false" />
+                <element signature="e#1840#1841#0" expanded="false" />
+                <element signature="e#1892#1893#0" expanded="false" />
+                <element signature="e#1936#1937#0" expanded="false" />
+                <element signature="e#1970#1971#0" expanded="false" />
+                <element signature="e#1998#1999#0" expanded="false" />
+                <element signature="e#2057#2058#0" expanded="false" />
+                <element signature="e#2103#2104#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -64,9 +111,41 @@
       <file leaf-file-name="DiagnosticStudy.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/chiroSupport/patientCase/objective/DiagnosticStudy.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-497">
+            <state relative-caret-position="425">
               <caret line="27" column="43" lean-forward="false" selection-start-line="27" selection-start-column="43" selection-end-line="27" selection-end-column="43" />
-              <folding />
+              <folding>
+                <element signature="imports" expanded="false" />
+                <element signature="e#940#941#0" expanded="false" />
+                <element signature="e#988#989#0" expanded="false" />
+                <element signature="e#1047#1048#0" expanded="false" />
+                <element signature="e#1072#1073#0" expanded="false" />
+                <element signature="e#1115#1116#0" expanded="false" />
+                <element signature="e#1149#1150#0" expanded="false" />
+                <element signature="e#1187#1188#0" expanded="false" />
+                <element signature="e#1221#1222#0" expanded="false" />
+                <element signature="e#1268#1269#0" expanded="false" />
+                <element signature="e#1307#1308#0" expanded="false" />
+                <element signature="e#1343#1344#0" expanded="false" />
+                <element signature="e#1375#1376#0" expanded="false" />
+                <element signature="e#1425#1426#0" expanded="false" />
+                <element signature="e#1467#1468#0" expanded="false" />
+                <element signature="e#1500#1501#0" expanded="false" />
+                <element signature="e#1529#1530#0" expanded="false" />
+                <element signature="e#1573#1574#0" expanded="false" />
+                <element signature="e#1609#1610#0" expanded="false" />
+                <element signature="e#1644#1645#0" expanded="false" />
+                <element signature="e#1675#1676#0" expanded="false" />
+                <element signature="e#1723#1724#0" expanded="false" />
+                <element signature="e#1763#1764#0" expanded="false" />
+                <element signature="e#1800#1801#0" expanded="false" />
+                <element signature="e#1833#1834#0" expanded="false" />
+                <element signature="e#1885#1886#0" expanded="false" />
+                <element signature="e#1929#1930#0" expanded="false" />
+                <element signature="e#1963#1964#0" expanded="false" />
+                <element signature="e#1991#1992#0" expanded="false" />
+                <element signature="e#2050#2051#0" expanded="false" />
+                <element signature="e#2096#2097#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -74,9 +153,15 @@
       <file leaf-file-name="ReceptionistDataEntryController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/chiroSupport/sample/ReceptionistDataEntryController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="464">
+            <state relative-caret-position="1088">
               <caret line="78" column="43" lean-forward="false" selection-start-line="78" selection-start-column="43" selection-end-line="78" selection-end-column="43" />
-              <folding />
+              <folding>
+                <element signature="imports" expanded="false" />
+                <element signature="e#2892#2893#0" expanded="false" />
+                <element signature="e#2918#2919#0" expanded="false" />
+                <element signature="e#3051#3052#0" expanded="false" />
+                <element signature="e#3077#3078#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -84,9 +169,13 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/chiroSupport/sample/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="64">
+            <state relative-caret-position="170">
               <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-              <folding />
+              <folding>
+                <element signature="imports" expanded="false" />
+                <element signature="e#669#670#0" expanded="false" />
+                <element signature="e#697#698#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -94,46 +183,10 @@
       <file leaf-file-name="patientQueueController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/chiroSupport/sample/patientQueueController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
+            <state relative-caret-position="2482">
               <caret line="172" column="12" lean-forward="false" selection-start-line="172" selection-start-column="12" selection-end-line="179" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MusclePower.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/chiroSupport/patientCase/objective/MusclePower.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="612">
-              <caret line="40" column="26" lean-forward="false" selection-start-line="40" selection-start-column="26" selection-end-line="40" selection-end-column="26" />
               <folding>
                 <element signature="imports" expanded="false" />
-                <element signature="e#836#837#0" expanded="false" />
-                <element signature="e#884#885#0" expanded="false" />
-                <element signature="e#939#940#0" expanded="false" />
-                <element signature="e#964#965#0" expanded="false" />
-                <element signature="e#1008#1009#0" expanded="false" />
-                <element signature="e#1042#1043#0" expanded="false" />
-                <element signature="e#1076#1077#0" expanded="false" />
-                <element signature="e#1105#1106#0" expanded="false" />
-                <element signature="e#1149#1150#0" expanded="false" />
-                <element signature="e#1185#1186#0" expanded="false" />
-                <element signature="e#1218#1219#0" expanded="false" />
-                <element signature="e#1247#1248#0" expanded="false" />
-                <element signature="e#1291#1292#0" expanded="false" />
-                <element signature="e#1327#1328#0" expanded="false" />
-                <element signature="e#1361#1362#0" expanded="false" />
-                <element signature="e#1394#1395#0" expanded="false" />
-                <element signature="e#1438#1439#0" expanded="false" />
-                <element signature="e#1477#1478#0" expanded="false" />
-                <element signature="e#1512#1513#0" expanded="false" />
-                <element signature="e#1543#1544#0" expanded="false" />
-                <element signature="e#1591#1592#0" expanded="false" />
-                <element signature="e#1631#1632#0" expanded="false" />
-                <element signature="e#1665#1666#0" expanded="false" />
-                <element signature="e#1693#1694#0" expanded="false" />
-                <element signature="e#1752#1753#0" expanded="false" />
-                <element signature="e#1798#1799#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -184,8 +237,8 @@
       <file leaf-file-name="patientDashboard.fxml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/patientDashboard.fxml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
-              <caret line="444" column="40" lean-forward="false" selection-start-line="444" selection-start-column="40" selection-end-line="444" selection-end-column="40" />
+            <state relative-caret-position="174">
+              <caret line="535" column="147" lean-forward="false" selection-start-line="535" selection-start-column="147" selection-end-line="535" selection-end-column="147" />
               <folding />
             </state>
           </provider>
@@ -197,7 +250,7 @@
       <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="292">
+            <state relative-caret-position="1054">
               <caret line="62" column="17" lean-forward="false" selection-start-line="62" selection-start-column="17" selection-end-line="62" selection-end-column="17" />
               <folding />
             </state>
@@ -257,7 +310,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/mycompany/chiroSupport/patientCase/objective/MusclePower.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/mycompany/chiroSupport/patientCase/objective/Observation.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/mycompany/chiroSupport/patientCase/objective/Palpation.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/mycompany/chiroSupport/patientCase/Analysis.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/mycompany/chiroSupport/patientProfile/Patient.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/mycompany/chiroSupport/patientCase/Examination.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/mycompany/chiroSupport/patientCase/PatientCase.java" />
@@ -268,6 +320,7 @@
         <option value="$PROJECT_DIR$/src/main/resources/patientDashboard.fxml" />
         <option value="$PROJECT_DIR$/src/main/java/com/mycompany/chiroSupport/patientCase/objective/DiagnosticStudy.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/mycompany/chiroSupport/patientCase/objective/NeurologicalStudy.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mycompany/chiroSupport/patientCase/Analysis.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/mycompany/chiroSupport/sample/patientDashboardController.java" />
       </list>
     </option>
@@ -334,9 +387,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -529,6 +579,9 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1084,12 +1137,15 @@
       <workItem from="1493960854522" duration="1009000" />
       <workItem from="1494074447656" duration="1500000" />
       <workItem from="1494136895085" duration="2059000" />
-      <workItem from="1494179530760" duration="9846000" />
+      <workItem from="1494179530760" duration="10085000" />
+      <workItem from="1494320819261" duration="152000" />
+      <workItem from="1494323667866" duration="667000" />
+      <workItem from="1494343513282" duration="4715000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="168178000" />
+    <option name="totallyTimeSpent" value="173951000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -1117,7 +1173,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33387887" sideWeight="0.6068814" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2532943" sideWeight="0.23343849" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19213313" sideWeight="0.7665615" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20121029" sideWeight="0.7665615" order="1" side_tool="false" content_ui="combo" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1405,60 +1461,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/chiroSupport/patientCase/Analysis.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="40" column="23" lean-forward="false" selection-start-line="40" selection-start-column="23" selection-end-line="40" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/chiroSupport/patientProfile/Patient.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="697">
           <caret line="47" column="0" lean-forward="false" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#1846#1847#0" expanded="false" />
-            <element signature="e#1880#1881#0" expanded="false" />
-            <element signature="e#1910#1911#0" expanded="false" />
-            <element signature="e#1938#1939#0" expanded="false" />
-            <element signature="e#1969#1970#0" expanded="false" />
-            <element signature="e#1996#1997#0" expanded="false" />
-            <element signature="e#2025#2026#0" expanded="false" />
-            <element signature="e#2053#2054#0" expanded="false" />
-            <element signature="e#2082#2083#0" expanded="false" />
-            <element signature="e#2110#2111#0" expanded="false" />
-            <element signature="e#2140#2141#0" expanded="false" />
-            <element signature="e#2166#2167#0" expanded="false" />
-            <element signature="e#2196#2197#0" expanded="false" />
-            <element signature="e#2225#2226#0" expanded="false" />
-            <element signature="e#2259#2260#0" expanded="false" />
-            <element signature="e#2289#2290#0" expanded="false" />
-            <element signature="e#2322#2323#0" expanded="false" />
-            <element signature="e#2354#2355#0" expanded="false" />
-            <element signature="e#2567#2568#0" expanded="false" />
-            <element signature="e#2603#2604#0" expanded="false" />
-            <element signature="e#2673#2674#0" expanded="false" />
-            <element signature="e#2723#2724#0" expanded="false" />
-            <element signature="e#2762#2763#0" expanded="false" />
-            <element signature="e#2794#2795#0" expanded="false" />
-            <element signature="e#2847#2848#0" expanded="false" />
-            <element signature="e#2889#2890#0" expanded="false" />
-            <element signature="e#2929#2930#0" expanded="false" />
-            <element signature="e#2961#2962#0" expanded="false" />
-            <element signature="e#3000#3001#0" expanded="false" />
-            <element signature="e#3034#3035#0" expanded="false" />
-            <element signature="e#3073#3074#0" expanded="false" />
-            <element signature="e#3107#3108#0" expanded="false" />
-            <element signature="e#3145#3146#0" expanded="false" />
-            <element signature="e#3175#3176#0" expanded="false" />
-            <element signature="e#3216#3217#0" expanded="false" />
-            <element signature="e#3252#3253#0" expanded="false" />
-            <element signature="e#3298#3299#0" expanded="false" />
-            <element signature="e#3336#3337#0" expanded="false" />
-            <element signature="e#3383#3384#0" expanded="false" />
-            <element signature="e#3425#3426#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1466,33 +1472,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="19" column="24" lean-forward="false" selection-start-line="19" selection-start-column="24" selection-end-line="19" selection-end-column="24" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#1012#1013#0" expanded="false" />
-            <element signature="e#1042#1043#0" expanded="false" />
-            <element signature="e#1077#1078#0" expanded="false" />
-            <element signature="e#1108#1109#0" expanded="false" />
-            <element signature="e#1146#1147#0" expanded="false" />
-            <element signature="e#1180#1181#0" expanded="false" />
-            <element signature="e#1232#1233#0" expanded="false" />
-            <element signature="e#1278#1279#0" expanded="false" />
-            <element signature="e#1313#1314#0" expanded="false" />
-            <element signature="e#1343#1344#0" expanded="false" />
-            <element signature="e#1390#1391#0" expanded="false" />
-            <element signature="e#1428#1429#0" expanded="false" />
-            <element signature="e#1474#1475#0" expanded="false" />
-            <element signature="e#1505#1506#0" expanded="false" />
-            <element signature="e#1564#1565#0" expanded="false" />
-            <element signature="e#1604#1605#0" expanded="false" />
-            <element signature="e#1631#1632#0" expanded="false" />
-            <element signature="e#1656#1657#0" expanded="false" />
-            <element signature="e#1690#1691#0" expanded="false" />
-            <element signature="e#1718#1719#0" expanded="false" />
-            <element signature="e#1766#1767#0" expanded="false" />
-            <element signature="e#1806#1807#0" expanded="false" />
-            <element signature="e#1860#1861#0" expanded="false" />
-            <element signature="e#1906#1907#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1777,7 +1756,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="292">
+        <state relative-caret-position="1054">
           <caret line="62" column="17" lean-forward="false" selection-start-line="62" selection-start-column="17" selection-end-line="62" selection-end-column="17" />
           <folding />
         </state>
@@ -1785,24 +1764,124 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/chiroSupport/sample/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="64">
+        <state relative-caret-position="170">
           <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#669#670#0" expanded="false" />
+            <element signature="e#697#698#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/chiroSupport/sample/patientQueueController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
+        <state relative-caret-position="2482">
           <caret line="172" column="12" lean-forward="false" selection-start-line="172" selection-start-column="12" selection-end-line="179" selection-end-column="13" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/chiroSupport/sample/ReceptionistDataEntryController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1088">
+          <caret line="78" column="43" lean-forward="false" selection-start-line="78" selection-start-column="43" selection-end-line="78" selection-end-column="43" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#2892#2893#0" expanded="false" />
+            <element signature="e#2918#2919#0" expanded="false" />
+            <element signature="e#3051#3052#0" expanded="false" />
+            <element signature="e#3077#3078#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/chiroSupport/patientCase/objective/DiagnosticStudy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="27" column="43" lean-forward="false" selection-start-line="27" selection-start-column="43" selection-end-line="27" selection-end-column="43" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#940#941#0" expanded="false" />
+            <element signature="e#988#989#0" expanded="false" />
+            <element signature="e#1047#1048#0" expanded="false" />
+            <element signature="e#1072#1073#0" expanded="false" />
+            <element signature="e#1115#1116#0" expanded="false" />
+            <element signature="e#1149#1150#0" expanded="false" />
+            <element signature="e#1187#1188#0" expanded="false" />
+            <element signature="e#1221#1222#0" expanded="false" />
+            <element signature="e#1268#1269#0" expanded="false" />
+            <element signature="e#1307#1308#0" expanded="false" />
+            <element signature="e#1343#1344#0" expanded="false" />
+            <element signature="e#1375#1376#0" expanded="false" />
+            <element signature="e#1425#1426#0" expanded="false" />
+            <element signature="e#1467#1468#0" expanded="false" />
+            <element signature="e#1500#1501#0" expanded="false" />
+            <element signature="e#1529#1530#0" expanded="false" />
+            <element signature="e#1573#1574#0" expanded="false" />
+            <element signature="e#1609#1610#0" expanded="false" />
+            <element signature="e#1644#1645#0" expanded="false" />
+            <element signature="e#1675#1676#0" expanded="false" />
+            <element signature="e#1723#1724#0" expanded="false" />
+            <element signature="e#1763#1764#0" expanded="false" />
+            <element signature="e#1800#1801#0" expanded="false" />
+            <element signature="e#1833#1834#0" expanded="false" />
+            <element signature="e#1885#1886#0" expanded="false" />
+            <element signature="e#1929#1930#0" expanded="false" />
+            <element signature="e#1963#1964#0" expanded="false" />
+            <element signature="e#1991#1992#0" expanded="false" />
+            <element signature="e#2050#2051#0" expanded="false" />
+            <element signature="e#2096#2097#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/chiroSupport/patientCase/objective/NeurologicalStudy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="544">
+          <caret line="34" column="28" lean-forward="false" selection-start-line="34" selection-start-column="28" selection-end-line="34" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#946#947#0" expanded="false" />
+            <element signature="e#994#995#0" expanded="false" />
+            <element signature="e#1054#1055#0" expanded="false" />
+            <element signature="e#1079#1080#0" expanded="false" />
+            <element signature="e#1122#1123#0" expanded="false" />
+            <element signature="e#1156#1157#0" expanded="false" />
+            <element signature="e#1194#1195#0" expanded="false" />
+            <element signature="e#1228#1229#0" expanded="false" />
+            <element signature="e#1275#1276#0" expanded="false" />
+            <element signature="e#1314#1315#0" expanded="false" />
+            <element signature="e#1350#1351#0" expanded="false" />
+            <element signature="e#1382#1383#0" expanded="false" />
+            <element signature="e#1432#1433#0" expanded="false" />
+            <element signature="e#1474#1475#0" expanded="false" />
+            <element signature="e#1507#1508#0" expanded="false" />
+            <element signature="e#1536#1537#0" expanded="false" />
+            <element signature="e#1580#1581#0" expanded="false" />
+            <element signature="e#1616#1617#0" expanded="false" />
+            <element signature="e#1651#1652#0" expanded="false" />
+            <element signature="e#1682#1683#0" expanded="false" />
+            <element signature="e#1730#1731#0" expanded="false" />
+            <element signature="e#1770#1771#0" expanded="false" />
+            <element signature="e#1807#1808#0" expanded="false" />
+            <element signature="e#1840#1841#0" expanded="false" />
+            <element signature="e#1892#1893#0" expanded="false" />
+            <element signature="e#1936#1937#0" expanded="false" />
+            <element signature="e#1970#1971#0" expanded="false" />
+            <element signature="e#1998#1999#0" expanded="false" />
+            <element signature="e#2057#2058#0" expanded="false" />
+            <element signature="e#2103#2104#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/patientDashboard.fxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="444" column="40" lean-forward="false" selection-start-line="444" selection-start-column="40" selection-end-line="444" selection-end-column="40" />
+        <state relative-caret-position="174">
+          <caret line="535" column="147" lean-forward="false" selection-start-line="535" selection-start-column="147" selection-end-line="535" selection-end-column="147" />
           <folding />
         </state>
       </provider>
@@ -1810,34 +1889,21 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/chiroSupport/sample/ReceptionistDataEntryController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/chiroSupport/patientCase/Analysis.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="464">
-          <caret line="78" column="43" lean-forward="false" selection-start-line="78" selection-start-column="43" selection-end-line="78" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/chiroSupport/patientCase/objective/DiagnosticStudy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-497">
-          <caret line="27" column="43" lean-forward="false" selection-start-line="27" selection-start-column="43" selection-end-line="27" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/chiroSupport/patientCase/objective/NeurologicalStudy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="34" column="28" lean-forward="true" selection-start-line="34" selection-start-column="28" selection-end-line="34" selection-end-column="28" />
-          <folding />
+        <state relative-caret-position="100">
+          <caret line="65" column="0" lean-forward="true" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
+          <folding>
+            <element signature="e#1562#1563#0" expanded="true" />
+            <element signature="e#1598#1599#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/chiroSupport/sample/patientDashboardController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="32">
-          <caret line="709" column="57" lean-forward="false" selection-start-line="709" selection-start-column="57" selection-end-line="709" selection-end-column="57" />
+        <state relative-caret-position="117">
+          <caret line="878" column="0" lean-forward="false" selection-start-line="878" selection-start-column="0" selection-end-line="878" selection-end-column="0" />
           <folding />
         </state>
       </provider>

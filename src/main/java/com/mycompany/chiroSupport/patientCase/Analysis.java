@@ -21,16 +21,16 @@ public class Analysis {
     private Examination examination;
 
     @Column(name="patient_condition", nullable=false)
-    private int patientCondition;
+    private String patientCondition;
 
     @Column(name="patient_progress", nullable=false)
-    private int patientProgress;
+    private String patientProgress;
 
     @Column(name="effectiveness", nullable=false)
     private int effectiveness;
 
     @Column(name="prognosis", nullable=false)
-    private int prognosis;
+    private String prognosis;
 
     @Column(name="comments")
     private String comments;
@@ -48,19 +48,19 @@ public class Analysis {
         return examination;
     }
 
-    public int getPatientCondition() {
+    public String getPatientCondition() {
         return patientCondition;
     }
 
-    public void setPatientCondition(int patientCondition) {
+    public void setPatientCondition(String patientCondition) {
         this.patientCondition = patientCondition;
     }
 
-    public int getPatientProgress() {
+    public String getPatientProgress() {
         return patientProgress;
     }
 
-    public void setPatientProgress(int patientProgress) {
+    public void setPatientProgress(String patientProgress) {
         this.patientProgress = patientProgress;
     }
 
@@ -72,11 +72,11 @@ public class Analysis {
         this.effectiveness = effectiveness;
     }
 
-    public int getPrognosis() {
+    public String getPrognosis() {
         return prognosis;
     }
 
-    public void setPrognosis(int prognosis) {
+    public void setPrognosis(String prognosis) {
         this.prognosis = prognosis;
     }
 
