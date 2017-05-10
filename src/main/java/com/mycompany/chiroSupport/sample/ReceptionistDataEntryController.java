@@ -30,6 +30,7 @@ public class ReceptionistDataEntryController implements Initializable {
     private int gender;
     private ObservableList<Patient> entries = FXCollections.observableArrayList();
     private List<Patient> patientList = new ArrayList<Patient>();
+    private int selection = 0;
 
     //registration
     @FXML
@@ -147,26 +148,23 @@ public class ReceptionistDataEntryController implements Initializable {
         searchFieldSelectionChoiceBox.getSelectionModel().selectedIndexProperty().addListener(
                 new ChangeListener<Number>() {
                     public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
-                        if(newValue.intValue()==0){
-                            searchNameFld.textProperty().addListener(
-                                    new ChangeListener() {
-                                        public void changed(ObservableValue observable,
-                                                            Object oldVal, Object newVal) {
-                                            handleSearchByName((String)oldVal, (String)newVal);
-                                        }
-                                    });
-                        }else{
-                            searchNameFld.textProperty().addListener(
-                                    new ChangeListener() {
-                                        public void changed(ObservableValue observable,
-                                                            Object oldVal, Object newVal) {
-                                            handleSearchByNicNo((String)oldVal, (String)newVal);
-                                        }
-                                    });
-                        }
+                        selection = newValue.intValue();
                     }
                 }
         );
+
+        searchNameFld.textProperty().addListener(
+                new ChangeListener() {
+                    public void changed(ObservableValue observable,
+                                        Object oldVal, Object newVal) {
+                        if(selection==0){
+                            handleSearchByName((String)oldVal, (String)newVal);
+                        }else{
+                            handleSearchByNicNo((String)oldVal, (String)newVal);
+                        }
+
+                    }
+                });
 
     }
 
@@ -247,6 +245,16 @@ public class ReceptionistDataEntryController implements Initializable {
                         super.updateItem(t, bln);
                         if (t != null) {
                             setText(t.getName() + ":" + t.getNicNo());
+                            StringBuilder sb = new StringBuilder();
+                            sb.append("name :");
+                            sb.append(t.getName());
+                            sb.append("\nNic No : ");
+                            sb.append(t.getNicNo());
+                            sb.append("\ndate of birth :");
+                            sb.append(t.getDob());
+                            sb.append("\naddress : ");
+                            sb.append(t.getAddress());
+                            this.setTooltip(new Tooltip(sb.toString()));
                         }
                     }
                 };

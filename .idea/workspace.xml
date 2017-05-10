@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d5d57ec1-044f-4ae6-a6d6-ae99e1fd3698" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources/848a222c-a8ad-43a3-8ecb-a68db5fc3285.xml" afterPath="$PROJECT_DIR$/.idea/dataSources/848a222c-a8ad-43a3-8ecb-a68db5fc3285.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/chiroSupport/sample/Main.java" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/chiroSupport/sample/Main.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/chiroSupport/sample/ReceptionistDataEntryController.java" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/chiroSupport/sample/ReceptionistDataEntryController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/receptionistDataEntry.fxml" afterPath="$PROJECT_DIR$/src/main/resources/receptionistDataEntry.fxml" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -69,20 +66,18 @@
       <file leaf-file-name="ReceptionistDataEntryController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/chiroSupport/sample/ReceptionistDataEntryController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="184">
-              <caret line="157" column="30" lean-forward="true" selection-start-line="157" selection-start-column="30" selection-end-line="157" selection-end-column="30" />
+            <state relative-caret-position="166">
+              <caret line="256" column="72" lean-forward="true" selection-start-line="256" selection-start-column="72" selection-end-line="256" selection-end-column="72" />
               <folding>
                 <element signature="e#1086#1095#0" expanded="true" />
-                <element signature="e#4595#5871#0" expanded="true" />
-                <element signature="e#4906#5284#0" expanded="true" />
-                <element signature="e#5283#5284#0" expanded="true" />
-                <element signature="e#5424#5803#0" expanded="true" />
-                <element signature="e#5802#5803#0" expanded="true" />
-                <element signature="e#5870#5871#0" expanded="true" />
-                <element signature="e#8870#9439#0" expanded="true" />
-                <element signature="e#9030#9385#0" expanded="true" />
-                <element signature="e#9384#9385#0" expanded="true" />
-                <element signature="e#9438#9439#0" expanded="true" />
+                <element signature="e#4626#4875#0" expanded="true" />
+                <element signature="e#4874#4875#0" expanded="true" />
+                <element signature="e#4954#5417#0" expanded="true" />
+                <element signature="e#5416#5417#0" expanded="true" />
+                <element signature="e#8407#9546#0" expanded="true" />
+                <element signature="e#8567#9492#0" expanded="true" />
+                <element signature="e#9491#9492#0" expanded="true" />
+                <element signature="e#9545#9546#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -1036,12 +1031,12 @@
       <workItem from="1494320819261" duration="152000" />
       <workItem from="1494323667866" duration="667000" />
       <workItem from="1494343513282" duration="9638000" />
-      <workItem from="1494387956636" duration="11847000" />
+      <workItem from="1494387956636" duration="16032000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="190721000" />
+    <option name="totallyTimeSpent" value="194906000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -1787,20 +1782,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/chiroSupport/sample/ReceptionistDataEntryController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="157" column="30" lean-forward="true" selection-start-line="157" selection-start-column="30" selection-end-line="157" selection-end-column="30" />
+        <state relative-caret-position="166">
+          <caret line="256" column="72" lean-forward="true" selection-start-line="256" selection-start-column="72" selection-end-line="256" selection-end-column="72" />
           <folding>
             <element signature="e#1086#1095#0" expanded="true" />
-            <element signature="e#4595#5871#0" expanded="true" />
-            <element signature="e#4906#5284#0" expanded="true" />
-            <element signature="e#5283#5284#0" expanded="true" />
-            <element signature="e#5424#5803#0" expanded="true" />
-            <element signature="e#5802#5803#0" expanded="true" />
-            <element signature="e#5870#5871#0" expanded="true" />
-            <element signature="e#8870#9439#0" expanded="true" />
-            <element signature="e#9030#9385#0" expanded="true" />
-            <element signature="e#9384#9385#0" expanded="true" />
-            <element signature="e#9438#9439#0" expanded="true" />
+            <element signature="e#4626#4875#0" expanded="true" />
+            <element signature="e#4874#4875#0" expanded="true" />
+            <element signature="e#4954#5417#0" expanded="true" />
+            <element signature="e#5416#5417#0" expanded="true" />
+            <element signature="e#8407#9546#0" expanded="true" />
+            <element signature="e#8567#9492#0" expanded="true" />
+            <element signature="e#9491#9492#0" expanded="true" />
+            <element signature="e#9545#9546#0" expanded="true" />
           </folding>
         </state>
       </provider>
