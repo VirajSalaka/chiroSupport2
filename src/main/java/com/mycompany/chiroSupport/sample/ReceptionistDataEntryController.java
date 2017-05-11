@@ -11,18 +11,25 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import javafx.util.Callback;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class ReceptionistDataEntryController implements Initializable {
@@ -261,6 +268,76 @@ public class ReceptionistDataEntryController implements Initializable {
                 return cell;
             }
         });
+    }
+
+    public void searchPatientListViewClicked(MouseEvent mouseEvent) {
+
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Add patient to Queue");
+        alert.setHeaderText("");
+        alert.setContentText("Choose your option.");
+
+        ButtonType buttonTypeAddToQueue = new ButtonType("Add to Queue");
+        ButtonType buttonTypeTwo = new ButtonType("View profile");
+
+        ButtonType buttonTypeCancel = new ButtonType("Cancel", ButtonBar.ButtonData.CANCEL_CLOSE);
+
+        alert.getButtonTypes().setAll(buttonTypeAddToQueue, buttonTypeTwo, buttonTypeCancel);
+
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.get() == buttonTypeAddToQueue){
+
+            Patient patient = searchPatientSuggestionsList.getSelectionModel().getSelectedItem();
+            PatientQueueItem patientQueueItem = new PatientQueueItem(patient);
+            Session session = null;
+            try {
+                // to save patient object in the database
+                session = HibernateUtil.getSessionAnnotationFactory().getCurrentSession();
+
+                //start transaction
+                session.beginTransaction();
+
+                //Save the Model object
+                session.save(patientQueueItem);
+
+                //Commit transaction
+                session.getTransaction().commit();
+
+                //terminate session factory, otherwise program won't end
+
+
+            } catch (Exception e) {
+                Alert alert2 = new Alert(Alert.AlertType.ERROR);
+                alert2.setTitle("Error");
+                alert2.setHeaderText("Look, an Error Dialog");
+                alert2.setContentText("Ooops, there was an error!"+e.toString());
+                alert2.showAndWait();
+            }finally{
+                if(session != null){
+                    session.close();
+                }
+            }
+
+            Node node=(Node) mouseEvent.getSource();
+            Stage stage=(Stage) node.getScene().getWindow();
+            Parent root = null;
+            try {
+                root = FXMLLoader.load(getClass().getResource("/receptionistDataEntry.fxml"));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+
+
+        } else if (result.get() == buttonTypeTwo) {
+
+            System.out.println("two");
+        } else {
+
+        }
+        System.out.println("Selected item: " );
     }
 
 }
