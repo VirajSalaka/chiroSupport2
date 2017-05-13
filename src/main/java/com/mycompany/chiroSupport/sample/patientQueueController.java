@@ -55,11 +55,11 @@ public class patientQueueController implements Initializable{
 
     public void initialize(URL location, ResourceBundle resources) {
 
-        addPeople(new Patient("sarath",123232,234343,"03-03-2014",1,"adfsdaf",1223232));
-        addPeople(new Patient("sunil",234343,234343,"03-03-2014",1,"adfsdaf",1223232));
-        addPeople(new Patient("pasindu",343232,234343,"03-03-2014",1,"adfsdaf",1223232));
-        addPeople(new Patient("sarah",156232,234343,"03-03-2014",1,"adfsdaf",1223232));
-        addPeople(new Patient("upul",983232,234343,"03-03-2014",1,"adfsdaf",1223232));
+//        addPeople(new Patient("sarath",123232,234343,"03-03-2014",1,"adfsdaf",1223232));
+//        addPeople(new Patient("sunil",234343,234343,"03-03-2014",1,"adfsdaf",1223232));
+//        addPeople(new Patient("pasindu",343232,234343,"03-03-2014",1,"adfsdaf",1223232));
+//        addPeople(new Patient("sarah",156232,234343,"03-03-2014",1,"adfsdaf",1223232));
+//        addPeople(new Patient("upul",983232,234343,"03-03-2014",1,"adfsdaf",1223232));
 
         Session session = HibernateUtil.getSessionAnnotationFactory().getCurrentSession();
 

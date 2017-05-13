@@ -1,0 +1,93 @@
+*{
+    color1: #06437c;
+    color2: white;
+    color3: rgba(6, 67, 124, 0.64);
+    color4: rgba(6, 67, 124, 0.72);
+}
+
+#Anchorpane{
+    -fx-background-image: url("/backgroundImage.jpg");
+    -fx-background-repeat: stretch;
+    -fx-background-size: 900 506;
+    -fx-background-position: center center;
+    -fx-effect: dropshadow(three-pass-box, black, 30, 0.5, 0, 0);
+}
+
+.tab{
+    -fx-border-color: #e27200;
+    -fx-border-width: 2%;
+    -fx-font-family: "Cambria";
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+.datePicker{
+    -fx-font-family: "Cambria";
+    -fx-font-size: 13px;
+    -fx-text-fill: black;
+}
+
+.titleLabel {
+    -fx-text-fill: color2;
+    -fx-fill: color1;
+    -fx-stroke: black;
+    -fx-stroke-type: inside;
+}
+
+/*add style to buttons*/
+.button {
+    -fx-font-size: 14px;
+    -fx-text-fill: color1;
+    -fx-font-weight: bold;
+    -fx-background-radius: 0 0 0 0;
+    -fx-background-color: color2;
+    -fx-border-color: color3;
+    -fx-opacity: 70%;
+}
+
+.button:hover {
+    -fx-background-color: color1;
+    -fx-text-fill: color2;
+    -fx-opacity: 100%;
+}
+.button:disabled{
+    -fx-opacity: 20%;
+}
+
+
+/*add style to text field*/
+.text-field {
+    -fx-background-radius: 0 0 0 0;
+    -fx-control-inner-background: color2;
+}
+
+/*add style to combo box*/
+.combo-box {
+    -fx-background-radius: 0 0 0 0;
+    -fx-control-inner-background: color2;
+    -fx-opacity: 70%;
+}
+.combo-box:hover{
+    -fx-opacity: 100%;
+}
+
+
+/*add style to table view*/
+.table-view {
+    -fx-background-radius: 0 0 0 0;
+    -fx-opacity: 70%;
+}
+.table-view .column-header{
+    -fx-background-color: color1;
+    -fx-text-background-color: color2;
+}
+
+.table-column-header{
+    -fx-background-color: color1;
+    -fx-text-fill: color2;
+}
+.table-view:hover{
+    -fx-opacity: 100%;
+}
+
+
