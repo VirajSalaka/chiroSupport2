@@ -2,6 +2,8 @@ package com.mycompany.chiroSupport.patientCase;
 
 
 import com.mycompany.chiroSupport.patientProfile.Patient;
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -27,6 +29,7 @@ public class PatientCase {
     @JoinColumn(name="patient_id", nullable=false)
     private Patient patient;
 
+    @LazyCollection(LazyCollectionOption.FALSE)
     @OneToMany(mappedBy = "patientCase", cascade = CascadeType.ALL)
     private List<Examination> examList;
 

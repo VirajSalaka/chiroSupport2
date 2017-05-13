@@ -5,6 +5,7 @@ import com.mycompany.chiroSupport.patientCase.objective.*;
 import com.mycompany.chiroSupport.patientProfile.Patient;
 import com.mycompany.chiroSupport.patientProfile.PatientQueueItem;
 import com.mycompany.chiroSupport.util.HibernateUtil;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -13,6 +14,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -41,6 +43,7 @@ public class patientDashboardController implements Initializable{
     private PatientCase patientCase;
     private Session session;
     private Examination examination;
+    private List<Examination> caseRelatedExamList;
     private File diagnosticStudySourceFile;
     private int diagnosticStudyCount = 0;
     private File neurologicalStudySourceFile;
@@ -141,6 +144,28 @@ public class patientDashboardController implements Initializable{
     private TextArea specialTestsCommentsArea;
     @FXML
     private Button specialTestsAddResultsBtn;
+    @FXML
+    private TableView<SpecialTest> specialTestCurrentSessionTableView;
+    @FXML
+    private TableColumn<SpecialTest,String> specialTestCurrentSessionRegionColumn;
+    @FXML
+    private TableColumn<SpecialTest,String> specialTestCurrentSessionTestColumn;
+    @FXML
+    private TableColumn<SpecialTest,String> specialTestCurrentSessionResultColumn;
+    @FXML
+    private TableColumn<SpecialTest,String> specialTestCurrentSessionCommentsColumn;
+    @FXML
+    private TableView<SpecialTest> specialTestPreviousTestsTableView;
+    @FXML
+    private TableColumn<SpecialTest,String> specialTestPreviousTestsDateColumn;
+    @FXML
+    private TableColumn<SpecialTest,String> specialTestPreviousTestsRegionColumn;
+    @FXML
+    private TableColumn<SpecialTest,String> specialTestPreviousTestsTestColumn;
+    @FXML
+    private TableColumn<SpecialTest,String> specialTestPreviousTestsResultColumn;
+    @FXML
+    private TableColumn<SpecialTest,String> specialTestPreviousTestsCommentsColumn;
 
     //ROM
     @FXML
@@ -507,7 +532,7 @@ public class patientDashboardController implements Initializable{
         String location = specialTestsLocationFld.getText();
         String test = specialTestsTestFld.getText();
         String result = specialTestsResultFld.getText();
-        String comments = specialTestsResultFld.getText();
+        String comments = specialTestsCommentsArea.getText();
 
         SpecialTest specialTest;
 
@@ -881,11 +906,30 @@ public class patientDashboardController implements Initializable{
 
 
     public void initialize(URL location, ResourceBundle resources) {
-        subjectiveRegionComboBox.getItems().addAll("head","neck","chest","Shoulder L", "shoulder R", "upper abdomen",
-                "lower abdomen", "back", "arm L", "arm R", "palm L", "palm R","hip joint","Leg L", "leg R", "ankle L",
-                "ankle R", "foot L", "foot R");
 
-        specialTestsRegionComboBox.getItems().addAll("head","neck","chest","Shoulder L", "shoulder R", "upper abdomen",
+        session = HibernateUtil.getSessionAnnotationFactory().getCurrentSession();
+
+        try {
+            Transaction t = session.beginTransaction();
+
+            Query query = session.createQuery("from com.mycompany.chiroSupport.patientCase.PatientCase");
+            List<PatientCase> list = query.list();
+            patientCase = list.get(0);
+
+            if(examination == null){
+                examination = new Examination(patientCase);
+                examination.setDate("2020-11-11");
+                session.save(examination);
+            }
+            t.commit();
+        }finally {
+            session.close();
+        }
+
+        patient = patientCase.getPatient();
+        caseRelatedExamList = patientCase.getExamList();
+
+        subjectiveRegionComboBox.getItems().addAll("head","neck","chest","Shoulder L", "shoulder R", "upper abdomen",
                 "lower abdomen", "back", "arm L", "arm R", "palm L", "palm R","hip joint","Leg L", "leg R", "ankle L",
                 "ankle R", "foot L", "foot R");
 
@@ -893,6 +937,8 @@ public class patientDashboardController implements Initializable{
         subjectiveSeverityComboBox.getItems().addAll("high","high-medium", "medium", "low-medium","low");
 
         addPreviousObservation();
+        addPreviousPalpation();
+        specialTestIntialize();
 
         romExtentionChoiceBox.getItems().addAll("not relevant","99","90","80","70","60","50","40","30","20","10","0");
         romExtentionPainChoiceBox.getItems().addAll("not relevant","99","90","80","70","60","50","40","30","20","10","0");
@@ -941,31 +987,7 @@ public class patientDashboardController implements Initializable{
         treatmentFrequencyChoiceBox.setValue("none");
         treatmentDurationChoiceBox.setValue("none");
         //start transaction
-        try {
-            session = HibernateUtil.getSessionAnnotationFactory().getCurrentSession();
-            Transaction t = session.beginTransaction();
 
-            Query query = session.createQuery("from com.mycompany.chiroSupport.patientProfile.Patient");
-            List<Patient> list = query.list();
-            patient = list.get(0);
-
-            if (patientCase == null){
-                patientCase = new PatientCase("low back pain","2020/11/11");
-                patientCase.setPatient(patient);
-            }
-
-            if(examination == null){
-                examination = new Examination(patientCase);
-                examination.setDate("2020-11-11");
-            }
-
-            session.save(patientCase);
-            session.save(examination);
-
-            t.commit();
-        }finally {
-            session.close();
-        }
     }
 
     public void saveObjectInDatabase(Object obj){
@@ -997,44 +1019,48 @@ public class patientDashboardController implements Initializable{
 
     public void addPreviousObservation(){
         List localObservationList = generalSelectQuery("patientCase.objective.Observation");
-        Observation lastObservation = (Observation)localObservationList.get(localObservationList.size()-1);
 
-        if (lastObservation.getExamination().getPatientCase().equals(patientCase)){
-            recentObservationArea.setText(lastObservation.getDescription());
-            recentObservationDateFld.setText(lastObservation.getExamination().getDate());
-        }
+        if(localObservationList.size()!=0){
+            Observation lastObservation = (Observation)localObservationList.get(localObservationList.size()-1);
 
-        List<Observation> list = new ArrayList<Observation>();
-        for(int i= localObservationList.size()-1; i>=0; i--){
-            Observation o = (Observation)localObservationList.get(i);
-            list.add(o);
+            if (lastObservation.getExamination().getPatientCase().equals(patientCase)){
+                recentObservationArea.setText(lastObservation.getDescription());
+                recentObservationDateFld.setText(lastObservation.getExamination().getDate());
+            }
+
+            List<Observation> list = new ArrayList<Observation>();
+            for(int i= localObservationList.size()-1; i>=0; i--){
+                Observation o = (Observation)localObservationList.get(i);
+                list.add(o);
 //            if(o.getExamination().getPatientCase().equals(patientCase)){
 //                list.add(o);
 //            }else{
 //                break;
 //            }
+            }
+
+            ObservableList<Observation> oList = FXCollections.observableList(list);
+            observationListView.setItems(oList);
+
+            observationListView.setCellFactory(new Callback<ListView<Observation>, ListCell<Observation>>(){
+
+                public ListCell<Observation> call(ListView<Observation> o) {
+
+                    ListCell<Observation> cell = new ListCell<Observation>(){
+
+                        @Override
+                        protected void updateItem(Observation observation, boolean bln) {
+                            super.updateItem(observation, bln);
+                            if (observation != null) {
+                                setText(observation.getExamination().getDate());
+                            }
+                        }
+                    };
+                    return cell;
+                }
+            });
         }
 
-        ObservableList<Observation> oList = FXCollections.observableList(list);
-        observationListView.setItems(oList);
-
-        observationListView.setCellFactory(new Callback<ListView<Observation>, ListCell<Observation>>(){
-
-            public ListCell<Observation> call(ListView<Observation> o) {
-
-                ListCell<Observation> cell = new ListCell<Observation>(){
-
-                    @Override
-                    protected void updateItem(Observation observation, boolean bln) {
-                        super.updateItem(observation, bln);
-                        if (observation != null) {
-                            setText(observation.getExamination().getDate());
-                        }
-                    }
-                };
-                return cell;
-            }
-        });
     }
 
     public void observationListViewClicked(MouseEvent mouseEvent) {
@@ -1043,5 +1069,84 @@ public class patientDashboardController implements Initializable{
         alert.setHeaderText("description");
         alert.setContentText(observationListView.getSelectionModel().getSelectedItem().getDescription());
         alert.showAndWait();
+    }
+
+    public void addPreviousPalpation(){
+        List localPalpationList = generalSelectQuery("patientCase.objective.Palpation");
+
+        if(localPalpationList.size() != 0){
+            Palpation lastPalpation = (Palpation) localPalpationList.get(localPalpationList.size()-1);
+
+            if (lastPalpation.getExamination().getPatientCase().equals(patientCase)){
+                recentPalpationArea.setText(lastPalpation.getDescription());
+                recentPalpationDateFld.setText(lastPalpation.getExamination().getDate());
+            }
+
+            List<Palpation> list = new ArrayList<Palpation>();
+            for(int i= localPalpationList.size()-1; i>=0; i--){
+                Palpation p = (Palpation)localPalpationList.get(i);
+                list.add(p);
+//            if(p.getExamination().getPatientCase().equals(patientCase)){
+//                list.add(p);
+//            }else{
+//                break;
+//            }
+            }
+
+            ObservableList<Palpation> oList = FXCollections.observableList(list);
+            palpationListView.setItems(oList);
+
+            palpationListView.setCellFactory(new Callback<ListView<Palpation>, ListCell<Palpation>>(){
+
+                public ListCell<Palpation> call(ListView<Palpation> p) {
+
+                    ListCell<Palpation> cell = new ListCell<Palpation>(){
+
+                        @Override
+                        protected void updateItem(Palpation palpation, boolean bln) {
+                            super.updateItem(palpation, bln);
+                            if (palpation != null) {
+                                setText(palpation.getExamination().getDate());
+                            }
+                        }
+                    };
+                    return cell;
+                }
+            });
+        }
+    }
+
+    public void palpationListViewClicked(MouseEvent mouseEvent) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Palpation");
+        alert.setHeaderText("description");
+        alert.setContentText(palpationListView.getSelectionModel().getSelectedItem().getDescription());
+        alert.showAndWait();
+    }
+
+    public void specialTestIntialize(){
+        specialTestsRegionComboBox.getItems().addAll("head","neck","chest","Shoulder L", "shoulder R", "upper abdomen",
+                "lower abdomen", "back", "arm L", "arm R", "palm L", "palm R","hip joint","Leg L", "leg R", "ankle L",
+                "ankle R", "foot L", "foot R");
+        if(caseRelatedExamList.size()!=0){
+            for(int i=caseRelatedExamList.size()-1;i>=0;i--){
+                List<SpecialTest> tempList = caseRelatedExamList.get(i).getSpecialTestList();
+                ObservableList<SpecialTest> oList = FXCollections.observableList(tempList);
+
+                for(int j=tempList.size()-1;j>=0;j--){
+                    SpecialTest st = tempList.get(j);
+                    System.out.println(st.getRegion());
+                    specialTestPreviousTestsDateColumn.setCellValueFactory(c-> new SimpleStringProperty(c.getValue().getExamination().getDate()));
+                    specialTestPreviousTestsRegionColumn.setCellValueFactory(new PropertyValueFactory<SpecialTest,String>("region"));
+                    specialTestPreviousTestsTestColumn.setCellValueFactory(new PropertyValueFactory<SpecialTest,String>("test"));
+                    specialTestPreviousTestsResultColumn.setCellValueFactory(new PropertyValueFactory<SpecialTest,String>("result"));
+                    specialTestPreviousTestsCommentsColumn.setCellValueFactory(new PropertyValueFactory<SpecialTest,String>("Comments"));
+                    specialTestPreviousTestsTableView.setItems(oList);
+                }
+
+            }
+        }
+
+
     }
 }

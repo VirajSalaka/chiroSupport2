@@ -37,6 +37,8 @@ public class SpecialTest {
     @Column(name="comments")
     private String Comments;
 
+    //private String date;
+
     public SpecialTest(Examination examination){
         this.setExamination(examination);
     }
@@ -97,4 +99,8 @@ public class SpecialTest {
     public void setTest(String test) {
         this.test = test;
     }
+
+//    public String getDate(){
+//        return examination.getDate();
+//    }
 }

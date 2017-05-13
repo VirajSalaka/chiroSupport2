@@ -2,6 +2,8 @@ package com.mycompany.chiroSupport.patientCase;
 
 
 import com.mycompany.chiroSupport.patientCase.objective.*;
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
 
 import javax.persistence.*;
 import java.util.List;
@@ -24,6 +26,7 @@ public class Examination {
     @Column(name="createdDate", nullable=false)
     private String date;
 
+    @LazyCollection(LazyCollectionOption.FALSE)
     @OneToMany(mappedBy = "examination", cascade = CascadeType.ALL)
     private List<Subjective> subjectiveList;
 
@@ -33,18 +36,23 @@ public class Examination {
     @OneToOne(mappedBy = "examination", cascade = CascadeType.ALL)
     private Palpation palpation;
 
+    @LazyCollection(LazyCollectionOption.FALSE)
     @OneToMany(mappedBy = "examination", cascade = CascadeType.ALL)
     private List<SpecialTest> specialTestList;
 
+    @LazyCollection(LazyCollectionOption.FALSE)
     @OneToMany(mappedBy = "examination", cascade = CascadeType.ALL)
     private List<Rom> romTestList;
 
+    @LazyCollection(LazyCollectionOption.FALSE)
     @OneToMany(mappedBy = "examination", cascade = CascadeType.ALL)
     private List<MusclePower> musclePowerList;
 
+    @LazyCollection(LazyCollectionOption.FALSE)
     @OneToMany(mappedBy = "examination", cascade = CascadeType.ALL)
     private List<DiagnosticStudy> diagnosticStudyList;
 
+    @LazyCollection(LazyCollectionOption.FALSE)
     @OneToMany(mappedBy = "examination", cascade = CascadeType.ALL)
     private List<NeurologicalStudy> neurologicalStudyList;
 

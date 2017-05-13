@@ -235,7 +235,7 @@
                                                          </font>
                                                       </Label>
                                                       <Button fx:id="palpationSaveBtn" layoutX="715.0" layoutY="156.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="154.0" text="Save" />
-                                                      <ListView fx:id="palpationListView" layoutX="14.0" layoutY="371.0" prefHeight="219.0" prefWidth="234.0" />
+                                                      <ListView fx:id="palpationListView" layoutX="14.0" layoutY="371.0" onMouseClicked="#palpationListViewClicked" prefHeight="219.0" prefWidth="234.0" />
                                                    </children>
                                                 </AnchorPane>
                                           </content>
@@ -256,12 +256,12 @@
                                                       <TextArea fx:id="specialTestsCommentsArea" layoutX="14.0" layoutY="95.0" prefHeight="42.0" prefWidth="871.0" />
                                                       <Button fx:id="specialTestsAddResultsBtn" layoutX="809.0" layoutY="156.0" mnemonicParsing="false" onMouseClicked="#specialResultsSave" text="Add results" />
                                                       <Label layoutX="14.0" layoutY="203.0" text="Current session :" />
-                                                      <TableView layoutX="14.0" layoutY="226.0" prefHeight="131.0" prefWidth="868.0">
+                                                      <TableView fx:id="specialTestCurrentSessionTableView" layoutX="14.0" layoutY="226.0" prefHeight="131.0" prefWidth="868.0">
                                                         <columns>
-                                                          <TableColumn minWidth="0.0" prefWidth="103.0" text="Region" />
-                                                            <TableColumn prefWidth="136.0" text="Test" />
-                                                            <TableColumn prefWidth="130.0" text="Result" />
-                                                            <TableColumn prefWidth="497.0" text="Comments" />
+                                                          <TableColumn fx:id="specialTestCurrentSessionRegionColumn" minWidth="0.0" prefWidth="103.0" text="Region" />
+                                                            <TableColumn fx:id="specialTestCurrentSessionTestColumn" prefWidth="136.0" text="Test" />
+                                                            <TableColumn fx:id="specialTestCurrentSessionResultColumn" prefWidth="130.0" text="Result" />
+                                                            <TableColumn fx:id="specialTestCurrentSessionCommentsColumn" prefWidth="497.0" text="Comments" />
                                                         </columns>
                                                       </TableView>
                                                       <Label layoutX="14.0" layoutY="368.0" text="Previous tests :" />
@@ -270,13 +270,13 @@
                                                             <Font size="14.0" />
                                                          </font>
                                                       </Label>
-                                                      <TableView layoutX="14.0" layoutY="385.0" prefHeight="203.0" prefWidth="868.0">
+                                                      <TableView fx:id="specialTestPreviousTestsTableView" layoutX="14.0" layoutY="385.0" prefHeight="203.0" prefWidth="868.0">
                                                          <columns>
-                                                            <TableColumn prefWidth="63.0" text="Date" />
-                                                            <TableColumn minWidth="0.0" prefWidth="103.0" text="Region" />
-                                                            <TableColumn prefWidth="136.0" text="Test" />
-                                                            <TableColumn prefWidth="130.0" text="Result" />
-                                                            <TableColumn prefWidth="400.0" text="Comments" />
+                                                            <TableColumn fx:id="specialTestPreviousTestsDateColumn" prefWidth="63.0" text="Date" />
+                                                            <TableColumn fx:id="specialTestPreviousTestsRegionColumn" minWidth="0.0" prefWidth="103.0" text="Region" />
+                                                            <TableColumn fx:id="specialTestPreviousTestsTestColumn" prefWidth="136.0" text="Test" />
+                                                            <TableColumn fx:id="specialTestPreviousTestsResultColumn" prefWidth="130.0" text="Result" />
+                                                            <TableColumn fx:id="specialTestPreviousTestsCommentsColumn" prefWidth="400.0" text="Comments" />
                                                          </columns>
                                                       </TableView>
                                                       <Label layoutX="223.0" layoutY="45.0" text="location :" />
