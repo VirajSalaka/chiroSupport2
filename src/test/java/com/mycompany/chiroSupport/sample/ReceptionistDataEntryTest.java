@@ -34,54 +34,5 @@ public class ReceptionistDataEntryTest extends ApplicationTest {
         ((TextField) GuiTest.find("#patientNamefld")).setText("salaka");
         verifyThat("#patientNamefld", NodeMatchers.hasText("salaka"));
     }
-    @Test
-    public void checkNameFld2 (){
-        ((TextField) GuiTest.find("#patientNamefld")).setText("salaka");
-        verifyThat("#patientNamefld", NodeMatchers.hasText("salaka"));
-    }
-    @Test
-    public void checkNameFld3 (){
-        ((TextField) GuiTest.find("#patientNamefld")).setText("salaka");
-        verifyThat("#patientNamefld", NodeMatchers.hasText("salaka"));
-    }
-    @Test
-    public void checkNameFld4 (){
-        ((TextField) GuiTest.find("#patientNamefld")).setText("salaka");
-        verifyThat("#patientNamefld", NodeMatchers.hasText("salaka"));
-    }
-    @Test
-    public void checkNameFld5 (){
-        ((TextField) GuiTest.find("#patientNamefld")).setText("salaka");
-        verifyThat("#patientNamefld", NodeMatchers.hasText("salaka"));
-    }
-    @Test
-    public void checkNameFld6 (){
-        ((TextField) GuiTest.find("#patientNamefld")).setText("salaka");
-        verifyThat("#patientNamefld", NodeMatchers.hasText("salaka"));
-    }
-    @Test
-    public void checkNameFld7 (){
-        ((TextField) GuiTest.find("#patientNamefld")).setText("salaka");
-        verifyThat("#patientNamefld", NodeMatchers.hasText("salaka"));
-    }
-    @Test
-    public void checkNameFld8 (){
-        ((TextField) GuiTest.find("#patientNamefld")).setText("salaka");
-        verifyThat("#patientNamefld", NodeMatchers.hasText("salaka"));
-    }
-    @Test
-    public void checkNameFld9 (){
-        ((TextField) GuiTest.find("#patientNamefd")).setText("salaka");
-        verifyThat("#patientNamefd", NodeMatchers.hasText("salaka"));
-    }
-    @Test
-    public void checkNameFld10 (){
-        ((TextField) GuiTest.find("#patientNamefld")).setText("salaka");
-        verifyThat("#patientNamefld", NodeMatchers.hasText("salaka"));
-    }
-    @Test
-    public void checkNameFld11 (){
-        ((TextField) GuiTest.find("#patientNamefld")).setText("salaka");
-        verifyThat("#patientNamefld", NodeMatchers.hasText("salaka"));
-    }
+
 }

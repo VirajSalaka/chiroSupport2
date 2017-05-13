@@ -34,80 +34,55 @@ import java.util.ResourceBundle;
 public class patientQueueController implements Initializable{
 
     @FXML
-    public ListView<Patient> newPatientListView;
+    private ListView<Patient> newPatientListView;
 
     @FXML
-    public ListView<String> completedPatientListView;
+    private ListView<Patient> completedPatientListView;
 
     @FXML
-    public ListView<String> currentPatientListView;
+    private ListView<Patient> currentPatientListView;
 
-    public ObservableList<Patient> newPatientObservableList;
+    private ObservableList<Patient> newPatientObservableList;
+    private List<Patient> newPatientList = new ArrayList<Patient>();
 
-    public List<Patient> newPatientList = new ArrayList<Patient>();
+    private ObservableList<Patient> currentPatientObservableList;
+    private List<Patient> currentPatientList = new ArrayList<Patient>();
 
-    public void addPeople(Patient p){
-
-        newPatientList.add(p);
-    }
+    private ObservableList<Patient> completedPatientObservableList;
+    private List<Patient> completedPatientList = new ArrayList<Patient>();
 
 
 
     public void initialize(URL location, ResourceBundle resources) {
 
-//        addPeople(new Patient("sarath",123232,234343,"03-03-2014",1,"adfsdaf",1223232));
-//        addPeople(new Patient("sunil",234343,234343,"03-03-2014",1,"adfsdaf",1223232));
-//        addPeople(new Patient("pasindu",343232,234343,"03-03-2014",1,"adfsdaf",1223232));
-//        addPeople(new Patient("sarah",156232,234343,"03-03-2014",1,"adfsdaf",1223232));
-//        addPeople(new Patient("upul",983232,234343,"03-03-2014",1,"adfsdaf",1223232));
 
         Session session = HibernateUtil.getSessionAnnotationFactory().getCurrentSession();
+        try {
+            session.beginTransaction();
+            Query query = session.createQuery("from com.mycompany.chiroSupport.patientProfile.PatientQueueItem");
+            List<PatientQueueItem> list = query.list();
 
-        session.beginTransaction();
-
-        Query query = session.createQuery("from com.mycompany.chiroSupport.patientProfile.PatientQueueItem");
-
-
-
-        List<PatientQueueItem> list = query.list();
-
-        for (PatientQueueItem pqi:list){
-            PatientQueueItem item = (PatientQueueItem)pqi;
-            Patient p = item.getPatient();
-            System.out.println(p.getName());
-            addPeople(p);
+            for (PatientQueueItem pqi : list) {
+                PatientQueueItem item = (PatientQueueItem) pqi;
+                Patient patient = item.getPatient();
+                if(item.getStatus()==0){
+                    newPatientList.add(patient);
+                }else if(item.getStatus()==1){
+                    currentPatientList.add(patient);
+                }else{
+                    completedPatientList.add(patient);
+                }
+            }
+            session.getTransaction().commit();
+        }finally{
+            session.close();
         }
 
-                session.getTransaction().commit();
+        setListView(newPatientObservableList,newPatientList,newPatientListView);
+        setListView(currentPatientObservableList,currentPatientList,currentPatientListView);
+        setListView(completedPatientObservableList,completedPatientList,completedPatientListView);
 
 
-
-        newPatientObservableList = FXCollections.observableList(newPatientList);
-        newPatientListView.setItems(newPatientObservableList);
-
-        newPatientListView.setCellFactory(new Callback<ListView<Patient>, ListCell<Patient>>(){
-
-
-            public ListCell<Patient> call(ListView<Patient> p) {
-
-                ListCell<Patient> cell = new ListCell<Patient>(){
-
-                    @Override
-                    protected void updateItem(Patient patient, boolean bln) {
-                        super.updateItem(patient, bln);
-                        if (patient != null) {
-                            setText(patient.getName() + " : " + patient.getNicNo());
-
-
-                        }
-                    }
-
-                };
-
-
-                return cell;
-            }
-        });
 
 
 
@@ -160,12 +135,11 @@ public class patientQueueController implements Initializable{
         alert.setHeaderText("Look, a Confirmation Dialog with Custom Actions");
         alert.setContentText("Choose your option.");
 
-        ButtonType buttonTypeOne = new ButtonType("One");
-        ButtonType buttonTypeTwo = new ButtonType("Two");
-        ButtonType buttonTypeThree = new ButtonType("Three");
+        ButtonType buttonTypeOne = new ButtonType("new patient case");
+        ButtonType buttonTypeTwo = new ButtonType("existing patient case");
         ButtonType buttonTypeCancel = new ButtonType("Cancel", ButtonBar.ButtonData.CANCEL_CLOSE);
 
-        alert.getButtonTypes().setAll(buttonTypeOne, buttonTypeTwo, buttonTypeThree, buttonTypeCancel);
+        alert.getButtonTypes().setAll(buttonTypeOne, buttonTypeTwo, buttonTypeCancel);
 
         Optional<ButtonType> result = alert.showAndWait();
         if (result.get() == buttonTypeOne){
@@ -186,13 +160,35 @@ public class patientQueueController implements Initializable{
         } else if (result.get() == buttonTypeTwo) {
 
             System.out.println("two");
-        } else if (result.get() == buttonTypeThree) {
-
-            System.out.println("three");
-        } else {
+        }  else {
 
         }
         System.out.println("Selected item: " );
+    }
+
+    public void setListView(ObservableList<Patient> oList,List<Patient> list,ListView<Patient> listView){
+        oList = FXCollections.observableList(list);
+        listView.setItems(oList);
+
+        listView.setCellFactory(new Callback<ListView<Patient>, ListCell<Patient>>(){
+
+
+            public ListCell<Patient> call(ListView<Patient> p) {
+
+                ListCell<Patient> cell = new ListCell<Patient>(){
+
+                    @Override
+                    protected void updateItem(Patient patient, boolean bln) {
+                        super.updateItem(patient, bln);
+                        if (patient != null) {
+                            setText(patient.getName() + " : " + patient.getNicNo());
+                        }
+                    }
+
+                };
+                return cell;
+            }
+        });
     }
 
 }

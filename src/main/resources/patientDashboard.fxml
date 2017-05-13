@@ -5,6 +5,7 @@
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.SplitPane?>
@@ -213,12 +214,7 @@
                                                          </font>
                                                       </Label>
                                                       <Button fx:id="observationSaveBtn" layoutX="734.0" layoutY="142.0" mnemonicParsing="false" onMouseClicked="#observationSave" prefHeight="25.0" prefWidth="135.0" text="Save" />
-                                                      <TableView layoutX="14.0" layoutY="344.0" prefHeight="200.0" prefWidth="848.0">
-                                                        <columns>
-                                                          <TableColumn prefWidth="85.0" text="Date" />
-                                                          <TableColumn prefWidth="762.0" text="Observations" />
-                                                        </columns>
-                                                      </TableView>
+                                                      <ListView fx:id="observationListView" layoutX="14.0" layoutY="344.0" onMouseClicked="#observationListViewClicked" prefHeight="244.0" prefWidth="215.0" />
                                                    </children>
                                                 </AnchorPane>
                                           </content>
@@ -239,12 +235,7 @@
                                                          </font>
                                                       </Label>
                                                       <Button fx:id="palpationSaveBtn" layoutX="715.0" layoutY="156.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="154.0" text="Save" />
-                                                      <TableView layoutX="10.0" layoutY="371.0" prefHeight="219.0" prefWidth="857.0">
-                                                        <columns>
-                                                          <TableColumn prefWidth="75.0" text="Date" />
-                                                          <TableColumn prefWidth="593.0" text="Palpation" />
-                                                        </columns>
-                                                      </TableView>
+                                                      <ListView fx:id="palpationListView" layoutX="14.0" layoutY="371.0" prefHeight="219.0" prefWidth="234.0" />
                                                    </children>
                                                 </AnchorPane>
                                           </content>

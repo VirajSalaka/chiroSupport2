@@ -48,13 +48,14 @@ public class MedicalHx {
 
 
     public MedicalHx(Patient patient){
-        this.patient = patient;
+        this.setPatient(patient);
     }
+
+    public MedicalHx(){}
 
     public int getId() {
         return id;
     }
-
 
     public Patient getPatient() {
         return patient;
@@ -124,4 +125,14 @@ public class MedicalHx {
     public void setOtherIncidentDetails(String otherIncidentDetails) {
         this.otherIncidentDetails = otherIncidentDetails;
     }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setPatient(Patient patient) {
+        this.patient = patient;
+    }
 }
+
+

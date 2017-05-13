@@ -5,6 +5,8 @@ import com.mycompany.chiroSupport.patientCase.objective.*;
 import com.mycompany.chiroSupport.patientProfile.Patient;
 import com.mycompany.chiroSupport.patientProfile.PatientQueueItem;
 import com.mycompany.chiroSupport.util.HibernateUtil;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -14,6 +16,7 @@ import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import javafx.util.Callback;
 import org.apache.commons.io.FilenameUtils;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -25,6 +28,7 @@ import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -109,6 +113,8 @@ public class patientDashboardController implements Initializable{
     private TextArea recentObservationArea;
     @FXML
     private Button observationSaveBtn;
+    @FXML
+    private ListView<Observation> observationListView;
 
     //Palpation
     @FXML
@@ -119,6 +125,8 @@ public class patientDashboardController implements Initializable{
     private TextArea recentPalpationArea;
     @FXML
     private Button palpationSaveBtn;
+    @FXML
+    private ListView<Palpation> palpationListView;
     
     //special Tests
     @FXML
@@ -451,14 +459,7 @@ public class patientDashboardController implements Initializable{
         if (relievedByFactors.length()>0){
             subjective.setRelievingFactors(relievedByFactors);
         }
-        session = HibernateUtil.getSessionAnnotationFactory().getCurrentSession();
-        try {
-            session.beginTransaction();
-            session.save(subjective);
-            session.getTransaction().commit();
-        }finally{
-            session.close();
-        }
+        saveObjectInDatabase(subjective);
     }
 
     public void observationSave(MouseEvent mouseEvent) {
@@ -468,15 +469,7 @@ public class patientDashboardController implements Initializable{
             observation = new Observation(examination);
             observation.setDescription(observationText);
 
-
-            session = HibernateUtil.getSessionAnnotationFactory().getCurrentSession();
-            try {
-                session.beginTransaction();
-                session.save(observation);
-                session.getTransaction().commit();
-            } finally {
-                session.close();
-            }
+            saveObjectInDatabase(observation);
         }else{
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("No observation to be added");
@@ -497,14 +490,7 @@ public class patientDashboardController implements Initializable{
             palpation.setDescription(palpationText);
 
 
-            session = HibernateUtil.getSessionAnnotationFactory().getCurrentSession();
-            try {
-                session.beginTransaction();
-                session.save(palpation);
-                session.getTransaction().commit();
-            } finally {
-                session.close();
-            }
+            saveObjectInDatabase(palpation);
         }else{
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("No Palpation to be added");
@@ -533,15 +519,7 @@ public class patientDashboardController implements Initializable{
             specialTest.setResult(result);
             specialTest.setComments(comments);
 
-            session = HibernateUtil.getSessionAnnotationFactory().getCurrentSession();
-            try {
-                session.beginTransaction();
-                session.save(specialTest);
-                session.getTransaction().commit();
-            } finally {
-                session.close();
-            }
-
+            saveObjectInDatabase(specialTest);
 
         }
     }
@@ -636,14 +614,7 @@ public class patientDashboardController implements Initializable{
             if(comments.length() >0){
                 rom.setComments(comments);
             }
-            session = HibernateUtil.getSessionAnnotationFactory().getCurrentSession();
-            try {
-                session.beginTransaction();
-                session.save(rom);
-                session.getTransaction().commit();
-            } finally {
-                session.close();
-            }
+            saveObjectInDatabase(rom);
         }else{
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Not completed Rom Test");
@@ -671,14 +642,7 @@ public class patientDashboardController implements Initializable{
                 musclePower.setComments(comments);
             }
 
-            session = HibernateUtil.getSessionAnnotationFactory().getCurrentSession();
-            try {
-                session.beginTransaction();
-                session.save(musclePower);
-                session.getTransaction().commit();
-            } finally {
-                session.close();
-            }
+            saveObjectInDatabase(musclePower);
 
         }else{
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -744,16 +708,7 @@ public class patientDashboardController implements Initializable{
             if (diagnosticStudySourceFile != null) {
             try {
                 Files.copy(diagnosticStudySourceFile.toPath(),savingFile.toPath());
-                session = HibernateUtil.getSessionAnnotationFactory().getCurrentSession();
-                try {
-                    session.beginTransaction();
-                    session.save(diagnosticStudy);
-                    session.getTransaction().commit();
-                    diagnosticStudyCount++;
-                } finally {
-                    session.close();
-                }
-
+                saveObjectInDatabase(diagnosticStudy);
 
 
             } catch (IOException ex) {
@@ -833,14 +788,9 @@ public class patientDashboardController implements Initializable{
                 try {
                     Files.copy(neurologicalStudySourceFile.toPath(),savingFile.toPath());
                     session = HibernateUtil.getSessionAnnotationFactory().getCurrentSession();
-                    try {
-                        session.beginTransaction();
-                        session.save(neurologicalStudy);
-                        session.getTransaction().commit();
-                        neurologicalStudyCount++;
-                    } finally {
-                        session.close();
-                    }
+                    saveObjectInDatabase(neurologicalStudy);
+                    neurologicalStudyCount++;
+
 
 
 
@@ -897,15 +847,7 @@ public class patientDashboardController implements Initializable{
                 analysis.setComments(comments);
             }
 
-            session = HibernateUtil.getSessionAnnotationFactory().getCurrentSession();
-            try {
-                session.beginTransaction();
-                session.save(analysis);
-                session.getTransaction().commit();
-
-            } finally {
-                session.close();
-            }
+            saveObjectInDatabase(analysis);
 
         }
     }
@@ -925,16 +867,7 @@ public class patientDashboardController implements Initializable{
                 treatment.setAdjustments(adjustments);
             }
 
-            session = HibernateUtil.getSessionAnnotationFactory().getCurrentSession();
-            try {
-                session.beginTransaction();
-                session.save(treatment);
-                session.getTransaction().commit();
-
-            } finally {
-                session.close();
-            }
-
+            saveObjectInDatabase(treatment);
 
         }else{
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -958,6 +891,8 @@ public class patientDashboardController implements Initializable{
 
         subjectiveFrequencyComboBox.getItems().addAll("always","once an hour","every six hours","daily", "more than once a week", "other");
         subjectiveSeverityComboBox.getItems().addAll("high","high-medium", "medium", "low-medium","low");
+
+        addPreviousObservation();
 
         romExtentionChoiceBox.getItems().addAll("not relevant","99","90","80","70","60","50","40","30","20","10","0");
         romExtentionPainChoiceBox.getItems().addAll("not relevant","99","90","80","70","60","50","40","30","20","10","0");
@@ -1031,5 +966,82 @@ public class patientDashboardController implements Initializable{
         }finally {
             session.close();
         }
+    }
+
+    public void saveObjectInDatabase(Object obj){
+        session = HibernateUtil.getSessionAnnotationFactory().getCurrentSession();
+        try {
+            session.beginTransaction();
+            session.save(obj);
+            session.getTransaction().commit();
+            neurologicalStudyCount++;
+        } finally {
+            session.close();
+        }
+    }
+
+    public List generalSelectQuery(String className){
+        session = HibernateUtil.getSessionAnnotationFactory().getCurrentSession();
+        Query query = null;
+        List list;
+        try {
+            session.beginTransaction();
+            query = session.createQuery("from com.mycompany.chiroSupport."+className);
+            list = query.list();
+            session.getTransaction().commit();
+        }finally {
+            session.close();
+        }
+        return list;
+    }
+
+    public void addPreviousObservation(){
+        List localObservationList = generalSelectQuery("patientCase.objective.Observation");
+        Observation lastObservation = (Observation)localObservationList.get(localObservationList.size()-1);
+
+        if (lastObservation.getExamination().getPatientCase().equals(patientCase)){
+            recentObservationArea.setText(lastObservation.getDescription());
+            recentObservationDateFld.setText(lastObservation.getExamination().getDate());
+        }
+
+        List<Observation> list = new ArrayList<Observation>();
+        for(int i= localObservationList.size()-1; i>=0; i--){
+            Observation o = (Observation)localObservationList.get(i);
+            list.add(o);
+//            if(o.getExamination().getPatientCase().equals(patientCase)){
+//                list.add(o);
+//            }else{
+//                break;
+//            }
+        }
+
+        ObservableList<Observation> oList = FXCollections.observableList(list);
+        observationListView.setItems(oList);
+
+        observationListView.setCellFactory(new Callback<ListView<Observation>, ListCell<Observation>>(){
+
+            public ListCell<Observation> call(ListView<Observation> o) {
+
+                ListCell<Observation> cell = new ListCell<Observation>(){
+
+                    @Override
+                    protected void updateItem(Observation observation, boolean bln) {
+                        super.updateItem(observation, bln);
+                        if (observation != null) {
+                            setText(observation.getExamination().getDate());
+                        }
+                    }
+                };
+                return cell;
+            }
+        });
+    }
+
+    public void observationListViewClicked(MouseEvent mouseEvent) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Observation");
+        alert.setHeaderText("description");
+        alert.setContentText(observationListView.getSelectionModel().getSelectedItem().getDescription());
+        alert.showAndWait();
     }
 }
