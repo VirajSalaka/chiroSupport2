@@ -30,10 +30,10 @@ public class Subjective {
     private String location;
 
     @Column(name="frequency")
-    private int frequency; //in scale of 1-7
+    private String frequency; //in scale of 1-7
 
     @Column(name="severity")
-    private int severity; // in scale of 1-5
+    private String severity; // in scale of 1-5
 
     @Column(name="pain")
     private boolean pain;
@@ -97,19 +97,19 @@ public class Subjective {
         this.location = location;
     }
 
-    public int getFrequency() {
+    public String getFrequency() {
         return frequency;
     }
 
-    public void setFrequency(int frequency) {
+    public void setFrequency(String frequency) {
         this.frequency = frequency;
     }
 
-    public int getSeverity() {
+    public String getSeverity() {
         return severity;
     }
 
-    public void setSeverity(int severity) {
+    public void setSeverity(String severity) {
         this.severity = severity;
     }
 

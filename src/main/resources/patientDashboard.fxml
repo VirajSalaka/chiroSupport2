@@ -177,13 +177,12 @@
                                           </AnchorPane>
                                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                                              <children>
-                                                <TableView layoutX="-14.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="0.0">
+                                                <TableView fx:id="subjectiveTableView" layoutX="-14.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="0.0">
                                                   <columns>
-                                                    <TableColumn prefWidth="86.0" text="Region" />
-                                                    <TableColumn prefWidth="88.0" text="Location" />
-                                                      <TableColumn prefWidth="461.0" text="Symptoms" />
-                                                      <TableColumn minWidth="0.0" prefWidth="84.0" text="Severity" />
-                                                      <TableColumn prefWidth="197.0" text="Relieving/Aggrevated Factors" />
+                                                    <TableColumn fx:id="subjectiveRegionColumn" prefWidth="86.0" text="Region" />
+                                                    <TableColumn fx:id="subjectiveLocationColumn" prefWidth="88.0" text="Location" />
+                                                      <TableColumn fx:id="subjectiveSymptomsColumn" prefWidth="549.0" text="Symptoms" />
+                                                      <TableColumn fx:id="subjectiveSeverityColumn" minWidth="0.0" prefWidth="157.0" text="Severity" />
                                                   </columns>
                                                 </TableView>
                                              </children></AnchorPane>

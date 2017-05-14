@@ -15,6 +15,10 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.FileChooser;
@@ -25,6 +29,8 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
+import javax.swing.*;
+import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -112,6 +118,16 @@ public class patientDashboardController implements Initializable{
     private Button subjectiveAddSubjectiveBtn;
     @FXML
     private Button subjectiveDetailedViewBtn;
+    @FXML
+    private TableView<Subjective> subjectiveTableView;
+    @FXML
+    private TableColumn<Subjective,String> subjectiveRegionColumn;
+    @FXML
+    private TableColumn<Subjective,String> subjectiveLocationColumn;
+    @FXML
+    private TableColumn<Subjective,String> subjectiveSymptomsColumn;
+    @FXML
+    private TableColumn<Subjective,String> subjectiveSeverityColumn;
 
     //Observation
     @FXML
@@ -515,8 +531,8 @@ public class patientDashboardController implements Initializable{
         String complaint = subjectiveComplaintFld.getText();
         String region = subjectiveRegionComboBox.getValue();
         String location = subjectiveLocationFld.getText();
-        String frequency = subjectiveFrequencyComboBox.getValue();
-        String severity = subjectiveSeverityComboBox.getValue();
+        String frequency ;
+        String severity ;
         String symptoms = subjectiveSymptomsFld.getText();
         String other = subjectiveOtherFld.getText();
         String aggrevatedByFactors = subjectiveAggrevatedByArea.getText();
@@ -541,12 +557,12 @@ public class patientDashboardController implements Initializable{
             subjective.setLocation(location);
         }
 
-        if (frequency.length()>0){
-
+        if ((frequency = subjectiveFrequencyComboBox.getValue())!=null){
+            subjective.setFrequency(frequency);
         }
 
-        if (severity.length()>0){
-            // setvalues accordingly
+        if ((severity = subjectiveSeverityComboBox.getValue())!=null){
+            subjective.setSeverity(severity);
         }
 
         if (symptoms.length()>0){
@@ -1077,13 +1093,6 @@ public class patientDashboardController implements Initializable{
         patient = patientCase.getPatient();
         caseRelatedExamList = patientCase.getExamList();
 
-        subjectiveRegionComboBox.getItems().addAll("head","neck","chest","Shoulder L", "shoulder R", "upper abdomen",
-                "lower abdomen", "back", "arm L", "arm R", "palm L", "palm R","hip joint","Leg L", "leg R", "ankle L",
-                "ankle R", "foot L", "foot R");
-
-        subjectiveFrequencyComboBox.getItems().addAll("always","once an hour","every six hours","daily", "more than once a week", "other");
-        subjectiveSeverityComboBox.getItems().addAll("high","high-medium", "medium", "low-medium","low");
-
         addPreviousObservation();
         addPreviousPalpation();
         specialTestIntialize();
@@ -1120,6 +1129,16 @@ public class patientDashboardController implements Initializable{
             session.close();
         }
         return list;
+    }
+
+    public void subjectiveInitialize(){
+        subjectiveRegionComboBox.getItems().addAll("head","neck","chest","Shoulder L", "shoulder R", "upper abdomen",
+                "lower abdomen", "back", "arm L", "arm R", "palm L", "palm R","hip joint","Leg L", "leg R", "ankle L",
+                "ankle R", "foot L", "foot R");
+
+        subjectiveFrequencyComboBox.getItems().addAll("always","once an hour","every six hours","daily", "more than once a week", "other");
+        subjectiveSeverityComboBox.getItems().addAll("high","high-medium", "medium", "low-medium","low");
+
     }
 
     public void addPreviousObservation(){
@@ -1354,6 +1373,21 @@ public class patientDashboardController implements Initializable{
                     }
                 }
             }
+            diagnosticStudiesTableView.setRowFactory( tv -> {
+                TableRow<DiagnosticStudy> row = new TableRow<>();
+                row.setOnMouseClicked(event -> {
+                    if (event.getClickCount() == 2 && (! row.isEmpty()) ) {
+                        DiagnosticStudy rowData = row.getItem();
+                        Desktop dt = Desktop.getDesktop();
+                        try {
+                            dt.open(new File(rowData.getFileName()));
+                        } catch (IOException e) {
+                            JOptionPane.showMessageDialog(null,"internal error no file in saved location");
+                        }
+                    }
+                });
+                return row ;
+            });
         }
 
     }
@@ -1376,6 +1410,22 @@ public class patientDashboardController implements Initializable{
                     }
                 }
             }
+
+            neurologicalStudiesTableView.setRowFactory( tv -> {
+                TableRow<NeurologicalStudy> row = new TableRow<>();
+                row.setOnMouseClicked(event -> {
+                    if (event.getClickCount() == 2 && (! row.isEmpty()) ) {
+                        NeurologicalStudy rowData = row.getItem();
+                        Desktop dt = Desktop.getDesktop();
+                        try {
+                            dt.open(new File(rowData.getFileName()));
+                        } catch (IOException e) {
+                            JOptionPane.showMessageDialog(null,"internal error no file in saved location");
+                        }
+                    }
+                });
+                return row ;
+            });
         }
     }
 
