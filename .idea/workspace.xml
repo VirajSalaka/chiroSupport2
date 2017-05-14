@@ -43,8 +43,8 @@
       <file leaf-file-name="patientDashboardController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/chiroSupport/sample/patientDashboardController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="850" column="128" lean-forward="false" selection-start-line="850" selection-start-column="128" selection-end-line="850" selection-end-column="128" />
+            <state relative-caret-position="261">
+              <caret line="953" column="32" lean-forward="false" selection-start-line="953" selection-start-column="32" selection-end-line="953" selection-end-column="32" />
               <folding />
             </state>
           </provider>
@@ -1288,12 +1288,12 @@
       <workItem from="1494656374419" duration="35641000" />
       <workItem from="1494743598845" duration="1378000" />
       <workItem from="1494759616659" duration="950000" />
-      <workItem from="1494778485116" duration="8093000" />
+      <workItem from="1494778485116" duration="9550000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="259899000" />
+    <option name="totallyTimeSpent" value="261356000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -2071,8 +2071,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/chiroSupport/sample/patientDashboardController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="850" column="128" lean-forward="false" selection-start-line="850" selection-start-column="128" selection-end-line="850" selection-end-column="128" />
+        <state relative-caret-position="261">
+          <caret line="953" column="32" lean-forward="false" selection-start-line="953" selection-start-column="32" selection-end-line="953" selection-end-column="32" />
           <folding />
         </state>
       </provider>

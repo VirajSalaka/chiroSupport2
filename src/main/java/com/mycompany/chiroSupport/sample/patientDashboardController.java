@@ -49,6 +49,7 @@ public class patientDashboardController implements Initializable{
     private List<Rom> romTestTotalList;
     private List<MusclePower> currentMusclePowerList;
     private List<DiagnosticStudy> diagnosticStudyTotalList;
+    private List<NeurologicalStudy> neurologicalStudyTotalList;
     private File diagnosticStudySourceFile;
     private int diagnosticStudyCount = 0;
     private File neurologicalStudySourceFile;
@@ -315,6 +316,18 @@ public class patientDashboardController implements Initializable{
     private Label neurologicalStudiesFileNameLabel;
     @FXML
     private TextArea neurologicalStudiesImpressionArea;
+    @FXML
+    private TableView<NeurologicalStudy> neurologicalStudiesTableView;
+    @FXML
+    private TableColumn<NeurologicalStudy,String> neurologicalStudiesDateColumn;
+    @FXML
+    private TableColumn<NeurologicalStudy,String> neurologicalStudiesTypeColumn;
+    @FXML
+    private TableColumn<NeurologicalStudy,String> neurologicalStudiesRegionColumn;
+    @FXML
+    private TableColumn<NeurologicalStudy,String> neurologicalStudiesImpressionColumn;
+    @FXML
+    private TableColumn<NeurologicalStudy,String> neurologicalStudiesAttachmentColumn;
 
     //analysis
     @FXML
@@ -842,6 +855,7 @@ public class patientDashboardController implements Initializable{
             try {
                 Files.copy(diagnosticStudySourceFile.toPath(),savingFile.toPath());
                 saveObjectInDatabase(diagnosticStudy);
+                diagnosticStudyCount++;
                 diagnosticStudyTotalList.add(0,diagnosticStudy);
                 diagnosticStudiesTableView.setItems(FXCollections.observableList(diagnosticStudyTotalList));
                 diagnosticStudiesDateColumn.setCellValueFactory(c-> new SimpleStringProperty(c.getValue().getExamination().getDate()));
@@ -930,6 +944,14 @@ public class patientDashboardController implements Initializable{
                     saveObjectInDatabase(neurologicalStudy);
                     neurologicalStudyCount++;
 
+                    neurologicalStudyCount++;
+                    neurologicalStudyTotalList.add(0,neurologicalStudy);
+                    neurologicalStudiesTableView.setItems(FXCollections.observableList(neurologicalStudyTotalList));
+                    neurologicalStudiesDateColumn.setCellValueFactory(c-> new SimpleStringProperty(c.getValue().getExamination().getDate()));
+                    neurologicalStudiesRegionColumn.setCellValueFactory(c-> new SimpleStringProperty(c.getValue().getRegion()));
+                    neurologicalStudiesTypeColumn.setCellValueFactory(c-> new SimpleStringProperty(c.getValue().getStudyType()));
+                    neurologicalStudiesImpressionColumn.setCellValueFactory(c-> new SimpleStringProperty(c.getValue().getImpression()));
+                    neurologicalStudiesAttachmentColumn.setCellValueFactory(c-> new SimpleStringProperty(c.getValue().getFileName()));
 
 
 
@@ -1056,6 +1078,7 @@ public class patientDashboardController implements Initializable{
         romTestInitialize();
         musclePowerInitialize();
         diagnosticStudyInitialize();
+        neurologicalStudyInitialize();
 
         analysisPatientConditionChoiceBox.getItems().addAll("not selected","resolved","marked improvement","moderate improvement",
                 "slight improvement","no change","somewhat worse", "worse");
@@ -1326,11 +1349,32 @@ public class patientDashboardController implements Initializable{
                     for (int j = tempList.size() - 1; j >= 0; j--) {
                         diagnosticStudyTotalList.add(tempList.get(j));
                         diagnosticStudiesTableView.setItems(FXCollections.observableList(diagnosticStudyTotalList));
-                        diagnosticStudiesDateColumn.setCellValueFactory(c-> new SimpleStringProperty(c.getValue().getExamination().getDate()));
+                        diagnosticStudiesDateColumn.setCellValueFactory(c-> new SimpleStringProperty(c.getValue().getDateOfStudy()));
                         diagnosticStudiesRegionColumn.setCellValueFactory(c-> new SimpleStringProperty(c.getValue().getRegion()));
                         diagnosticStudiesTypeColumn.setCellValueFactory(c-> new SimpleStringProperty(c.getValue().getStudyType()));
                         diagnosticStudiesImpressionColumn.setCellValueFactory(c-> new SimpleStringProperty(c.getValue().getImpression()));
                         diagnosticStudiesAttachmentColumn.setCellValueFactory(c-> new SimpleStringProperty(c.getValue().getFileName()));
+                    }
+                }
+            }
+        }
+    }
+
+    public void neurologicalStudyInitialize(){
+        neurologicalStudyTotalList = new ArrayList<>();
+
+        if(caseRelatedExamList.size()!=0) {
+            for (int i = caseRelatedExamList.size() - 1; i >= 0; i--) {
+                List<NeurologicalStudy> tempList;
+                if ((tempList = caseRelatedExamList.get(i).getNeurologicalStudyList()) != null) {
+                    for (int j = tempList.size() - 1; j >= 0; j--) {
+                        neurologicalStudyTotalList.add(tempList.get(j));
+                        neurologicalStudiesTableView.setItems(FXCollections.observableList(neurologicalStudyTotalList));
+                        neurologicalStudiesDateColumn.setCellValueFactory(c-> new SimpleStringProperty(c.getValue().getDateOfStudy()));
+                        neurologicalStudiesRegionColumn.setCellValueFactory(c-> new SimpleStringProperty(c.getValue().getRegion()));
+                        neurologicalStudiesTypeColumn.setCellValueFactory(c-> new SimpleStringProperty(c.getValue().getStudyType()));
+                        neurologicalStudiesImpressionColumn.setCellValueFactory(c-> new SimpleStringProperty(c.getValue().getImpression()));
+                        neurologicalStudiesAttachmentColumn.setCellValueFactory(c-> new SimpleStringProperty(c.getValue().getFileName()));
                     }
                 }
             }
