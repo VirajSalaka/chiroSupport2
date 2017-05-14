@@ -47,6 +47,7 @@ public class patientDashboardController implements Initializable{
     private List<Examination> caseRelatedExamList;
     private List<SpecialTest> specialTestCurrentList;
     private List<Rom> romTestTotalList;
+    private List<MusclePower> currentMusclePowerList;
     private File diagnosticStudySourceFile;
     private int diagnosticStudyCount = 0;
     private File neurologicalStudySourceFile;
@@ -249,6 +250,29 @@ public class patientDashboardController implements Initializable{
     private ChoiceBox<String> musclePowerPowerChoiceBox;
     @FXML
     private TextField musclePowerCommentsFld;
+    @FXML
+    private TableView<MusclePower> musclePowerPreviousTableView;
+    @FXML
+    private TableColumn<MusclePower,String> musclePowerPreviousDateColumn;
+    @FXML
+    private TableColumn<MusclePower,String> musclePowerPreviousMuscleColumn;
+    @FXML
+    private TableColumn<MusclePower,String> musclePowerPreviousRegionColumn;
+    @FXML
+    private TableColumn<MusclePower,String> musclePowerPreviousPowerColumn;
+    @FXML
+    private TableColumn<MusclePower,String> musclePowerPreviousCommentsColumn;
+    @FXML
+    private TableView<MusclePower> musclePowerCurrentTableView;
+    @FXML
+    private TableColumn<MusclePower,String> musclePowerCurrentMuscleColumn;
+    @FXML
+    private TableColumn<MusclePower,String> musclePowerCurrentRegionColumn;
+    @FXML
+    private TableColumn<MusclePower,String> musclePowerCurrentPowerColumn;
+    @FXML
+    private TableColumn<MusclePower,String> musclePowerCurrentCommentsColumn;
+
 
     //Diagnostic studies
     @FXML
@@ -732,6 +756,13 @@ public class patientDashboardController implements Initializable{
             }
 
             saveObjectInDatabase(musclePower);
+            currentMusclePowerList.add(0,musclePower);
+            musclePowerCurrentTableView.setItems(FXCollections.observableList(currentMusclePowerList));
+            musclePowerCurrentMuscleColumn.setCellValueFactory(c-> new SimpleStringProperty(c.getValue().getMuscle()));
+            musclePowerCurrentRegionColumn.setCellValueFactory(c-> new SimpleStringProperty(c.getValue().getRegion()));
+            musclePowerCurrentPowerColumn.setCellValueFactory(c-> new SimpleStringProperty(String.valueOf(c.getValue().getPowerLevel())));
+            musclePowerCurrentCommentsColumn.setCellValueFactory(c-> new SimpleStringProperty(c.getValue().getComments()));
+
 
         }else{
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -1004,10 +1035,7 @@ public class patientDashboardController implements Initializable{
         addPreviousPalpation();
         specialTestIntialize();
         romTestInitialize();
-
-
-        musclePowerPowerChoiceBox.getItems().addAll("not selected","99","90","80","70","60","50","40","30","20","10","0");
-        musclePowerPowerChoiceBox.setValue("not selected");
+        musclePowerInitialize();
 
         diagnosticStudiesFileNameLabel.setText("no file is selected");
         diagnosticStudiesTypeOfStudyChoiceBox.getItems().addAll("not selected","x ray","CR scan", "ECG", "Scanning report");
@@ -1236,6 +1264,32 @@ public class patientDashboardController implements Initializable{
                         romPreviousResultsTotalLossColumn.setCellValueFactory(c->new SimpleStringProperty(String.valueOf(c.getValue().getTotalLoss())));
                         romPreviousResultsTypeColumn.setCellValueFactory(c-> new SimpleStringProperty(c.getValue().getRomType()));
                         romPreviousResultsCommentsColumn.setCellValueFactory(c-> new SimpleStringProperty(c.getValue().getComments()));
+                    }
+                }
+            }
+        }
+    }
+
+    public void musclePowerInitialize(){
+        musclePowerPowerChoiceBox.getItems().addAll("not selected","99","90","80","70","60","50","40","30","20","10","0");
+        musclePowerPowerChoiceBox.setValue("not selected");
+
+        currentMusclePowerList = new ArrayList<>();
+
+        if(caseRelatedExamList.size()!=0) {
+            List<MusclePower> previousMusclePowerList = new ArrayList<>();
+            for (int i = caseRelatedExamList.size() - 1; i >= 0; i--) {
+                List<MusclePower> tempList;
+                if ((tempList = caseRelatedExamList.get(i).getMusclePowerList()) != null) {
+                    for(int j=tempList.size()-1;j>=0;j--){
+                        previousMusclePowerList.add(tempList.get(j));
+                        //setCellValueFactory(c-> new SimpleStringProperty(c.getValue().));
+                        musclePowerPreviousTableView.setItems(FXCollections.observableList(previousMusclePowerList));
+                        musclePowerPreviousDateColumn.setCellValueFactory(c-> new SimpleStringProperty(c.getValue().getExamination().getDate()));
+                        musclePowerPreviousMuscleColumn.setCellValueFactory(c-> new SimpleStringProperty(c.getValue().getMuscle()));
+                        musclePowerPreviousRegionColumn.setCellValueFactory(c-> new SimpleStringProperty(c.getValue().getRegion()));
+                        musclePowerPreviousPowerColumn.setCellValueFactory(c-> new SimpleStringProperty(String.valueOf(c.getValue().getPowerLevel())));
+                        musclePowerPreviousCommentsColumn.setCellValueFactory(c-> new SimpleStringProperty(c.getValue().getComments()));
                     }
                 }
             }

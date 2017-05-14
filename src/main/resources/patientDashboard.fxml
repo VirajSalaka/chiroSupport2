@@ -398,21 +398,21 @@
                                                       <Separator layoutY="181.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
                                                       <Label layoutX="14.0" layoutY="184.0" text="Recently added  :" />
                                                       <Label layoutX="14.0" layoutY="343.0" text="previous records :" />
-                                                      <TableView layoutX="14.0" layoutY="360.0" prefHeight="228.0" prefWidth="874.0">
+                                                      <TableView fx:id="musclePowerPreviousTableView" layoutX="14.0" layoutY="360.0" prefHeight="228.0" prefWidth="874.0">
                                                          <columns>
-                                                            <TableColumn prefWidth="75.0" text="Date" />
-                                                            <TableColumn prefWidth="75.0" text="Muscle" />
-                                                            <TableColumn prefWidth="75.0" text="Region" />
-                                                            <TableColumn prefWidth="75.0" text="Power" />
-                                                            <TableColumn prefWidth="572.0" text="Comments" />
+                                                            <TableColumn fx:id="musclePowerPreviousDateColumn" prefWidth="75.0" text="Date" />
+                                                            <TableColumn fx:id="musclePowerPreviousMuscleColumn" prefWidth="75.0" text="Muscle" />
+                                                            <TableColumn fx:id="musclePowerPreviousRegionColumn" prefWidth="75.0" text="Region" />
+                                                            <TableColumn fx:id="musclePowerPreviousPowerColumn" prefWidth="75.0" text="Power" />
+                                                            <TableColumn fx:id="musclePowerPreviousCommentsColumn" prefWidth="572.0" text="Comments" />
                                                          </columns>
                                                       </TableView>
-                                                      <TableView layoutX="14.0" layoutY="201.0" prefHeight="122.0" prefWidth="874.0">
+                                                      <TableView fx:id="musclePowerCurrentTableView" layoutX="14.0" layoutY="201.0" prefHeight="122.0" prefWidth="874.0">
                                                          <columns>
-                                                            <TableColumn prefWidth="75.0" text="Muscle" />
-                                                            <TableColumn prefWidth="75.0" text="Region" />
-                                                            <TableColumn prefWidth="75.0" text="Power" />
-                                                            <TableColumn prefWidth="646.0" text="Comments" />
+                                                            <TableColumn fx:id="musclePowerCurrentMuscleColumn" prefWidth="75.0" text="Muscle" />
+                                                            <TableColumn fx:id="musclePowerCurrentRegionColumn" prefWidth="75.0" text="Region" />
+                                                            <TableColumn fx:id="musclePowerCurrentPowerColumn" prefWidth="75.0" text="Power" />
+                                                            <TableColumn fx:id="musclePowerCurrentCommentsColumn" prefWidth="646.0" text="Comments" />
                                                          </columns>
                                                       </TableView>
                                                       <Separator layoutX="-11.0" layoutY="342.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />

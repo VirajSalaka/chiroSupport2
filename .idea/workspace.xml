@@ -2,15 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d5d57ec1-044f-4ae6-a6d6-ae99e1fd3698" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/mycompany/chiroSupport/sample/patientDashboardController$1$1.class" afterPath="$PROJECT_DIR$/target/classes/com/mycompany/chiroSupport/sample/patientDashboardController$1$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/mycompany/chiroSupport/sample/patientDashboardController$1.class" afterPath="$PROJECT_DIR$/target/classes/com/mycompany/chiroSupport/sample/patientDashboardController$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/mycompany/chiroSupport/sample/patientDashboardController$2$1.class" afterPath="$PROJECT_DIR$/target/classes/com/mycompany/chiroSupport/sample/patientDashboardController$2$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/mycompany/chiroSupport/sample/patientDashboardController$2.class" afterPath="$PROJECT_DIR$/target/classes/com/mycompany/chiroSupport/sample/patientDashboardController$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/mycompany/chiroSupport/sample/patientDashboardController.class" afterPath="$PROJECT_DIR$/target/classes/com/mycompany/chiroSupport/sample/patientDashboardController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/chiroSupport/sample/patientDashboardController.java" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/chiroSupport/sample/patientDashboardController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/patientDashboard.fxml" afterPath="$PROJECT_DIR$/src/main/resources/patientDashboard.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/patientDashboard.fxml" afterPath="$PROJECT_DIR$/target/classes/patientDashboard.fxml" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -50,11 +43,9 @@
       <file leaf-file-name="patientDashboardController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/chiroSupport/sample/patientDashboardController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="618">
-              <caret line="312" column="8" lean-forward="true" selection-start-line="312" selection-start-column="8" selection-end-line="312" selection-end-column="8" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="153">
+              <caret line="758" column="54" lean-forward="false" selection-start-line="758" selection-start-column="54" selection-end-line="758" selection-end-column="54" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -207,7 +198,9 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="6341">
               <caret line="373" column="112" lean-forward="false" selection-start-line="373" selection-start-column="112" selection-end-line="373" selection-end-column="112" />
-              <folding />
+              <folding>
+                <marker date="1494781940843" expanded="true" signature="43991:44162" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -1297,12 +1290,12 @@
       <workItem from="1494656374419" duration="35641000" />
       <workItem from="1494743598845" duration="1378000" />
       <workItem from="1494759616659" duration="950000" />
-      <workItem from="1494778485116" duration="2307000" />
+      <workItem from="1494778485116" duration="4808000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="254113000" />
+    <option name="totallyTimeSpent" value="256614000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -2074,17 +2067,17 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="6341">
           <caret line="373" column="112" lean-forward="false" selection-start-line="373" selection-start-column="112" selection-end-line="373" selection-end-column="112" />
-          <folding />
+          <folding>
+            <marker date="1494781940843" expanded="true" signature="43991:44162" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/chiroSupport/sample/patientDashboardController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="618">
-          <caret line="312" column="8" lean-forward="true" selection-start-line="312" selection-start-column="8" selection-end-line="312" selection-end-column="8" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="153">
+          <caret line="758" column="54" lean-forward="false" selection-start-line="758" selection-start-column="54" selection-end-line="758" selection-end-column="54" />
+          <folding />
         </state>
       </provider>
     </entry>
