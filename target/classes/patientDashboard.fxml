@@ -224,7 +224,7 @@
                                             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="407.0" prefWidth="919.0">
                                                    <children>
                                                       <Label layoutX="14.0" layoutY="39.0" text="Palpation :" />
-                                                      <TextArea fx:id="newPalpationArea" layoutX="14.0" layoutY="56.0" onMouseClicked="#palpationSave" prefHeight="100.0" prefWidth="859.0" AnchorPane.leftAnchor="10.0" />
+                                                      <TextArea fx:id="newPalpationArea" layoutX="14.0" layoutY="56.0" prefHeight="100.0" prefWidth="859.0" AnchorPane.leftAnchor="10.0" />
                                                       <Label layoutX="14.0" layoutY="188.0" text="Recent Palpation : Date " />
                                                       <TextField fx:id="recentPalpationDateFld" layoutX="141.0" layoutY="184.0" />
                                                       <TextArea fx:id="recentPalpationArea" layoutX="10.0" layoutY="209.0" prefHeight="100.0" prefWidth="859.0" />
@@ -234,7 +234,7 @@
                                                             <Font size="14.0" />
                                                          </font>
                                                       </Label>
-                                                      <Button fx:id="palpationSaveBtn" layoutX="715.0" layoutY="156.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="154.0" text="Save" />
+                                                      <Button fx:id="palpationSaveBtn" layoutX="715.0" layoutY="156.0" mnemonicParsing="false" onMouseClicked="#palpationSave" prefHeight="25.0" prefWidth="154.0" text="Save" />
                                                       <ListView fx:id="palpationListView" layoutX="14.0" layoutY="371.0" onMouseClicked="#palpationListViewClicked" prefHeight="219.0" prefWidth="234.0" />
                                                    </children>
                                                 </AnchorPane>
@@ -329,48 +329,49 @@
                                                       <TextArea fx:id="romCommentsArea" layoutX="14.0" layoutY="261.0" prefHeight="38.0" prefWidth="880.0" />
                                                       <Separator layoutX="3.0" layoutY="336.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
                                                       <Button fx:id="romSaveBtn" layoutX="727.0" layoutY="311.0" mnemonicParsing="false" onMouseClicked="#romSave" prefHeight="25.0" prefWidth="167.0" text="Save" />
-                                                      <TableView layoutX="14.0" layoutY="373.0" prefHeight="200.0" prefWidth="881.0">
+                                                      <TableView fx:id="romPreviousResultsTableView" layoutX="14.0" layoutY="373.0" prefHeight="200.0" prefWidth="881.0">
                                                         <columns>
-                                                          <TableColumn prefWidth="67.0" text="Date" />
-                                                          <TableColumn prefWidth="75.0" text="Region" />
-                                                            <TableColumn prefWidth="75.0" text="Flexion">
+                                                          <TableColumn fx:id="romPreviousResultsDateColumn" prefWidth="67.0" text="Date" />
+                                                          <TableColumn fx:id="romPreviousResultsRegionColumn" prefWidth="64.0" text="Region" />
+                                                            <TableColumn prefWidth="63.0" text="Flexion">
                                                                <columns>
-                                                                  <TableColumn prefWidth="26.0" text="tot." />
-                                                                  <TableColumn prefWidth="26.0" text="p/f" />
+                                                                  <TableColumn fx:id="romPreviousResultsFlexionTotalColumn" prefWidth="26.0" text="tot." />
+                                                                  <TableColumn fx:id="romPreviousResultsFlexionPFColumn" prefWidth="26.0" text="p/f" />
                                                                </columns>
                                                             </TableColumn>
                                                             <TableColumn prefWidth="64.0" text="Extention">
                                                                <columns>
-                                                                  <TableColumn prefWidth="26.0" text="tot." />
-                                                                  <TableColumn prefWidth="26.0" text="p/f" />
+                                                                  <TableColumn fx:id="romPreviousResultsExtentionTotalColumn" prefWidth="26.0" text="tot." />
+                                                                  <TableColumn fx:id="romPreviousResultsExtentionPFColumn" prefWidth="26.0" text="p/f" />
                                                                </columns>
                                                             </TableColumn>
                                                             <TableColumn prefWidth="64.0" text="LLF">
                                                                <columns>
-                                                                  <TableColumn prefWidth="26.0" text="tot." />
-                                                                  <TableColumn prefWidth="26.0" text="p/f" />
+                                                                  <TableColumn fx:id="romPreviousResultsLLFTotalColumn" prefWidth="26.0" text="tot." />
+                                                                  <TableColumn fx:id="romPreviousResultsLLFPFColumn" prefWidth="26.0" text="p/f" />
                                                                </columns>
                                                             </TableColumn>
                                                             <TableColumn prefWidth="64.0" text="RLF">
                                                                <columns>
-                                                                  <TableColumn prefWidth="26.0" text="tot." />
-                                                                  <TableColumn prefWidth="26.0" text="p/f" />
+                                                                  <TableColumn fx:id="romPreviousResultsRLFTotalColumn" prefWidth="26.0" text="tot." />
+                                                                  <TableColumn fx:id="romPreviousResultsRLFPFColumn" prefWidth="26.0" text="p/f" />
                                                                </columns>
                                                             </TableColumn>
                                                             <TableColumn prefWidth="64.0" text="LR">
                                                                <columns>
-                                                                  <TableColumn prefWidth="26.0" text="tot." />
-                                                                  <TableColumn prefWidth="26.0" text="p/f" />
+                                                                  <TableColumn fx:id="romPreviousResultsLRTotalColumn" prefWidth="26.0" text="tot." />
+                                                                  <TableColumn fx:id="romPreviousResultsLRPFColumn" prefWidth="26.0" text="p/f" />
                                                                </columns>
                                                             </TableColumn>
                                                             <TableColumn prefWidth="64.0" text="RR">
                                                                <columns>
-                                                                  <TableColumn prefWidth="26.0" text="tot." />
-                                                                  <TableColumn prefWidth="26.0" text="p/f" />
+                                                                  <TableColumn fx:id="romPreviousResultsRRTotalColumn" prefWidth="26.0" text="tot." />
+                                                                  <TableColumn fx:id="romPreviousResultsRRPFColumn" prefWidth="26.0" text="p/f" />
                                                                </columns>
                                                             </TableColumn>
-                                                            <TableColumn prefWidth="70.0" text="total loss%" />
-                                                            <TableColumn prefWidth="356.0" text="comments" />
+                                                            <TableColumn fx:id="romPreviousResultsTotalLossColumn" prefWidth="66.0" text="total loss%" />
+                                                            <TableColumn fx:id="romPreviousResultsTypeColumn" prefWidth="70.0" text="Type" />
+                                                            <TableColumn fx:id="romPreviousResultsCommentsColumn" prefWidth="365.0" text="comments" />
                                                         </columns>
                                                       </TableView>
                                                       <Label layoutX="14.0" layoutY="339.0" prefHeight="17.0" prefWidth="95.0" text="Previous Results " />

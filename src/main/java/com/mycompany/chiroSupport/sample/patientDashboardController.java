@@ -5,6 +5,7 @@ import com.mycompany.chiroSupport.patientCase.objective.*;
 import com.mycompany.chiroSupport.patientProfile.Patient;
 import com.mycompany.chiroSupport.patientProfile.PatientQueueItem;
 import com.mycompany.chiroSupport.util.HibernateUtil;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -44,6 +45,8 @@ public class patientDashboardController implements Initializable{
     private Session session;
     private Examination examination;
     private List<Examination> caseRelatedExamList;
+    private List<SpecialTest> specialTestCurrentList;
+    private List<Rom> romTestTotalList;
     private File diagnosticStudySourceFile;
     private int diagnosticStudyCount = 0;
     private File neurologicalStudySourceFile;
@@ -200,6 +203,42 @@ public class patientDashboardController implements Initializable{
     private TextField romTotalLossFld;
     @FXML
     private TextArea romCommentsArea;
+    @FXML
+    private TableView<Rom> romPreviousResultsTableView;
+    @FXML
+    private TableColumn<Rom,String> romPreviousResultsDateColumn;
+    @FXML
+    private TableColumn<Rom,String> romPreviousResultsRegionColumn;
+    @FXML
+    private TableColumn<Rom,String> romPreviousResultsFlexionTotalColumn;
+    @FXML
+    private TableColumn<Rom,String> romPreviousResultsFlexionPFColumn;
+    @FXML
+    private TableColumn<Rom,String> romPreviousResultsExtentionTotalColumn;
+    @FXML
+    private TableColumn<Rom,String> romPreviousResultsExtentionPFColumn;
+    @FXML
+    private TableColumn<Rom,String> romPreviousResultsLLFTotalColumn;
+    @FXML
+    private TableColumn<Rom,String> romPreviousResultsLLFPFColumn;
+    @FXML
+    private TableColumn<Rom,String> romPreviousResultsRLFTotalColumn;
+    @FXML
+    private TableColumn<Rom,String> romPreviousResultsRLFPFColumn;
+    @FXML
+    private TableColumn<Rom,String> romPreviousResultsLRTotalColumn;
+    @FXML
+    private TableColumn<Rom,String> romPreviousResultsLRPFColumn;
+    @FXML
+    private TableColumn<Rom,String> romPreviousResultsRRTotalColumn;
+    @FXML
+    private TableColumn<Rom,String> romPreviousResultsRRPFColumn;
+    @FXML
+    private TableColumn<Rom,String> romPreviousResultsTotalLossColumn;
+    @FXML
+    private TableColumn<Rom,String> romPreviousResultsTypeColumn;
+    @FXML
+    private TableColumn<Rom,String> romPreviousResultsCommentsColumn;
 
     //Muscle - Power
     @FXML
@@ -513,8 +552,6 @@ public class patientDashboardController implements Initializable{
         if (palpationText.length()>0) {
             palpation = new Palpation(examination);
             palpation.setDescription(palpationText);
-
-
             saveObjectInDatabase(palpation);
         }else{
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -545,8 +582,16 @@ public class patientDashboardController implements Initializable{
             specialTest.setComments(comments);
 
             saveObjectInDatabase(specialTest);
+            specialTestCurrentList.add(specialTest);
 
+            specialTestCurrentSessionRegionColumn.setCellValueFactory(c-> new SimpleStringProperty(c.getValue().getRegion()));
+            specialTestCurrentSessionTestColumn.setCellValueFactory(c-> new SimpleStringProperty(c.getValue().getTest()));
+            specialTestCurrentSessionResultColumn.setCellValueFactory(c-> new SimpleStringProperty(c.getValue().getResult()));
+            specialTestCurrentSessionCommentsColumn.setCellValueFactory(c-> new SimpleStringProperty(c.getValue().getComments()));
+            specialTestCurrentSessionTableView.setItems(FXCollections.observableList(specialTestCurrentList));
         }
+
+
     }
 
     public void romSave(MouseEvent mouseEvent) {
@@ -633,13 +678,32 @@ public class patientDashboardController implements Initializable{
                 alert.setHeaderText("Look, an Error Dialog");
                 alert.setContentText("Ooops, there was an error!");
                 alert.showAndWait();
-
             }
 
             if(comments.length() >0){
                 rom.setComments(comments);
             }
             saveObjectInDatabase(rom);
+            romTestTotalList.add(0,rom);
+            romPreviousResultsTableView.setItems(FXCollections.observableList(romTestTotalList));
+            romPreviousResultsDateColumn.setCellValueFactory(c-> new SimpleStringProperty(c.getValue().getExamination().getDate()));
+            romPreviousResultsRegionColumn.setCellValueFactory(c-> new SimpleStringProperty(c.getValue().getRegion()));
+            romPreviousResultsExtentionTotalColumn.setCellValueFactory(c-> new SimpleStringProperty(String.valueOf(c.getValue().getExtention())));
+            romPreviousResultsExtentionPFColumn.setCellValueFactory(c-> new SimpleStringProperty(String.valueOf(c.getValue().getExtentionPain())));
+            romPreviousResultsFlexionTotalColumn.setCellValueFactory(c-> new SimpleStringProperty(String.valueOf(c.getValue().getFlexion())));
+            romPreviousResultsFlexionPFColumn.setCellValueFactory(c-> new SimpleStringProperty(String.valueOf(c.getValue().getFlexionPain())));
+            romPreviousResultsLLFTotalColumn.setCellValueFactory(c-> new SimpleStringProperty(String.valueOf(c.getValue().getLlf())));
+            romPreviousResultsLLFPFColumn.setCellValueFactory(c-> new SimpleStringProperty(String.valueOf(c.getValue().getLlfPain())));
+            romPreviousResultsRLFTotalColumn.setCellValueFactory(c-> new SimpleStringProperty(String.valueOf(c.getValue().getRlf())));
+            romPreviousResultsRLFPFColumn.setCellValueFactory(c-> new SimpleStringProperty(String.valueOf(c.getValue().getRlfPain())));
+            romPreviousResultsLRTotalColumn.setCellValueFactory(c-> new SimpleStringProperty(String.valueOf(c.getValue().getLr())));
+            romPreviousResultsLRPFColumn.setCellValueFactory(c-> new SimpleStringProperty(String.valueOf(c.getValue().getLrPain())));
+            romPreviousResultsRRTotalColumn.setCellValueFactory(c-> new SimpleStringProperty(String.valueOf(c.getValue().getRr())));
+            romPreviousResultsRRPFColumn.setCellValueFactory(c-> new SimpleStringProperty(String.valueOf(c.getValue().getRrPain())));
+            romPreviousResultsTotalLossColumn.setCellValueFactory(c->new SimpleStringProperty(String.valueOf(c.getValue().getTotalLoss())));
+            romPreviousResultsTypeColumn.setCellValueFactory(c-> new SimpleStringProperty(c.getValue().getRomType()));
+            romPreviousResultsCommentsColumn.setCellValueFactory(c-> new SimpleStringProperty(c.getValue().getComments()));
+
         }else{
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Not completed Rom Test");
@@ -939,32 +1003,8 @@ public class patientDashboardController implements Initializable{
         addPreviousObservation();
         addPreviousPalpation();
         specialTestIntialize();
+        romTestInitialize();
 
-        romExtentionChoiceBox.getItems().addAll("not relevant","99","90","80","70","60","50","40","30","20","10","0");
-        romExtentionPainChoiceBox.getItems().addAll("not relevant","99","90","80","70","60","50","40","30","20","10","0");
-        romFlexionChoiceBox.getItems().addAll("not relevant","99","90","80","70","60","50","40","30","20","10","0");
-        romFlexionPainChoiceBox.getItems().addAll("not relevant","99","90","80","70","60","50","40","30","20","10","0");
-        romLLFChoiceBox.getItems().addAll("not relevant","99","90","80","70","60","50","40","30","20","10","0");
-        romLLFPainChoiceBox.getItems().addAll("not relevant","99","90","80","70","60","50","40","30","20","10","0");
-        romRLFChoiceBox.getItems().addAll("not relevant","99","90","80","70","60","50","40","30","20","10","0");
-        romRLFPainChoiceBox.getItems().addAll("not relevant","99","90","80","70","60","50","40","30","20","10","0");
-        romLRChoiceBox.getItems().addAll("not relevant","99","90","80","70","60","50","40","30","20","10","0");
-        romLRPainChoiceBox.getItems().addAll("not relevant","99","90","80","70","60","50","40","30","20","10","0");
-        romRRChoiceBox.getItems().addAll("not relevant","99","90","80","70","60","50","40","30","20","10","0");
-        romRRPainChoiceBox.getItems().addAll("not relevant","99","90","80","70","60","50","40","30","20","10","0");
-
-        romExtentionChoiceBox.setValue("not relevant");
-        romExtentionPainChoiceBox.setValue("not relevant");
-        romFlexionChoiceBox.setValue("not relevant");
-        romFlexionPainChoiceBox.setValue("not relevant");
-        romLLFChoiceBox.setValue("not relevant");
-        romLLFPainChoiceBox.setValue("not relevant");
-        romRLFChoiceBox.setValue("not relevant");
-        romRLFPainChoiceBox.setValue("not relevant");
-        romLRChoiceBox.setValue("not relevant");
-        romLRPainChoiceBox.setValue("not relevant");
-        romRRChoiceBox.setValue("not relevant");
-        romRRPainChoiceBox.setValue("not relevant");
 
         musclePowerPowerChoiceBox.getItems().addAll("not selected","99","90","80","70","60","50","40","30","20","10","0");
         musclePowerPowerChoiceBox.setValue("not selected");
@@ -1018,28 +1058,23 @@ public class patientDashboardController implements Initializable{
     }
 
     public void addPreviousObservation(){
-        List localObservationList = generalSelectQuery("patientCase.objective.Observation");
+        if(caseRelatedExamList.size() != 0) {
+            List<Observation> observationList = new ArrayList<>();
 
-        if(localObservationList.size()!=0){
-            Observation lastObservation = (Observation)localObservationList.get(localObservationList.size()-1);
+            for (int i = caseRelatedExamList.size() - 1; i >= 0; i--) {
+                Observation obs = null;
 
-            if (lastObservation.getExamination().getPatientCase().equals(patientCase)){
-                recentObservationArea.setText(lastObservation.getDescription());
-                recentObservationDateFld.setText(lastObservation.getExamination().getDate());
+                if ((obs = caseRelatedExamList.get(i).getObservation())!=null) {
+                    observationList.add(obs);
+                }
             }
 
-            List<Observation> list = new ArrayList<Observation>();
-            for(int i= localObservationList.size()-1; i>=0; i--){
-                Observation o = (Observation)localObservationList.get(i);
-                list.add(o);
-//            if(o.getExamination().getPatientCase().equals(patientCase)){
-//                list.add(o);
-//            }else{
-//                break;
-//            }
+            if(observationList.size()>0){
+                recentPalpationArea.setText(observationList.get(0).getDescription());
+                recentPalpationDateFld.setText(observationList.get(0).getExamination().getDate());
             }
 
-            ObservableList<Observation> oList = FXCollections.observableList(list);
+            ObservableList<Observation> oList = FXCollections.observableList(observationList);
             observationListView.setItems(oList);
 
             observationListView.setCellFactory(new Callback<ListView<Observation>, ListCell<Observation>>(){
@@ -1059,6 +1094,7 @@ public class patientDashboardController implements Initializable{
                     return cell;
                 }
             });
+
         }
 
     }
@@ -1072,28 +1108,24 @@ public class patientDashboardController implements Initializable{
     }
 
     public void addPreviousPalpation(){
-        List localPalpationList = generalSelectQuery("patientCase.objective.Palpation");
 
-        if(localPalpationList.size() != 0){
-            Palpation lastPalpation = (Palpation) localPalpationList.get(localPalpationList.size()-1);
+        if(caseRelatedExamList.size() != 0) {
+            List<Palpation> palpationList = new ArrayList<>();
 
-            if (lastPalpation.getExamination().getPatientCase().equals(patientCase)){
-                recentPalpationArea.setText(lastPalpation.getDescription());
-                recentPalpationDateFld.setText(lastPalpation.getExamination().getDate());
+            for (int i = caseRelatedExamList.size() - 1; i >= 0; i--) {
+                Palpation p = null;
+
+                if ((p = caseRelatedExamList.get(i).getPalpation())!=null) {
+                    palpationList.add(p);
+                }
             }
 
-            List<Palpation> list = new ArrayList<Palpation>();
-            for(int i= localPalpationList.size()-1; i>=0; i--){
-                Palpation p = (Palpation)localPalpationList.get(i);
-                list.add(p);
-//            if(p.getExamination().getPatientCase().equals(patientCase)){
-//                list.add(p);
-//            }else{
-//                break;
-//            }
+            if(palpationList.size()>0){
+                recentPalpationArea.setText(palpationList.get(0).getDescription());
+                recentPalpationDateFld.setText(palpationList.get(0).getExamination().getDate());
             }
 
-            ObservableList<Palpation> oList = FXCollections.observableList(list);
+            ObservableList<Palpation> oList = FXCollections.observableList(palpationList);
             palpationListView.setItems(oList);
 
             palpationListView.setCellFactory(new Callback<ListView<Palpation>, ListCell<Palpation>>(){
@@ -1113,7 +1145,9 @@ public class patientDashboardController implements Initializable{
                     return cell;
                 }
             });
+
         }
+
     }
 
     public void palpationListViewClicked(MouseEvent mouseEvent) {
@@ -1128,25 +1162,83 @@ public class patientDashboardController implements Initializable{
         specialTestsRegionComboBox.getItems().addAll("head","neck","chest","Shoulder L", "shoulder R", "upper abdomen",
                 "lower abdomen", "back", "arm L", "arm R", "palm L", "palm R","hip joint","Leg L", "leg R", "ankle L",
                 "ankle R", "foot L", "foot R");
+        specialTestCurrentList = new ArrayList<>();
+        List<SpecialTest> specialTestTotalList = new ArrayList<>();
         if(caseRelatedExamList.size()!=0){
             for(int i=caseRelatedExamList.size()-1;i>=0;i--){
-                List<SpecialTest> tempList = caseRelatedExamList.get(i).getSpecialTestList();
-                ObservableList<SpecialTest> oList = FXCollections.observableList(tempList);
 
-                for(int j=tempList.size()-1;j>=0;j--){
-                    SpecialTest st = tempList.get(j);
-                    System.out.println(st.getRegion());
-                    specialTestPreviousTestsDateColumn.setCellValueFactory(c-> new SimpleStringProperty(c.getValue().getExamination().getDate()));
-                    specialTestPreviousTestsRegionColumn.setCellValueFactory(new PropertyValueFactory<SpecialTest,String>("region"));
-                    specialTestPreviousTestsTestColumn.setCellValueFactory(new PropertyValueFactory<SpecialTest,String>("test"));
-                    specialTestPreviousTestsResultColumn.setCellValueFactory(new PropertyValueFactory<SpecialTest,String>("result"));
-                    specialTestPreviousTestsCommentsColumn.setCellValueFactory(new PropertyValueFactory<SpecialTest,String>("Comments"));
-                    specialTestPreviousTestsTableView.setItems(oList);
+                List<SpecialTest> tempList;
+                if((tempList= caseRelatedExamList.get(i).getSpecialTestList())!=null){
+                    for(int j=tempList.size()-1;j>=0;j--){
+                        specialTestTotalList.add(tempList.get(j));
+                        specialTestPreviousTestsTableView.setItems(FXCollections.observableList(specialTestTotalList));
+                        specialTestPreviousTestsDateColumn.setCellValueFactory(c-> new SimpleStringProperty(c.getValue().getExamination().getDate()));
+                        specialTestPreviousTestsRegionColumn.setCellValueFactory(new PropertyValueFactory<SpecialTest,String>("region"));
+                        specialTestPreviousTestsTestColumn.setCellValueFactory(new PropertyValueFactory<SpecialTest,String>("test"));
+                        specialTestPreviousTestsResultColumn.setCellValueFactory(new PropertyValueFactory<SpecialTest,String>("result"));
+                        specialTestPreviousTestsCommentsColumn.setCellValueFactory(new PropertyValueFactory<SpecialTest,String>("Comments"));
+                    }
                 }
-
             }
         }
+    }
 
+    public void romTestInitialize(){
+        romExtentionChoiceBox.getItems().addAll("not relevant","99","90","80","70","60","50","40","30","20","10","0");
+        romExtentionPainChoiceBox.getItems().addAll("not relevant","99","90","80","70","60","50","40","30","20","10","0");
+        romFlexionChoiceBox.getItems().addAll("not relevant","99","90","80","70","60","50","40","30","20","10","0");
+        romFlexionPainChoiceBox.getItems().addAll("not relevant","99","90","80","70","60","50","40","30","20","10","0");
+        romLLFChoiceBox.getItems().addAll("not relevant","99","90","80","70","60","50","40","30","20","10","0");
+        romLLFPainChoiceBox.getItems().addAll("not relevant","99","90","80","70","60","50","40","30","20","10","0");
+        romRLFChoiceBox.getItems().addAll("not relevant","99","90","80","70","60","50","40","30","20","10","0");
+        romRLFPainChoiceBox.getItems().addAll("not relevant","99","90","80","70","60","50","40","30","20","10","0");
+        romLRChoiceBox.getItems().addAll("not relevant","99","90","80","70","60","50","40","30","20","10","0");
+        romLRPainChoiceBox.getItems().addAll("not relevant","99","90","80","70","60","50","40","30","20","10","0");
+        romRRChoiceBox.getItems().addAll("not relevant","99","90","80","70","60","50","40","30","20","10","0");
+        romRRPainChoiceBox.getItems().addAll("not relevant","99","90","80","70","60","50","40","30","20","10","0");
 
+        romExtentionChoiceBox.setValue("not relevant");
+        romExtentionPainChoiceBox.setValue("not relevant");
+        romFlexionChoiceBox.setValue("not relevant");
+        romFlexionPainChoiceBox.setValue("not relevant");
+        romLLFChoiceBox.setValue("not relevant");
+        romLLFPainChoiceBox.setValue("not relevant");
+        romRLFChoiceBox.setValue("not relevant");
+        romRLFPainChoiceBox.setValue("not relevant");
+        romLRChoiceBox.setValue("not relevant");
+        romLRPainChoiceBox.setValue("not relevant");
+        romRRChoiceBox.setValue("not relevant");
+        romRRPainChoiceBox.setValue("not relevant");
+
+        romTestTotalList = new ArrayList<>();
+        if(caseRelatedExamList.size()!=0){
+            for(int i=caseRelatedExamList.size()-1;i>=0;i--){
+                List<Rom> tempList ;
+                if((tempList= caseRelatedExamList.get(i).getRomTestList())!=null){
+
+                    for(int j=tempList.size()-1;j>=0;j--){
+                        romTestTotalList.add(tempList.get(j));
+                        romPreviousResultsTableView.setItems(FXCollections.observableList(romTestTotalList));
+                        romPreviousResultsDateColumn.setCellValueFactory(c-> new SimpleStringProperty(c.getValue().getExamination().getDate()));
+                        romPreviousResultsRegionColumn.setCellValueFactory(c-> new SimpleStringProperty(c.getValue().getRegion()));
+                        romPreviousResultsExtentionTotalColumn.setCellValueFactory(c-> new SimpleStringProperty(String.valueOf(c.getValue().getExtention())));
+                        romPreviousResultsExtentionPFColumn.setCellValueFactory(c-> new SimpleStringProperty(String.valueOf(c.getValue().getExtentionPain())));
+                        romPreviousResultsFlexionTotalColumn.setCellValueFactory(c-> new SimpleStringProperty(String.valueOf(c.getValue().getFlexion())));
+                        romPreviousResultsFlexionPFColumn.setCellValueFactory(c-> new SimpleStringProperty(String.valueOf(c.getValue().getFlexionPain())));
+                        romPreviousResultsLLFTotalColumn.setCellValueFactory(c-> new SimpleStringProperty(String.valueOf(c.getValue().getLlf())));
+                        romPreviousResultsLLFPFColumn.setCellValueFactory(c-> new SimpleStringProperty(String.valueOf(c.getValue().getLlfPain())));
+                        romPreviousResultsRLFTotalColumn.setCellValueFactory(c-> new SimpleStringProperty(String.valueOf(c.getValue().getRlf())));
+                        romPreviousResultsRLFPFColumn.setCellValueFactory(c-> new SimpleStringProperty(String.valueOf(c.getValue().getRlfPain())));
+                        romPreviousResultsLRTotalColumn.setCellValueFactory(c-> new SimpleStringProperty(String.valueOf(c.getValue().getLr())));
+                        romPreviousResultsLRPFColumn.setCellValueFactory(c-> new SimpleStringProperty(String.valueOf(c.getValue().getLrPain())));
+                        romPreviousResultsRRTotalColumn.setCellValueFactory(c-> new SimpleStringProperty(String.valueOf(c.getValue().getRr())));
+                        romPreviousResultsRRPFColumn.setCellValueFactory(c-> new SimpleStringProperty(String.valueOf(c.getValue().getRrPain())));
+                        romPreviousResultsTotalLossColumn.setCellValueFactory(c->new SimpleStringProperty(String.valueOf(c.getValue().getTotalLoss())));
+                        romPreviousResultsTypeColumn.setCellValueFactory(c-> new SimpleStringProperty(c.getValue().getRomType()));
+                        romPreviousResultsCommentsColumn.setCellValueFactory(c-> new SimpleStringProperty(c.getValue().getComments()));
+                    }
+                }
+            }
+        }
     }
 }

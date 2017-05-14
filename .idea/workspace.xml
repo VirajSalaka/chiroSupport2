@@ -2,19 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d5d57ec1-044f-4ae6-a6d6-ae99e1fd3698" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/mycompany/chiroSupport/patientCase/Examination.class" afterPath="$PROJECT_DIR$/target/classes/com/mycompany/chiroSupport/patientCase/Examination.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/mycompany/chiroSupport/patientCase/PatientCase.class" afterPath="$PROJECT_DIR$/target/classes/com/mycompany/chiroSupport/patientCase/PatientCase.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/mycompany/chiroSupport/patientCase/objective/SpecialTest.class" afterPath="$PROJECT_DIR$/target/classes/com/mycompany/chiroSupport/patientCase/objective/SpecialTest.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/mycompany/chiroSupport/sample/patientDashboardController$1$1.class" afterPath="$PROJECT_DIR$/target/classes/com/mycompany/chiroSupport/sample/patientDashboardController$1$1.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/mycompany/chiroSupport/sample/patientDashboardController$1.class" afterPath="$PROJECT_DIR$/target/classes/com/mycompany/chiroSupport/sample/patientDashboardController$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/mycompany/chiroSupport/sample/patientDashboardController$2$1.class" afterPath="$PROJECT_DIR$/target/classes/com/mycompany/chiroSupport/sample/patientDashboardController$2$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/mycompany/chiroSupport/sample/patientDashboardController$2.class" afterPath="$PROJECT_DIR$/target/classes/com/mycompany/chiroSupport/sample/patientDashboardController$2.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/mycompany/chiroSupport/sample/patientDashboardController.class" afterPath="$PROJECT_DIR$/target/classes/com/mycompany/chiroSupport/sample/patientDashboardController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/my-app.iml" afterPath="$PROJECT_DIR$/my-app.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/chiroSupport/patientCase/Examination.java" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/chiroSupport/patientCase/Examination.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/chiroSupport/patientCase/PatientCase.java" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/chiroSupport/patientCase/PatientCase.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/chiroSupport/patientCase/objective/SpecialTest.java" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/chiroSupport/patientCase/objective/SpecialTest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/chiroSupport/sample/patientDashboardController.java" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/chiroSupport/sample/patientDashboardController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/patientDashboard.fxml" afterPath="$PROJECT_DIR$/src/main/resources/patientDashboard.fxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/patientDashboard.fxml" afterPath="$PROJECT_DIR$/target/classes/patientDashboard.fxml" />
@@ -57,15 +50,10 @@
       <file leaf-file-name="patientDashboardController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/chiroSupport/sample/patientDashboardController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="99">
-              <caret line="1138" column="145" lean-forward="false" selection-start-line="1138" selection-start-column="145" selection-end-line="1138" selection-end-column="145" />
+            <state relative-caret-position="618">
+              <caret line="312" column="8" lean-forward="true" selection-start-line="312" selection-start-column="8" selection-end-line="312" selection-end-column="8" />
               <folding>
-                <element signature="e#37015#37028#0" expanded="true" />
-                <element signature="e#37755#38186#0" expanded="true" />
-                <element signature="e#38185#38186#0" expanded="true" />
-                <element signature="e#39222#39233#0" expanded="true" />
-                <element signature="e#39936#40355#0" expanded="true" />
-                <element signature="e#40354#40355#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -74,9 +62,10 @@
       <file leaf-file-name="PatientCase.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/chiroSupport/patientCase/PatientCase.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
+            <state relative-caret-position="425">
               <caret line="31" column="32" lean-forward="false" selection-start-line="31" selection-start-column="32" selection-end-line="31" selection-end-column="32" />
               <folding>
+                <element signature="imports" expanded="false" />
                 <element signature="e#1164#1165#0" expanded="false" />
                 <element signature="e#1194#1195#0" expanded="false" />
                 <element signature="e#1229#1230#0" expanded="false" />
@@ -101,8 +90,6 @@
                 <element signature="e#1958#1959#0" expanded="false" />
                 <element signature="e#2012#2013#0" expanded="false" />
                 <element signature="e#2058#2059#0" expanded="false" />
-                <marker date="1494694091037" expanded="false" signature="57:291" ph="..." />
-                <marker date="1494694091037" expanded="true" signature="816:927" ph="@{...}" />
               </folding>
             </state>
           </provider>
@@ -111,9 +98,10 @@
       <file leaf-file-name="Examination.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/chiroSupport/patientCase/Examination.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
+            <state relative-caret-position="833">
               <caret line="54" column="47" lean-forward="false" selection-start-line="54" selection-start-column="47" selection-end-line="54" selection-end-column="47" />
               <folding>
+                <element signature="imports" expanded="false" />
                 <element signature="e#2162#2163#0" expanded="false" />
                 <element signature="e#2210#2211#0" expanded="false" />
                 <element signature="e#2265#2266#0" expanded="false" />
@@ -164,8 +152,6 @@
                 <element signature="e#4595#4596#0" expanded="false" />
                 <element signature="e#4662#4663#0" expanded="false" />
                 <element signature="e#4712#4713#0" expanded="false" />
-                <marker date="1494694091099" expanded="false" signature="57:264" ph="..." />
-                <marker date="1494694091099" expanded="true" signature="712:823" ph="@{...}" />
               </folding>
             </state>
           </provider>
@@ -174,7 +160,7 @@
       <file leaf-file-name="SpecialTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/chiroSupport/patientCase/objective/SpecialTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="387">
+            <state relative-caret-position="1190">
               <caret line="102" column="6" lean-forward="false" selection-start-line="102" selection-start-column="6" selection-end-line="104" selection-end-column="7" />
               <folding>
                 <element signature="imports" expanded="false" />
@@ -215,88 +201,21 @@
       </file>
       <file leaf-file-name="patientDashboard.fxml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/patientDashboard.fxml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="94">
-              <caret line="216" column="146" lean-forward="false" selection-start-line="216" selection-start-column="146" selection-end-line="216" selection-end-column="146" />
-              <folding>
-                <marker date="1494682207259" expanded="true" signature="24033:29204" ph="..." />
-                <marker date="1494682207259" expanded="true" signature="24088:29155" ph="..." />
-                <marker date="1494682207259" expanded="true" signature="24217:29099" ph="..." />
-                <marker date="1494682207259" expanded="true" signature="24279:29037" ph="..." />
-                <marker date="1494682207259" expanded="true" signature="28559:28663" ph="..." />
-                <marker date="1494682207259" expanded="true" signature="28559:28730" ph="..." />
-                <marker date="1494682207259" expanded="true" signature="29277:39129" ph="..." />
-                <marker date="1494682207259" expanded="true" signature="29332:39080" ph="..." />
-                <marker date="1494682207259" expanded="true" signature="29461:39024" ph="..." />
-                <marker date="1494682207259" expanded="true" signature="29523:39011" ph="..." />
-                <marker date="1494682207259" expanded="true" signature="29651:29924" ph="..." />
-                <marker date="1494682207259" expanded="true" signature="29715:29861" ph="..." />
-                <marker date="1494682207259" expanded="true" signature="34885:38793" ph="..." />
-                <marker date="1494682207259" expanded="true" signature="34951:38726" ph="..." />
-                <marker date="1494682207259" expanded="true" signature="35265:35708" ph="..." />
-                <marker date="1494682207259" expanded="true" signature="35338:35633" ph="..." />
-                <marker date="1494682207259" expanded="true" signature="35816:36259" ph="..." />
-                <marker date="1494682207259" expanded="true" signature="35889:36184" ph="..." />
-                <marker date="1494682207259" expanded="true" signature="36361:36804" ph="..." />
-                <marker date="1494682207259" expanded="true" signature="36434:36729" ph="..." />
-                <marker date="1494682207259" expanded="true" signature="36906:37349" ph="..." />
-                <marker date="1494682207259" expanded="true" signature="36979:37274" ph="..." />
-                <marker date="1494682207259" expanded="true" signature="37450:37893" ph="..." />
-                <marker date="1494682207259" expanded="true" signature="37523:37818" ph="..." />
-                <marker date="1494682207259" expanded="true" signature="37994:38437" ph="..." />
-                <marker date="1494682207259" expanded="true" signature="38067:38362" ph="..." />
-                <marker date="1494682207259" expanded="true" signature="39205:43492" ph="..." />
-                <marker date="1494682207259" expanded="true" signature="39260:43443" ph="..." />
-                <marker date="1494682207259" expanded="true" signature="39389:43387" ph="..." />
-                <marker date="1494682207259" expanded="true" signature="39451:43374" ph="..." />
-                <marker date="1494682207259" expanded="true" signature="39581:39854" ph="..." />
-                <marker date="1494682207259" expanded="true" signature="39645:39791" ph="..." />
-                <marker date="1494682207259" expanded="true" signature="41403:42140" ph="..." />
-                <marker date="1494682207259" expanded="true" signature="41470:42073" ph="..." />
-                <marker date="1494682207259" expanded="true" signature="42274:42906" ph="..." />
-                <marker date="1494682207259" expanded="true" signature="42341:42839" ph="..." />
-                <marker date="1494682207259" expanded="true" signature="43574:47381" ph="..." />
-                <marker date="1494682207259" expanded="true" signature="43629:47332" ph="..." />
-                <marker date="1494682207259" expanded="true" signature="43758:47276" ph="..." />
-                <marker date="1494682207259" expanded="true" signature="43820:47263" ph="..." />
-                <marker date="1494682207259" expanded="true" signature="43957:44230" ph="..." />
-                <marker date="1494682207259" expanded="true" signature="44021:44167" ph="..." />
-                <marker date="1494682207259" expanded="true" signature="46278:47014" ph="..." />
-                <marker date="1494682207259" expanded="true" signature="46344:46947" ph="..." />
-                <marker date="1494682207259" expanded="true" signature="47465:51315" ph="..." />
-                <marker date="1494682207259" expanded="true" signature="47520:51266" ph="..." />
-                <marker date="1494682207259" expanded="true" signature="47649:51210" ph="..." />
-                <marker date="1494682207259" expanded="true" signature="47711:51197" ph="..." />
-                <marker date="1494682207259" expanded="true" signature="47853:48126" ph="..." />
-                <marker date="1494682207259" expanded="true" signature="47917:48063" ph="..." />
-                <marker date="1494682207259" expanded="true" signature="50197:50934" ph="..." />
-                <marker date="1494682207259" expanded="true" signature="50263:50867" ph="..." />
-                <marker date="1494682207259" expanded="true" signature="51576:55117" ph="..." />
-                <marker date="1494682207259" expanded="true" signature="51613:55086" ph="..." />
-                <marker date="1494682207259" expanded="true" signature="51724:55048" ph="..." />
-                <marker date="1494682207259" expanded="true" signature="51768:55035" ph="..." />
-                <marker date="1494682207259" expanded="true" signature="52565:52777" ph="..." />
-                <marker date="1494682207259" expanded="true" signature="52618:52763" ph="..." />
-                <marker date="1494682207259" expanded="true" signature="54145:54821" ph="..." />
-                <marker date="1494682207259" expanded="true" signature="54193:54772" ph="..." />
-                <marker date="1494682207259" expanded="true" signature="55159:58017" ph="..." />
-                <marker date="1494682207259" expanded="true" signature="55196:57986" ph="..." />
-                <marker date="1494682207259" expanded="true" signature="55307:57948" ph="..." />
-                <marker date="1494682207259" expanded="true" signature="55351:57935" ph="..." />
-                <marker date="1494682207259" expanded="true" signature="56162:56597" ph="..." />
-                <marker date="1494682207259" expanded="true" signature="56210:56548" ph="..." />
-              </folding>
-            </state>
-          </provider>
           <provider editor-type-id="JavaFX-Scene-Builder">
             <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="6341">
+              <caret line="373" column="112" lean-forward="false" selection-start-line="373" selection-start-column="112" selection-end-line="373" selection-end-column="112" />
+              <folding />
+            </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="Observation.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/chiroSupport/patientCase/objective/Observation.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-29">
+            <state relative-caret-position="442">
               <caret line="30" column="27" lean-forward="false" selection-start-line="30" selection-start-column="27" selection-end-line="30" selection-end-column="27" />
               <folding>
                 <element signature="imports" expanded="false" />
@@ -363,9 +282,10 @@
       <file leaf-file-name="ReceptionistDataEntryController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/chiroSupport/sample/ReceptionistDataEntryController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1315">
+            <state relative-caret-position="2006">
               <caret line="151" column="9" lean-forward="false" selection-start-line="139" selection-start-column="8" selection-end-line="151" selection-end-column="9" />
               <folding>
+                <element signature="imports" expanded="false" />
                 <element signature="e#1280#1289#0" expanded="false" />
                 <element signature="e#3719#3720#0" expanded="false" />
                 <element signature="e#3745#3746#0" expanded="false" />
@@ -387,7 +307,7 @@
       <file leaf-file-name="patientQueueController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/chiroSupport/sample/patientQueueController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="59">
+            <state relative-caret-position="1768">
               <caret line="130" column="83" lean-forward="false" selection-start-line="130" selection-start-column="27" selection-end-line="130" selection-end-column="83" />
               <folding>
                 <element signature="imports" expanded="false" />
@@ -405,14 +325,14 @@
       </file>
       <file leaf-file-name="receptionistDataEntry.fxml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/receptionistDataEntry.fxml">
+          <provider editor-type-id="JavaFX-Scene-Builder">
+            <state />
+          </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="201">
+            <state relative-caret-position="561">
               <caret line="33" column="51" lean-forward="false" selection-start-line="33" selection-start-column="51" selection-end-line="33" selection-end-column="51" />
               <folding />
             </state>
-          </provider>
-          <provider editor-type-id="JavaFX-Scene-Builder">
-            <state />
           </provider>
         </entry>
       </file>
@@ -430,6 +350,7 @@
       <find>muscleP</find>
       <find>ini</find>
       <find>init</find>
+      <find>special</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -469,7 +390,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/mycompany/chiroSupport/patientProfile/Patient.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/mycompany/chiroSupport/patientCase/Subjective.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/mycompany/chiroSupport/patientCase/objective/Rom.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/patientDashboard.fxml" />
         <option value="$PROJECT_DIR$/src/main/java/com/mycompany/chiroSupport/patientCase/objective/DiagnosticStudy.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/mycompany/chiroSupport/patientCase/objective/NeurologicalStudy.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/mycompany/chiroSupport/patientCase/Analysis.java" />
@@ -488,6 +408,7 @@
         <option value="$PROJECT_DIR$/src/main/java/com/mycompany/chiroSupport/patientCase/Examination.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/mycompany/chiroSupport/patientCase/PatientCase.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/mycompany/chiroSupport/patientCase/objective/SpecialTest.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/patientDashboard.fxml" />
         <option value="$PROJECT_DIR$/src/main/java/com/mycompany/chiroSupport/sample/patientDashboardController.java" />
       </list>
     </option>
@@ -554,6 +475,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -806,9 +729,7 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1373,12 +1294,15 @@
       <workItem from="1494343513282" duration="9638000" />
       <workItem from="1494387956636" duration="24908000" />
       <workItem from="1494596115649" duration="10055000" />
-      <workItem from="1494656374419" duration="24540000" />
+      <workItem from="1494656374419" duration="35641000" />
+      <workItem from="1494743598845" duration="1378000" />
+      <workItem from="1494759616659" duration="950000" />
+      <workItem from="1494778485116" duration="2307000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="238377000" />
+    <option name="totallyTimeSpent" value="254113000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -1406,7 +1330,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31751227" sideWeight="0.6068814" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2532943" sideWeight="0.23343849" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32829046" sideWeight="0.7665615" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2624811" sideWeight="0.7665615" order="1" side_tool="false" content_ui="combo" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1476,7 +1400,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1496,26 +1419,26 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/chiroSupport/sample/login.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/patient.hbm.xml" />
     <entry file="file://$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" />
     <entry file="file://$PROJECT_DIR$/src/main/java/patient.hbm.xml" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/chiroSupport/sample/sample.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
       </provider>
     </entry>
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/b85b614e-6f88-4f76-a98c-00ef4261a2bf/console.sql">
@@ -1664,83 +1587,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="442">
           <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#1484#1485#0" expanded="false" />
-            <element signature="e#1532#1533#0" expanded="false" />
-            <element signature="e#1578#1579#0" expanded="false" />
-            <element signature="e#1603#1604#0" expanded="false" />
-            <element signature="e#1646#1647#0" expanded="false" />
-            <element signature="e#1680#1681#0" expanded="false" />
-            <element signature="e#1714#1715#0" expanded="false" />
-            <element signature="e#1744#1745#0" expanded="false" />
-            <element signature="e#1790#1791#0" expanded="false" />
-            <element signature="e#1828#1829#0" expanded="false" />
-            <element signature="e#1859#1860#0" expanded="false" />
-            <element signature="e#1889#1890#0" expanded="false" />
-            <element signature="e#1932#1933#0" expanded="false" />
-            <element signature="e#1970#1971#0" expanded="false" />
-            <element signature="e#2005#2006#0" expanded="false" />
-            <element signature="e#2039#2040#0" expanded="false" />
-            <element signature="e#2090#2091#0" expanded="false" />
-            <element signature="e#2136#2137#0" expanded="false" />
-            <element signature="e#2169#2170#0" expanded="false" />
-            <element signature="e#2201#2202#0" expanded="false" />
-            <element signature="e#2248#2249#0" expanded="false" />
-            <element signature="e#2290#2291#0" expanded="false" />
-            <element signature="e#2327#2328#0" expanded="false" />
-            <element signature="e#2363#2364#0" expanded="false" />
-            <element signature="e#2418#2419#0" expanded="false" />
-            <element signature="e#2468#2469#0" expanded="false" />
-            <element signature="e#2495#2496#0" expanded="false" />
-            <element signature="e#2521#2522#0" expanded="false" />
-            <element signature="e#2556#2557#0" expanded="false" />
-            <element signature="e#2586#2587#0" expanded="false" />
-            <element signature="e#2617#2618#0" expanded="false" />
-            <element signature="e#2647#2648#0" expanded="false" />
-            <element signature="e#2690#2691#0" expanded="false" />
-            <element signature="e#2728#2729#0" expanded="false" />
-            <element signature="e#2755#2756#0" expanded="false" />
-            <element signature="e#2781#2782#0" expanded="false" />
-            <element signature="e#2816#2817#0" expanded="false" />
-            <element signature="e#2846#2847#0" expanded="false" />
-            <element signature="e#2877#2878#0" expanded="false" />
-            <element signature="e#2907#2908#0" expanded="false" />
-            <element signature="e#2950#2951#0" expanded="false" />
-            <element signature="e#2988#2989#0" expanded="false" />
-            <element signature="e#3014#3015#0" expanded="false" />
-            <element signature="e#3039#3040#0" expanded="false" />
-            <element signature="e#3072#3073#0" expanded="false" />
-            <element signature="e#3100#3101#0" expanded="false" />
-            <element signature="e#3130#3131#0" expanded="false" />
-            <element signature="e#3159#3160#0" expanded="false" />
-            <element signature="e#3200#3201#0" expanded="false" />
-            <element signature="e#3236#3237#0" expanded="false" />
-            <element signature="e#3262#3263#0" expanded="false" />
-            <element signature="e#3287#3288#0" expanded="false" />
-            <element signature="e#3320#3321#0" expanded="false" />
-            <element signature="e#3348#3349#0" expanded="false" />
-            <element signature="e#3378#3379#0" expanded="false" />
-            <element signature="e#3407#3408#0" expanded="false" />
-            <element signature="e#3448#3449#0" expanded="false" />
-            <element signature="e#3484#3485#0" expanded="false" />
-            <element signature="e#3517#3518#0" expanded="false" />
-            <element signature="e#3549#3550#0" expanded="false" />
-            <element signature="e#3596#3597#0" expanded="false" />
-            <element signature="e#3638#3639#0" expanded="false" />
-            <element signature="e#3673#3674#0" expanded="false" />
-            <element signature="e#3704#3705#0" expanded="false" />
-            <element signature="e#3752#3753#0" expanded="false" />
-            <element signature="e#3792#3793#0" expanded="false" />
-            <element signature="e#3826#3827#0" expanded="false" />
-            <element signature="e#3854#3855#0" expanded="false" />
-            <element signature="e#3913#3914#0" expanded="false" />
-            <element signature="e#3959#3960#0" expanded="false" />
-            <element signature="e#3992#3993#0" expanded="false" />
-            <element signature="e#4021#4022#0" expanded="false" />
-            <element signature="e#4065#4066#0" expanded="false" />
-            <element signature="e#4101#4102#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1872,7 +1718,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="576">
           <caret line="66" column="61" lean-forward="false" selection-start-line="66" selection-start-column="61" selection-end-line="66" selection-end-column="61" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1880,7 +1725,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
           <caret line="18" column="83" lean-forward="false" selection-start-line="18" selection-start-column="83" selection-end-line="18" selection-end-column="83" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1888,30 +1732,27 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1156">
           <caret line="68" column="17" lean-forward="false" selection-start-line="68" selection-start-column="17" selection-end-line="68" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/patientAppointment.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/resources/receptionistDataEntry.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/backgroundImage.jpg">
@@ -1930,9 +1771,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="442">
           <caret line="42" column="34" lean-forward="false" selection-start-line="42" selection-start-column="34" selection-end-line="42" selection-end-column="34" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1940,7 +1778,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="476">
           <caret line="30" column="31" lean-forward="false" selection-start-line="30" selection-start-column="31" selection-end-line="30" selection-end-column="31" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1948,9 +1785,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
           <caret line="18" column="37" lean-forward="true" selection-start-line="18" selection-start-column="37" selection-end-line="18" selection-end-column="37" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1958,9 +1792,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="612">
           <caret line="36" column="0" lean-forward="false" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1968,12 +1799,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="416">
           <caret line="137" column="0" lean-forward="false" selection-start-line="137" selection-start-column="0" selection-end-line="137" selection-end-column="0" />
-          <folding>
-            <element signature="e#2980#2981#0" expanded="false" />
-            <element signature="e#3008#3009#0" expanded="false" />
-            <element signature="e#3055#3056#0" expanded="false" />
-            <element signature="e#3093#3094#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1981,7 +1806,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
           <caret line="23" column="4" lean-forward="false" selection-start-line="23" selection-start-column="4" selection-end-line="23" selection-end-column="47" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2025,21 +1849,22 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/receptionistDataEntry.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="201">
+        <state relative-caret-position="561">
           <caret line="33" column="51" lean-forward="false" selection-start-line="33" selection-start-column="51" selection-end-line="33" selection-end-column="51" />
           <folding />
         </state>
       </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/chiroSupport/sample/ReceptionistDataEntryController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1315">
+        <state relative-caret-position="2006">
           <caret line="151" column="9" lean-forward="false" selection-start-line="139" selection-start-column="8" selection-end-line="151" selection-end-column="9" />
           <folding>
+            <element signature="imports" expanded="false" />
             <element signature="e#1280#1289#0" expanded="false" />
             <element signature="e#3719#3720#0" expanded="false" />
             <element signature="e#3745#3746#0" expanded="false" />
@@ -2059,7 +1884,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/chiroSupport/patientCase/objective/Observation.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-29">
+        <state relative-caret-position="442">
           <caret line="30" column="27" lean-forward="false" selection-start-line="30" selection-start-column="27" selection-end-line="30" selection-end-column="27" />
           <folding>
             <element signature="imports" expanded="false" />
@@ -2082,19 +1907,18 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/patientQueue.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="9" column="96" lean-forward="false" selection-start-line="9" selection-start-column="96" selection-end-line="9" selection-end-column="96" />
-          <folding />
         </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/chiroSupport/sample/patientQueueController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="59">
+        <state relative-caret-position="1768">
           <caret line="130" column="83" lean-forward="false" selection-start-line="130" selection-start-column="27" selection-end-line="130" selection-end-column="83" />
           <folding>
             <element signature="imports" expanded="false" />
@@ -2109,89 +1933,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/patientDashboard.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="94">
-          <caret line="216" column="146" lean-forward="false" selection-start-line="216" selection-start-column="146" selection-end-line="216" selection-end-column="146" />
-          <folding>
-            <marker date="1494682207259" expanded="true" signature="24033:29204" ph="..." />
-            <marker date="1494682207259" expanded="true" signature="24088:29155" ph="..." />
-            <marker date="1494682207259" expanded="true" signature="24217:29099" ph="..." />
-            <marker date="1494682207259" expanded="true" signature="24279:29037" ph="..." />
-            <marker date="1494682207259" expanded="true" signature="28559:28663" ph="..." />
-            <marker date="1494682207259" expanded="true" signature="28559:28730" ph="..." />
-            <marker date="1494682207259" expanded="true" signature="29277:39129" ph="..." />
-            <marker date="1494682207259" expanded="true" signature="29332:39080" ph="..." />
-            <marker date="1494682207259" expanded="true" signature="29461:39024" ph="..." />
-            <marker date="1494682207259" expanded="true" signature="29523:39011" ph="..." />
-            <marker date="1494682207259" expanded="true" signature="29651:29924" ph="..." />
-            <marker date="1494682207259" expanded="true" signature="29715:29861" ph="..." />
-            <marker date="1494682207259" expanded="true" signature="34885:38793" ph="..." />
-            <marker date="1494682207259" expanded="true" signature="34951:38726" ph="..." />
-            <marker date="1494682207259" expanded="true" signature="35265:35708" ph="..." />
-            <marker date="1494682207259" expanded="true" signature="35338:35633" ph="..." />
-            <marker date="1494682207259" expanded="true" signature="35816:36259" ph="..." />
-            <marker date="1494682207259" expanded="true" signature="35889:36184" ph="..." />
-            <marker date="1494682207259" expanded="true" signature="36361:36804" ph="..." />
-            <marker date="1494682207259" expanded="true" signature="36434:36729" ph="..." />
-            <marker date="1494682207259" expanded="true" signature="36906:37349" ph="..." />
-            <marker date="1494682207259" expanded="true" signature="36979:37274" ph="..." />
-            <marker date="1494682207259" expanded="true" signature="37450:37893" ph="..." />
-            <marker date="1494682207259" expanded="true" signature="37523:37818" ph="..." />
-            <marker date="1494682207259" expanded="true" signature="37994:38437" ph="..." />
-            <marker date="1494682207259" expanded="true" signature="38067:38362" ph="..." />
-            <marker date="1494682207259" expanded="true" signature="39205:43492" ph="..." />
-            <marker date="1494682207259" expanded="true" signature="39260:43443" ph="..." />
-            <marker date="1494682207259" expanded="true" signature="39389:43387" ph="..." />
-            <marker date="1494682207259" expanded="true" signature="39451:43374" ph="..." />
-            <marker date="1494682207259" expanded="true" signature="39581:39854" ph="..." />
-            <marker date="1494682207259" expanded="true" signature="39645:39791" ph="..." />
-            <marker date="1494682207259" expanded="true" signature="41403:42140" ph="..." />
-            <marker date="1494682207259" expanded="true" signature="41470:42073" ph="..." />
-            <marker date="1494682207259" expanded="true" signature="42274:42906" ph="..." />
-            <marker date="1494682207259" expanded="true" signature="42341:42839" ph="..." />
-            <marker date="1494682207259" expanded="true" signature="43574:47381" ph="..." />
-            <marker date="1494682207259" expanded="true" signature="43629:47332" ph="..." />
-            <marker date="1494682207259" expanded="true" signature="43758:47276" ph="..." />
-            <marker date="1494682207259" expanded="true" signature="43820:47263" ph="..." />
-            <marker date="1494682207259" expanded="true" signature="43957:44230" ph="..." />
-            <marker date="1494682207259" expanded="true" signature="44021:44167" ph="..." />
-            <marker date="1494682207259" expanded="true" signature="46278:47014" ph="..." />
-            <marker date="1494682207259" expanded="true" signature="46344:46947" ph="..." />
-            <marker date="1494682207259" expanded="true" signature="47465:51315" ph="..." />
-            <marker date="1494682207259" expanded="true" signature="47520:51266" ph="..." />
-            <marker date="1494682207259" expanded="true" signature="47649:51210" ph="..." />
-            <marker date="1494682207259" expanded="true" signature="47711:51197" ph="..." />
-            <marker date="1494682207259" expanded="true" signature="47853:48126" ph="..." />
-            <marker date="1494682207259" expanded="true" signature="47917:48063" ph="..." />
-            <marker date="1494682207259" expanded="true" signature="50197:50934" ph="..." />
-            <marker date="1494682207259" expanded="true" signature="50263:50867" ph="..." />
-            <marker date="1494682207259" expanded="true" signature="51576:55117" ph="..." />
-            <marker date="1494682207259" expanded="true" signature="51613:55086" ph="..." />
-            <marker date="1494682207259" expanded="true" signature="51724:55048" ph="..." />
-            <marker date="1494682207259" expanded="true" signature="51768:55035" ph="..." />
-            <marker date="1494682207259" expanded="true" signature="52565:52777" ph="..." />
-            <marker date="1494682207259" expanded="true" signature="52618:52763" ph="..." />
-            <marker date="1494682207259" expanded="true" signature="54145:54821" ph="..." />
-            <marker date="1494682207259" expanded="true" signature="54193:54772" ph="..." />
-            <marker date="1494682207259" expanded="true" signature="55159:58017" ph="..." />
-            <marker date="1494682207259" expanded="true" signature="55196:57986" ph="..." />
-            <marker date="1494682207259" expanded="true" signature="55307:57948" ph="..." />
-            <marker date="1494682207259" expanded="true" signature="55351:57935" ph="..." />
-            <marker date="1494682207259" expanded="true" signature="56162:56597" ph="..." />
-            <marker date="1494682207259" expanded="true" signature="56210:56548" ph="..." />
-          </folding>
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/chiroSupport/patientCase/Examination.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
+        <state relative-caret-position="833">
           <caret line="54" column="47" lean-forward="false" selection-start-line="54" selection-start-column="47" selection-end-line="54" selection-end-column="47" />
           <folding>
+            <element signature="imports" expanded="false" />
             <element signature="e#2162#2163#0" expanded="false" />
             <element signature="e#2210#2211#0" expanded="false" />
             <element signature="e#2265#2266#0" expanded="false" />
@@ -2242,17 +1989,16 @@
             <element signature="e#4595#4596#0" expanded="false" />
             <element signature="e#4662#4663#0" expanded="false" />
             <element signature="e#4712#4713#0" expanded="false" />
-            <marker date="1494694091099" expanded="false" signature="57:264" ph="..." />
-            <marker date="1494694091099" expanded="true" signature="712:823" ph="@{...}" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/chiroSupport/patientCase/PatientCase.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
+        <state relative-caret-position="425">
           <caret line="31" column="32" lean-forward="false" selection-start-line="31" selection-start-column="32" selection-end-line="31" selection-end-column="32" />
           <folding>
+            <element signature="imports" expanded="false" />
             <element signature="e#1164#1165#0" expanded="false" />
             <element signature="e#1194#1195#0" expanded="false" />
             <element signature="e#1229#1230#0" expanded="false" />
@@ -2277,15 +2023,13 @@
             <element signature="e#1958#1959#0" expanded="false" />
             <element signature="e#2012#2013#0" expanded="false" />
             <element signature="e#2058#2059#0" expanded="false" />
-            <marker date="1494694091037" expanded="false" signature="57:291" ph="..." />
-            <marker date="1494694091037" expanded="true" signature="816:927" ph="@{...}" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/chiroSupport/patientCase/objective/SpecialTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="387">
+        <state relative-caret-position="1190">
           <caret line="102" column="6" lean-forward="false" selection-start-line="102" selection-start-column="6" selection-end-line="104" selection-end-column="7" />
           <folding>
             <element signature="imports" expanded="false" />
@@ -2323,17 +2067,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/patientDashboard.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6341">
+          <caret line="373" column="112" lean-forward="false" selection-start-line="373" selection-start-column="112" selection-end-line="373" selection-end-column="112" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/chiroSupport/sample/patientDashboardController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="99">
-          <caret line="1138" column="145" lean-forward="false" selection-start-line="1138" selection-start-column="145" selection-end-line="1138" selection-end-column="145" />
+        <state relative-caret-position="618">
+          <caret line="312" column="8" lean-forward="true" selection-start-line="312" selection-start-column="8" selection-end-line="312" selection-end-column="8" />
           <folding>
-            <element signature="e#37015#37028#0" expanded="true" />
-            <element signature="e#37755#38186#0" expanded="true" />
-            <element signature="e#38185#38186#0" expanded="true" />
-            <element signature="e#39222#39233#0" expanded="true" />
-            <element signature="e#39936#40355#0" expanded="true" />
-            <element signature="e#40354#40355#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
