@@ -27,7 +27,7 @@ public class Analysis {
     private String patientProgress;
 
     @Column(name="effectiveness", nullable=false)
-    private int effectiveness;
+    private int effectiveness;   //unable:0    no:1    yes:2
 
     @Column(name="prognosis", nullable=false)
     private String prognosis;

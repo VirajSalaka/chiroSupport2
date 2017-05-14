@@ -514,14 +514,14 @@
                                     <TextArea fx:id="analysisCommentsArea" layoutX="13.0" layoutY="193.0" prefHeight="42.0" prefWidth="864.0" />
                                     <Separator layoutY="300.0" prefHeight="0.0" prefWidth="919.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
                                     <Label layoutX="13.0" layoutY="316.0" prefHeight="17.0" prefWidth="146.0" text="Previous Analysis" />
-                                    <TableView layoutX="13.0" layoutY="341.0" prefHeight="297.0" prefWidth="860.0">
+                                    <TableView fx:id="analysisTableView" layoutX="13.0" layoutY="341.0" prefHeight="297.0" prefWidth="860.0">
                                       <columns>
-                                        <TableColumn prefWidth="75.0" text="Date" />
-                                        <TableColumn prefWidth="75.0" text="Condition" />
-                                          <TableColumn prefWidth="75.0" text="Progress" />
-                                          <TableColumn prefWidth="108.0" text="effectiveness" />
-                                          <TableColumn text="prognosis" />
-                                          <TableColumn prefWidth="442.0" text="Comments" />
+                                        <TableColumn fx:id="analysisDateColumn" prefWidth="75.0" text="Date" />
+                                        <TableColumn fx:id="analysisConditionColumn" prefWidth="75.0" text="Condition" />
+                                          <TableColumn fx:id="analysisProgressColumn" prefWidth="75.0" text="Progress" />
+                                          <TableColumn fx:id="analysisEffectivenessColumn" prefWidth="108.0" text="effectiveness" />
+                                          <TableColumn fx:id="analysisPrognosisColumn" text="prognosis" />
+                                          <TableColumn fx:id="analysisCommentsColumn" prefWidth="442.0" text="Comments" />
                                       </columns>
                                     </TableView>
                                     <Button fx:id="analysisSaveBtn" layoutX="13.0" layoutY="243.0" mnemonicParsing="false" onMouseClicked="#analysisSave" text="Save" />

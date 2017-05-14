@@ -344,6 +344,20 @@ public class patientDashboardController implements Initializable{
     private ChoiceBox<String> analysisPrognosisChoiceBox;
     @FXML
     private TextArea analysisCommentsArea;
+    @FXML
+    private TableView<Analysis> analysisTableView;
+    @FXML
+    private TableColumn<Analysis,String> analysisDateColumn;
+    @FXML
+    private TableColumn<Analysis,String> analysisConditionColumn;
+    @FXML
+    private TableColumn<Analysis,String> analysisProgressColumn;
+    @FXML
+    private TableColumn<Analysis,String> analysisEffectivenessColumn;
+    @FXML
+    private TableColumn<Analysis,String> analysisPrognosisColumn;
+    @FXML
+    private TableColumn<Analysis,String> analysisCommentsColumn;
 
     //treatment
     @FXML
@@ -953,8 +967,6 @@ public class patientDashboardController implements Initializable{
                     neurologicalStudiesImpressionColumn.setCellValueFactory(c-> new SimpleStringProperty(c.getValue().getImpression()));
                     neurologicalStudiesAttachmentColumn.setCellValueFactory(c-> new SimpleStringProperty(c.getValue().getFileName()));
 
-
-
                 } catch (IOException ex) {
                     Alert alert = new Alert(Alert.AlertType.ERROR);
                     alert.setTitle("Exception in File Upload");
@@ -1079,22 +1091,8 @@ public class patientDashboardController implements Initializable{
         musclePowerInitialize();
         diagnosticStudyInitialize();
         neurologicalStudyInitialize();
-
-        analysisPatientConditionChoiceBox.getItems().addAll("not selected","resolved","marked improvement","moderate improvement",
-                "slight improvement","no change","somewhat worse", "worse");
-        analysisPatientProgressingChoiceBox.getItems().addAll("not selected","expected rate", "faster rate", "slower rate", "negative rate");
-        analysisPrognosisChoiceBox.getItems().addAll("undetermined","poor","fair","good","excellent");
-        analysisPatientConditionChoiceBox.setValue("not selected");
-        analysisPatientProgressingChoiceBox.setValue("not selected");
-        analysisPrognosisChoiceBox.setValue("undetermined");
-        analysisTreatmentEffectiveUnableRadioBtn.setSelected(true);
-
-        treatmentFrequencyChoiceBox.getItems().addAll("none","as needed","daily","three times weekly","five times weekly", "once weekly" ,"twice weekly","twice monthly","monthly");
-        treatmentDurationChoiceBox.getItems().addAll("none","indefinitely","one week","two weeks", "three weeks","one month","six weeks","two months", "three months","one year");
-        treatmentFrequencyChoiceBox.setValue("none");
-        treatmentDurationChoiceBox.setValue("none");
-        //start transaction
-
+        analysisIntialize();
+        treatmentPlanInitialize();
     }
 
     public void saveObjectInDatabase(Object obj){
@@ -1233,7 +1231,6 @@ public class patientDashboardController implements Initializable{
         List<SpecialTest> specialTestTotalList = new ArrayList<>();
         if(caseRelatedExamList.size()!=0){
             for(int i=caseRelatedExamList.size()-1;i>=0;i--){
-
                 List<SpecialTest> tempList;
                 if((tempList= caseRelatedExamList.get(i).getSpecialTestList())!=null){
                     for(int j=tempList.size()-1;j>=0;j--){
@@ -1322,7 +1319,7 @@ public class patientDashboardController implements Initializable{
                 if ((tempList = caseRelatedExamList.get(i).getMusclePowerList()) != null) {
                     for(int j=tempList.size()-1;j>=0;j--){
                         previousMusclePowerList.add(tempList.get(j));
-                        //setCellValueFactory(c-> new SimpleStringProperty(c.getValue().));
+
                         musclePowerPreviousTableView.setItems(FXCollections.observableList(previousMusclePowerList));
                         musclePowerPreviousDateColumn.setCellValueFactory(c-> new SimpleStringProperty(c.getValue().getExamination().getDate()));
                         musclePowerPreviousMuscleColumn.setCellValueFactory(c-> new SimpleStringProperty(c.getValue().getMuscle()));
@@ -1358,6 +1355,7 @@ public class patientDashboardController implements Initializable{
                 }
             }
         }
+
     }
 
     public void neurologicalStudyInitialize(){
@@ -1379,5 +1377,48 @@ public class patientDashboardController implements Initializable{
                 }
             }
         }
+    }
+
+    public void analysisIntialize(){
+        analysisPatientConditionChoiceBox.getItems().addAll("not selected","resolved","marked improvement","moderate improvement",
+                "slight improvement","no change","somewhat worse", "worse");
+        analysisPatientProgressingChoiceBox.getItems().addAll("not selected","expected rate", "faster rate", "slower rate", "negative rate");
+        analysisPrognosisChoiceBox.getItems().addAll("undetermined","poor","fair","good","excellent");
+        analysisPatientConditionChoiceBox.setValue("not selected");
+        analysisPatientProgressingChoiceBox.setValue("not selected");
+        analysisPrognosisChoiceBox.setValue("undetermined");
+        analysisTreatmentEffectiveUnableRadioBtn.setSelected(true);
+
+        //setCellValueFactory(c-> new SimpleStringProperty(c.getValue().));
+        List<Analysis> analysisTotalList = new ArrayList<>();
+        if(caseRelatedExamList.size()!=0) {
+            for (int i = caseRelatedExamList.size() - 1; i >= 0; i--) {
+                Analysis analysis;
+                if((analysis= caseRelatedExamList.get(i).getAnalysis())!=null){
+                    analysisTotalList.add(analysis);
+                    analysisTableView.setItems(FXCollections.observableList(analysisTotalList));
+                    analysisDateColumn.setCellValueFactory(c-> new SimpleStringProperty(c.getValue().getExamination().getDate()));
+                    analysisConditionColumn.setCellValueFactory(c-> new SimpleStringProperty(c.getValue().getPatientCondition()));
+                    analysisProgressColumn.setCellValueFactory(c-> new SimpleStringProperty(c.getValue().getPatientProgress()));
+
+                    if(analysis.getEffectiveness()==1){
+                        analysisEffectivenessColumn.setCellValueFactory(c-> new SimpleStringProperty("no"));
+                    }else if(analysis.getEffectiveness()==2){
+                        analysisEffectivenessColumn.setCellValueFactory(c-> new SimpleStringProperty("yes"));
+                    }else{
+                        analysisEffectivenessColumn.setCellValueFactory(c-> new SimpleStringProperty("unable"));
+                    }
+                    analysisPrognosisColumn.setCellValueFactory(c-> new SimpleStringProperty(c.getValue().getPrognosis()));
+                    analysisCommentsColumn.setCellValueFactory(c-> new SimpleStringProperty(c.getValue().getComments()));
+                }
+            }
+        }
+    }
+
+    public void treatmentPlanInitialize(){
+        treatmentFrequencyChoiceBox.getItems().addAll("none","as needed","daily","three times weekly","five times weekly", "once weekly" ,"twice weekly","twice monthly","monthly");
+        treatmentDurationChoiceBox.getItems().addAll("none","indefinitely","one week","two weeks", "three weeks","one month","six weeks","two months", "three months","one year");
+        treatmentFrequencyChoiceBox.setValue("none");
+        treatmentDurationChoiceBox.setValue("none");
     }
 }
