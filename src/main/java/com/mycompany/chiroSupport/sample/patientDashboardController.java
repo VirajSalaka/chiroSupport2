@@ -48,6 +48,7 @@ public class patientDashboardController implements Initializable{
     private List<SpecialTest> specialTestCurrentList;
     private List<Rom> romTestTotalList;
     private List<MusclePower> currentMusclePowerList;
+    private List<DiagnosticStudy> diagnosticStudyTotalList;
     private File diagnosticStudySourceFile;
     private int diagnosticStudyCount = 0;
     private File neurologicalStudySourceFile;
@@ -287,6 +288,19 @@ public class patientDashboardController implements Initializable{
     private Label diagnosticStudiesFileNameLabel;
     @FXML
     private TextArea diagnosticStudiesImpressionArea;
+    @FXML
+    private TableView<DiagnosticStudy> diagnosticStudiesTableView;
+    @FXML
+    private TableColumn<DiagnosticStudy,String> diagnosticStudiesDateColumn;
+    @FXML
+    private TableColumn<DiagnosticStudy,String> diagnosticStudiesTypeColumn;
+    @FXML
+    private TableColumn<DiagnosticStudy,String> diagnosticStudiesRegionColumn;
+    @FXML
+    private TableColumn<DiagnosticStudy,String> diagnosticStudiesImpressionColumn;
+    @FXML
+    private TableColumn<DiagnosticStudy,String> diagnosticStudiesAttachmentColumn;
+
 
     //neurological studies
     @FXML
@@ -763,7 +777,6 @@ public class patientDashboardController implements Initializable{
             musclePowerCurrentPowerColumn.setCellValueFactory(c-> new SimpleStringProperty(String.valueOf(c.getValue().getPowerLevel())));
             musclePowerCurrentCommentsColumn.setCellValueFactory(c-> new SimpleStringProperty(c.getValue().getComments()));
 
-
         }else{
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Not completed Muscle power fill properly");
@@ -829,7 +842,13 @@ public class patientDashboardController implements Initializable{
             try {
                 Files.copy(diagnosticStudySourceFile.toPath(),savingFile.toPath());
                 saveObjectInDatabase(diagnosticStudy);
-
+                diagnosticStudyTotalList.add(0,diagnosticStudy);
+                diagnosticStudiesTableView.setItems(FXCollections.observableList(diagnosticStudyTotalList));
+                diagnosticStudiesDateColumn.setCellValueFactory(c-> new SimpleStringProperty(c.getValue().getExamination().getDate()));
+                diagnosticStudiesRegionColumn.setCellValueFactory(c-> new SimpleStringProperty(c.getValue().getRegion()));
+                diagnosticStudiesTypeColumn.setCellValueFactory(c-> new SimpleStringProperty(c.getValue().getStudyType()));
+                diagnosticStudiesImpressionColumn.setCellValueFactory(c-> new SimpleStringProperty(c.getValue().getImpression()));
+                diagnosticStudiesAttachmentColumn.setCellValueFactory(c-> new SimpleStringProperty(c.getValue().getFileName()));
 
             } catch (IOException ex) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -1036,10 +1055,7 @@ public class patientDashboardController implements Initializable{
         specialTestIntialize();
         romTestInitialize();
         musclePowerInitialize();
-
-        diagnosticStudiesFileNameLabel.setText("no file is selected");
-        diagnosticStudiesTypeOfStudyChoiceBox.getItems().addAll("not selected","x ray","CR scan", "ECG", "Scanning report");
-        diagnosticStudiesTypeOfStudyChoiceBox.setValue("not selected");
+        diagnosticStudyInitialize();
 
         analysisPatientConditionChoiceBox.getItems().addAll("not selected","resolved","marked improvement","moderate improvement",
                 "slight improvement","no change","somewhat worse", "worse");
@@ -1290,6 +1306,31 @@ public class patientDashboardController implements Initializable{
                         musclePowerPreviousRegionColumn.setCellValueFactory(c-> new SimpleStringProperty(c.getValue().getRegion()));
                         musclePowerPreviousPowerColumn.setCellValueFactory(c-> new SimpleStringProperty(String.valueOf(c.getValue().getPowerLevel())));
                         musclePowerPreviousCommentsColumn.setCellValueFactory(c-> new SimpleStringProperty(c.getValue().getComments()));
+                    }
+                }
+            }
+        }
+    }
+
+    public void diagnosticStudyInitialize(){
+        diagnosticStudiesFileNameLabel.setText("no file is selected");
+        diagnosticStudiesTypeOfStudyChoiceBox.getItems().addAll("not selected","x ray","CR scan", "ECG", "Scanning report");
+        diagnosticStudiesTypeOfStudyChoiceBox.setValue("not selected");
+
+        diagnosticStudyTotalList = new ArrayList<>();
+
+        if(caseRelatedExamList.size()!=0) {
+            for (int i = caseRelatedExamList.size() - 1; i >= 0; i--) {
+                List<DiagnosticStudy> tempList;
+                if ((tempList = caseRelatedExamList.get(i).getDiagnosticStudyList()) != null) {
+                    for (int j = tempList.size() - 1; j >= 0; j--) {
+                        diagnosticStudyTotalList.add(tempList.get(j));
+                        diagnosticStudiesTableView.setItems(FXCollections.observableList(diagnosticStudyTotalList));
+                        diagnosticStudiesDateColumn.setCellValueFactory(c-> new SimpleStringProperty(c.getValue().getExamination().getDate()));
+                        diagnosticStudiesRegionColumn.setCellValueFactory(c-> new SimpleStringProperty(c.getValue().getRegion()));
+                        diagnosticStudiesTypeColumn.setCellValueFactory(c-> new SimpleStringProperty(c.getValue().getStudyType()));
+                        diagnosticStudiesImpressionColumn.setCellValueFactory(c-> new SimpleStringProperty(c.getValue().getImpression()));
+                        diagnosticStudiesAttachmentColumn.setCellValueFactory(c-> new SimpleStringProperty(c.getValue().getFileName()));
                     }
                 }
             }

@@ -43,8 +43,8 @@
       <file leaf-file-name="patientDashboardController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/chiroSupport/sample/patientDashboardController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="758" column="54" lean-forward="false" selection-start-line="758" selection-start-column="54" selection-end-line="758" selection-end-column="54" />
+            <state relative-caret-position="315">
+              <caret line="850" column="128" lean-forward="false" selection-start-line="850" selection-start-column="128" selection-end-line="850" selection-end-column="128" />
               <folding />
             </state>
           </provider>
@@ -196,11 +196,9 @@
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="6341">
+            <state relative-caret-position="-2737">
               <caret line="373" column="112" lean-forward="false" selection-start-line="373" selection-start-column="112" selection-end-line="373" selection-end-column="112" />
-              <folding>
-                <marker date="1494781940843" expanded="true" signature="43991:44162" ph="..." />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -1290,12 +1288,12 @@
       <workItem from="1494656374419" duration="35641000" />
       <workItem from="1494743598845" duration="1378000" />
       <workItem from="1494759616659" duration="950000" />
-      <workItem from="1494778485116" duration="4808000" />
+      <workItem from="1494778485116" duration="8093000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="256614000" />
+    <option name="totallyTimeSpent" value="259899000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -2065,18 +2063,16 @@
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6341">
+        <state relative-caret-position="-2737">
           <caret line="373" column="112" lean-forward="false" selection-start-line="373" selection-start-column="112" selection-end-line="373" selection-end-column="112" />
-          <folding>
-            <marker date="1494781940843" expanded="true" signature="43991:44162" ph="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/chiroSupport/sample/patientDashboardController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="758" column="54" lean-forward="false" selection-start-line="758" selection-start-column="54" selection-end-line="758" selection-end-column="54" />
+        <state relative-caret-position="315">
+          <caret line="850" column="128" lean-forward="false" selection-start-line="850" selection-start-column="128" selection-end-line="850" selection-end-column="128" />
           <folding />
         </state>
       </provider>
