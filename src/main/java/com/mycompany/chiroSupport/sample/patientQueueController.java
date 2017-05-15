@@ -133,8 +133,8 @@ public class patientQueueController implements Initializable{
         System.out.println(newPatientListView.getSelectionModel().getSelectedItem().getName());
 
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Confirmation Dialog with Custom Actions");
-        alert.setHeaderText("Look, a Confirmation Dialog with Custom Actions");
+        alert.setTitle("Next Action");
+        alert.setHeaderText("You want to go to existing case or create new patientcase");
         alert.setContentText("Choose your option.");
 
         ButtonType buttonTypeOne = new ButtonType("new patient case");
@@ -145,20 +145,35 @@ public class patientQueueController implements Initializable{
 
         Optional<ButtonType> result = alert.showAndWait();
         if (result.get() == buttonTypeOne){
-            System.out.println("one");
-
-        } else if (result.get() == buttonTypeTwo) {
-            System.out.println("two");
-            Node node=(Node) mouseEvent.getSource();
-            Stage stage=(Stage) node.getScene().getWindow();
-            Parent root = null;/* Exception */
+            Parent root = null;
             try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/patientDashboard.fxml"));
+
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/addNewCase.fxml"));
                 root = loader.load();
-                PatientDashboardController controller = loader.getController();
-                Patient patient =newPatientListView.getSelectionModel().getSelectedItem();
-                List<PatientCase> tempList= patient.getPatientCaseList();
+                AddNewCaseController controller = loader.getController();
+                controller.setPatient(newPatientListView.getSelectionModel().getSelectedItem());
+
+                Stage stage = new Stage();
+                Scene scene = new Scene(root);
+                stage.setScene(scene);
+                stage.show();
+
+
+            }catch (IOException ex){
+                JOptionPane.showMessageDialog(null, ex.toString(), "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        } else if (result.get() == buttonTypeTwo) {
+//            Node node=(Node) mouseEvent.getSource();
+//            Stage stage=(Stage) node.getScene().getWindow();
+            Stage stage = new Stage();
+            Parent root = null;/* Exception */
+            Patient patient =newPatientListView.getSelectionModel().getSelectedItem();
+            List<PatientCase> tempList= patient.getPatientCaseList();
+            try {
                 if(tempList.size()!=0){
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/patientDashboard.fxml"));
+                    root = loader.load();
+                    PatientDashboardController controller = loader.getController();
                     PatientCase patientCase = tempList.get(tempList.size()-1);
                     controller.setPatient(patient);
                     controller.setPatientCase(patientCase);
@@ -177,7 +192,6 @@ public class patientQueueController implements Initializable{
         }  else {
 
         }
-        System.out.println("Selected item: " );
     }
 
     public void setListView(ObservableList<Patient> oList,List<Patient> list,ListView<Patient> listView){

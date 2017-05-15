@@ -37,10 +37,9 @@ import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.Collections;
+import java.time.LocalDate;
+import java.util.*;
 import java.util.List;
-import java.util.ResourceBundle;
 
 /**
  * Created by Salaka on 4/24/2017.
@@ -49,6 +48,7 @@ public class PatientDashboardController implements Initializable{
 
     private Patient patient;
     private PatientCase patientCase;
+    private boolean casesAvailable = false;
     private Session session;
     private Examination examination;
     private List<Examination> caseRelatedExamList;
@@ -424,6 +424,36 @@ public class PatientDashboardController implements Initializable{
 
     public void setPatientCase(PatientCase patientCase) {
         this.patientCase = patientCase;
+        if(examination==null){
+            session = HibernateUtil.getSessionAnnotationFactory().getCurrentSession();
+            try {
+                Transaction t = session.beginTransaction();
+
+                examination = new Examination(patientCase);
+                examination.setDate(String.valueOf(LocalDate.now()));
+                session.save(examination);
+
+                t.commit();
+            } finally {
+                session.close();
+            }
+        }
+        if((caseRelatedExamList = patientCase.getExamList())!= null){
+            casesAvailable = true;
+        }
+
+        personalDetailsInitialize();
+        subjectiveInitialize();
+        addPreviousObservation();
+        addPreviousPalpation();
+        specialTestIntialize();
+        romTestInitialize();
+        musclePowerInitialize();
+        diagnosticStudyInitialize();
+        neurologicalStudyInitialize();
+        analysisInitialize();
+        treatmentPlanInitialize();
+
     }
 
     public Examination getExamination() {
@@ -1082,39 +1112,34 @@ public class PatientDashboardController implements Initializable{
 
     public void initialize(URL location, ResourceBundle resources) {
 
-        session = HibernateUtil.getSessionAnnotationFactory().getCurrentSession();
 
-        try {
-            Transaction t = session.beginTransaction();
+        if(patientCase != null) {
+            session = HibernateUtil.getSessionAnnotationFactory().getCurrentSession();
+            try {
+                Transaction t = session.beginTransaction();
 
-            Query query = session.createQuery("from com.mycompany.chiroSupport.patientCase.PatientCase");
-            List<PatientCase> list = query.list();
-            patientCase = list.get(0);
-
-            if(examination == null){
                 examination = new Examination(patientCase);
-                examination.setDate("2020-11-11");
+                examination.setDate(String.valueOf(LocalDate.now()));
                 session.save(examination);
+
+                t.commit();
+            } finally {
+                session.close();
             }
-            t.commit();
-        }finally {
-            session.close();
         }
-
-        patient = patientCase.getPatient();
-        caseRelatedExamList = patientCase.getExamList();
-
-        personalDetailsInitialize();
-        subjectiveInitialize();
-        addPreviousObservation();
-        addPreviousPalpation();
-        specialTestIntialize();
-        romTestInitialize();
-        musclePowerInitialize();
-        diagnosticStudyInitialize();
-        neurologicalStudyInitialize();
-        analysisIntialize();
-        treatmentPlanInitialize();
+//        caseRelatedExamList = patientCase.getExamList();
+//
+//        personalDetailsInitialize();
+//        subjectiveInitialize();
+//        addPreviousObservation();
+//        addPreviousPalpation();
+//        specialTestIntialize();
+//        romTestInitialize();
+//        musclePowerInitialize();
+//        diagnosticStudyInitialize();
+//        neurologicalStudyInitialize();
+//        analysisIntialize();
+//        treatmentPlanInitialize();
     }
 
     public void saveObjectInDatabase(Object obj){
@@ -1123,7 +1148,6 @@ public class PatientDashboardController implements Initializable{
             session.beginTransaction();
             session.save(obj);
             session.getTransaction().commit();
-            neurologicalStudyCount++;
         } finally {
             session.close();
         }
@@ -1147,7 +1171,7 @@ public class PatientDashboardController implements Initializable{
 
 
     public void addPreviousObservation(){
-        if(caseRelatedExamList.size() != 0) {
+        if(casesAvailable && caseRelatedExamList.size() != 0) {
             List<Observation> observationList = new ArrayList<>();
 
             for (int i = caseRelatedExamList.size() - 1; i >= 0; i--) {
@@ -1198,7 +1222,7 @@ public class PatientDashboardController implements Initializable{
 
     public void addPreviousPalpation(){
 
-        if(caseRelatedExamList.size() != 0) {
+        if(casesAvailable && caseRelatedExamList.size() != 0) {
             List<Palpation> palpationList = new ArrayList<>();
 
             for (int i = caseRelatedExamList.size() - 1; i >= 0; i--) {
@@ -1253,7 +1277,7 @@ public class PatientDashboardController implements Initializable{
                 "ankle R", "foot L", "foot R");
         specialTestCurrentList = new ArrayList<>();
         List<SpecialTest> specialTestTotalList = new ArrayList<>();
-        if(caseRelatedExamList.size()!=0){
+        if(casesAvailable && caseRelatedExamList.size()!=0){
             for(int i=caseRelatedExamList.size()-1;i>=0;i--){
                 List<SpecialTest> tempList;
                 if((tempList= caseRelatedExamList.get(i).getSpecialTestList())!=null){
@@ -1299,7 +1323,7 @@ public class PatientDashboardController implements Initializable{
         romRRPainChoiceBox.setValue("not relevant");
 
         romTestTotalList = new ArrayList<>();
-        if(caseRelatedExamList.size()!=0){
+        if(casesAvailable && caseRelatedExamList.size()!=0){
             for(int i=caseRelatedExamList.size()-1;i>=0;i--){
                 List<Rom> tempList ;
                 if((tempList= caseRelatedExamList.get(i).getRomTestList())!=null){
@@ -1336,7 +1360,7 @@ public class PatientDashboardController implements Initializable{
 
         currentMusclePowerList = new ArrayList<>();
 
-        if(caseRelatedExamList.size()!=0) {
+        if(casesAvailable && caseRelatedExamList.size()!=0) {
             List<MusclePower> previousMusclePowerList = new ArrayList<>();
             for (int i = caseRelatedExamList.size() - 1; i >= 0; i--) {
                 List<MusclePower> tempList;
@@ -1363,7 +1387,7 @@ public class PatientDashboardController implements Initializable{
 
         diagnosticStudyTotalList = new ArrayList<>();
 
-        if(caseRelatedExamList.size()!=0) {
+        if(casesAvailable && caseRelatedExamList.size()!=0) {
             for (int i = caseRelatedExamList.size() - 1; i >= 0; i--) {
                 List<DiagnosticStudy> tempList;
                 if ((tempList = caseRelatedExamList.get(i).getDiagnosticStudyList()) != null) {
@@ -1400,7 +1424,7 @@ public class PatientDashboardController implements Initializable{
     public void neurologicalStudyInitialize(){
         neurologicalStudyTotalList = new ArrayList<>();
 
-        if(caseRelatedExamList.size()!=0) {
+        if(casesAvailable && caseRelatedExamList.size()!=0) {
             for (int i = caseRelatedExamList.size() - 1; i >= 0; i--) {
                 List<NeurologicalStudy> tempList;
                 if ((tempList = caseRelatedExamList.get(i).getNeurologicalStudyList()) != null) {
@@ -1434,7 +1458,7 @@ public class PatientDashboardController implements Initializable{
         }
     }
 
-    public void analysisIntialize(){
+    public void analysisInitialize(){
         analysisPatientConditionChoiceBox.getItems().addAll("not selected","resolved","marked improvement","moderate improvement",
                 "slight improvement","no change","somewhat worse", "worse");
         analysisPatientProgressingChoiceBox.getItems().addAll("not selected","expected rate", "faster rate", "slower rate", "negative rate");
@@ -1446,7 +1470,7 @@ public class PatientDashboardController implements Initializable{
 
         //setCellValueFactory(c-> new SimpleStringProperty(c.getValue().));
         List<Analysis> analysisTotalList = new ArrayList<>();
-        if(caseRelatedExamList.size()!=0) {
+        if(casesAvailable && caseRelatedExamList.size()!=0) {
             for (int i = caseRelatedExamList.size() - 1; i >= 0; i--) {
                 Analysis analysis;
                 if((analysis= caseRelatedExamList.get(i).getAnalysis())!=null){
@@ -1486,7 +1510,7 @@ public class PatientDashboardController implements Initializable{
         subjectiveSeverityComboBox.getItems().addAll("high","high-medium", "medium", "low-medium","low");
 
         List<Subjective> subjectiveTotalList = new ArrayList<>();
-        if(caseRelatedExamList.size()!=0) {
+        if(casesAvailable && caseRelatedExamList.size()!=0) {
             for (int i = caseRelatedExamList.size() - 1; i >= 0; i--) {
                 Subjective subjective;
                 if((subjective= caseRelatedExamList.get(i).getSubjective())!=null){
