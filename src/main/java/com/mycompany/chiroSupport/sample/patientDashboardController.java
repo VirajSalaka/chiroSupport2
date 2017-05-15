@@ -38,6 +38,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -60,6 +61,26 @@ public class patientDashboardController implements Initializable{
     private int diagnosticStudyCount = 0;
     private File neurologicalStudySourceFile;
     private int neurologicalStudyCount = 0;
+
+    //patientProfile
+    @FXML
+    private TextField patientProfileNameFld;
+    @FXML
+    private TextField patientProfileGenderFld;
+    @FXML
+    private TextField patientProfileNicNoFld;
+    @FXML
+    private TextField patientProfileBhtNoFld;
+    @FXML
+    private TextField patientProfileContactNoFld;
+    @FXML
+    private TextField patientProfileDobFld;
+    @FXML
+    private TextField patientProfileCurrentPatientCaseFld;
+    @FXML
+    private TextArea patientProfileAddressArea;
+    @FXML
+    private ListView<PatientCase> patientProfilePatientCaseListView;
 
     //vitalsReport
     @FXML
@@ -1083,6 +1104,8 @@ public class patientDashboardController implements Initializable{
         patient = patientCase.getPatient();
         caseRelatedExamList = patientCase.getExamList();
 
+        personalDetailsInitialize();
+        subjectiveInitialize();
         addPreviousObservation();
         addPreviousPalpation();
         specialTestIntialize();
@@ -1471,11 +1494,62 @@ public class patientDashboardController implements Initializable{
                     subjectiveTableView.setItems(FXCollections.observableList(subjectiveTotalList));
                     subjectiveDateColumn.setCellValueFactory(c-> new SimpleStringProperty(c.getValue().getExamination().getDate()));
                     subjectiveRegionColumn.setCellValueFactory(c-> new SimpleStringProperty(c.getValue().getRegion()));
-                    subjectiveRegionColumn.setCellValueFactory(c-> new SimpleStringProperty(c.getValue().getLocation()));
+                    subjectiveLocationColumn.setCellValueFactory(c-> new SimpleStringProperty(c.getValue().getLocation()));
                     subjectiveSymptomsColumn.setCellValueFactory(c-> new SimpleStringProperty(c.getValue().getSymptoms()));
                     subjectiveSeverityColumn.setCellValueFactory(c-> new SimpleStringProperty(c.getValue().getSeverity()));
                 }
             }
         }
+    }
+
+    public void personalDetailsInitialize(){
+        patientProfileNameFld.setText(patient.getName());
+
+        int gender = patient.getGender();
+        if(gender == 1){
+            patientProfileGenderFld.setText("Male");
+        }else{
+            patientProfileGenderFld.setText("Female");
+        }
+
+        patientProfileNicNoFld.setText(String.valueOf(patient.getNicNo()));
+        patientProfileBhtNoFld.setText(String.valueOf(patient.getBhtNo()));
+        patientProfileContactNoFld.setText(String.valueOf(patient.getContactNo()));
+        patientProfileDobFld.setText(patient.getDob());
+        patientProfileCurrentPatientCaseFld.setText(patientCase.getCaseName()+ "  created date: "+patientCase.getCreatedDate());
+        patientProfileAddressArea.setText(patient.getAddress());
+
+        patientProfileNameFld.setEditable(false);
+        patientProfileGenderFld.setEditable(false);
+        patientProfileNicNoFld.setEditable(false);
+        patientProfileBhtNoFld.setEditable(false);
+        patientProfileContactNoFld.setEditable(false);
+        patientProfileDobFld.setEditable(false);
+        patientProfileCurrentPatientCaseFld.setEditable(false);
+        patientProfileAddressArea.setEditable(false);
+
+        List<PatientCase> tempCaseList = patient.getPatientCaseList();
+        Collections.reverse(tempCaseList);
+        ObservableList<PatientCase> oList = FXCollections.observableList(tempCaseList);
+        patientProfilePatientCaseListView.setItems(oList);
+
+        patientProfilePatientCaseListView.setCellFactory(new Callback<ListView<PatientCase>, ListCell<PatientCase>>(){
+
+            public ListCell<PatientCase> call(ListView<PatientCase> o) {
+
+                ListCell<PatientCase> cell = new ListCell<PatientCase>(){
+
+                    @Override
+                    protected void updateItem(PatientCase pcase, boolean bln) {
+                        super.updateItem(pcase, bln);
+                        if (pcase != null) {
+                            setText(pcase.getCaseName()+ "  created date: "+pcase.getCreatedDate());
+                        }
+                    }
+                };
+                return cell;
+            }
+        });
+
     }
 }

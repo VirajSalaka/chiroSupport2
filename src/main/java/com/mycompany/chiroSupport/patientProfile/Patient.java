@@ -8,6 +8,8 @@ import java.util.List;
 
 import javax.persistence.*;
 
+import static javax.persistence.FetchType.EAGER;
+
 @Entity
 @Table(name="patient",
         uniqueConstraints={@UniqueConstraint(columnNames={"refNo","nicNo","bhtNo"})})
@@ -45,7 +47,7 @@ public class Patient implements java.io.Serializable {
     @OneToOne(mappedBy = "patient", cascade = CascadeType.ALL)
     private MedicalHx medicalHx;
 
-    @OneToMany(mappedBy = "patient", cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.EAGER,mappedBy = "patient", cascade = CascadeType.ALL)
     private List<PatientCase> patientCaseList;
 
 
@@ -156,6 +158,14 @@ public class Patient implements java.io.Serializable {
 
     public void setContactNo(int contactNo) {
         this.contactNo = contactNo;
+    }
+
+    public List<PatientCase> getPatientCaseList() {
+        return patientCaseList;
+    }
+
+    public void setPatientCaseList(List<PatientCase> patientCaseList) {
+        this.patientCaseList = patientCaseList;
     }
 
 //    public List<PatientCase> getPatientCaseList() {

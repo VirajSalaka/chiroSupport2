@@ -23,7 +23,27 @@
   <tabs>
     <Tab text="Patient Profile">
       <content>
-        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <Label layoutX="14.0" layoutY="41.0" text="Name" />
+                  <Label layoutX="14.0" layoutY="82.0" text="Gender" />
+                  <Label layoutX="14.0" layoutY="122.0" text="nicNo" />
+                  <Label layoutX="14.0" layoutY="160.0" text="bhtNo" />
+                  <Label layoutX="14.0" layoutY="202.0" text="Date of birth" />
+                  <Label layoutX="14.0" layoutY="251.0" text="ContactNo" />
+                  <Label layoutX="16.0" layoutY="293.0" text="Address" />
+                  <TextField fx:id="patientProfileNameFld" layoutX="93.0" layoutY="37.0" prefHeight="25.0" prefWidth="294.0" />
+                  <TextField fx:id="patientProfileGenderFld" layoutX="93.0" layoutY="78.0" prefHeight="25.0" prefWidth="294.0" />
+                  <TextField fx:id="patientProfileNicNoFld" layoutX="93.0" layoutY="118.0" prefHeight="25.0" prefWidth="294.0" />
+                  <TextField fx:id="patientProfileBhtNoFld" layoutX="93.0" layoutY="156.0" prefHeight="25.0" prefWidth="294.0" />
+                  <TextField fx:id="patientProfileDobFld" layoutX="93.0" layoutY="198.0" prefHeight="25.0" prefWidth="294.0" />
+                  <TextField fx:id="patientProfileContactNoFld" layoutX="93.0" layoutY="247.0" prefHeight="25.0" prefWidth="294.0" />
+                  <TextArea fx:id="patientProfileAddressArea" layoutX="93.0" layoutY="293.0" prefHeight="145.0" prefWidth="291.0" />
+                  <Label layoutX="506.0" layoutY="110.0" prefHeight="17.0" prefWidth="97.0" text="PatientCases List" />
+                  <ListView fx:id="patientProfilePatientCaseListView" layoutX="506.0" layoutY="137.0" prefHeight="302.0" prefWidth="458.0" />
+                  <Label layoutX="506.0" layoutY="41.0" text="Current PatientCase" />
+                  <TextField fx:id="patientProfileCurrentPatientCaseFld" layoutX="506.0" layoutY="65.0" prefHeight="25.0" prefWidth="458.0" />
+               </children></AnchorPane>
       </content>
     </Tab>
     <Tab text="Medical Condition">
