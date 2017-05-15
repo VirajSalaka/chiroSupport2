@@ -1,10 +1,9 @@
 com\mycompany\chiroSupport\sample\ReceptionistDataEntryController.class
-com\mycompany\chiroSupport\util\HibernateUtil.class
 com\mycompany\chiroSupport\patientProfile\Patient.class
-com\mycompany\chiroSupport\employee\Receptionist.class
+com\mycompany\chiroSupport\employee\Employee.class
+com\mycompany\chiroSupport\util\HibernateUtil.class
 com\mycompany\chiroSupport\patientCase\Examination.class
 com\mycompany\chiroSupport\sample\loginController.class
 com\mycompany\chiroSupport\sample\Controller.class
-com\mycompany\chiroSupport\employee\Employee.class
 com\mycompany\chiroSupport\sample\Main.class
 com\mycompany\chiroSupport\patientCase\PatientCase.class

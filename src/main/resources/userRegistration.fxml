@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="459.0" prefWidth="522.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.chiroSupport.sample.UserRegistrationController">
+   <children>
+      <Label alignment="CENTER" layoutX="139.0" layoutY="14.0" prefHeight="41.0" prefWidth="245.0" text="User Registration" textFill="#802828">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <Label layoutX="35.0" layoutY="103.0" prefHeight="17.0" prefWidth="106.0" text="User_id" />
+      <Label layoutX="35.0" layoutY="146.0" prefHeight="17.0" prefWidth="106.0" text="name" />
+      <Label layoutX="35.0" layoutY="183.0" prefHeight="17.0" prefWidth="106.0" text="password" />
+      <ChoiceBox fx:id="roleFld" layoutX="151.0" layoutY="217.0" prefWidth="150.0" />
+      <Label layoutX="35.0" layoutY="221.0" prefHeight="17.0" prefWidth="106.0" text="role" />
+      <TextField fx:id="user_idFld" layoutX="152.0" layoutY="99.0" />
+      <TextField fx:id="nameFld" layoutX="152.0" layoutY="142.0" />
+      <TextField fx:id="passwordFld" layoutX="152.0" layoutY="179.0" />
+      <Button layoutX="384.0" layoutY="267.0" mnemonicParsing="false" onMouseClicked="#registerUser" text="Register User" />
+   </children>
+</AnchorPane>

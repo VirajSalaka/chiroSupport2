@@ -4,6 +4,7 @@ package com.mycompany.chiroSupport.util;
 
 import java.util.Properties;
 
+import com.mycompany.chiroSupport.employee.Employee;
 import com.mycompany.chiroSupport.patientCase.*;
 import com.mycompany.chiroSupport.patientCase.objective.*;
 import com.mycompany.chiroSupport.patientProfile.Patient;
@@ -65,6 +66,7 @@ public class HibernateUtil {
             configuration.addAnnotatedClass(Rom.class);
             configuration.addAnnotatedClass(SpecialTest.class);
             configuration.addAnnotatedClass(Treatment.class);
+            configuration.addAnnotatedClass(Employee.class);
             configuration.configure("hibernateannotation.cfg.xml");
             System.out.println("Hibernate Annotation Configuration loaded");
 
