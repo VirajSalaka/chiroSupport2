@@ -27,8 +27,8 @@ public class Examination {
     private String date;
 
     @LazyCollection(LazyCollectionOption.FALSE)
-    @OneToMany(mappedBy = "examination", cascade = CascadeType.ALL)
-    private List<Subjective> subjectiveList;
+    @OneToOne(mappedBy = "examination", cascade = CascadeType.ALL)
+    private Subjective subjective;
 
     @OneToOne(mappedBy = "examination", cascade = CascadeType.ALL)
     private Observation observation;
@@ -84,12 +84,12 @@ public class Examination {
         this.date = date;
     }
 
-    public List<Subjective> getSubjectiveList() {
-        return subjectiveList;
+    public Subjective getSubjective() {
+        return subjective;
     }
 
-    public void setSubjectiveList(List<Subjective> subjectiveList) {
-        this.subjectiveList = subjectiveList;
+    public void setSubjective(Subjective subjective) {
+        this.subjective = subjective;
     }
 
     public Palpation getPalpation() {

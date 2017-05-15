@@ -121,6 +121,8 @@ public class patientDashboardController implements Initializable{
     @FXML
     private TableView<Subjective> subjectiveTableView;
     @FXML
+    private TableColumn<Subjective,String> subjectiveDateColumn;
+    @FXML
     private TableColumn<Subjective,String> subjectiveRegionColumn;
     @FXML
     private TableColumn<Subjective,String> subjectiveLocationColumn;
@@ -422,7 +424,6 @@ public class patientDashboardController implements Initializable{
         String bloodPressureLB = vitalsBloodPressureLBFld.getText();
 
         VitalsReport vitalsReport = new VitalsReport();
-
         if(date.length()==0){
             //alert
         }else{
@@ -487,9 +488,6 @@ public class patientDashboardController implements Initializable{
 
         session = HibernateUtil.getSessionAnnotationFactory().getCurrentSession();
         try {
-            // to save patient object in the database
-
-
             //start transaction
             session.beginTransaction();
 
@@ -499,16 +497,11 @@ public class patientDashboardController implements Initializable{
             vitalsReport.setPatient(patient);
             vitalsReport.setDate(date);
 
-
             //Save the Model object
             session.save(vitalsReport);
 
             //Commit transaction
             session.getTransaction().commit();
-
-            System.out.println("Employee ID="+vitalsReport.getPatient().getName());
-
-            //terminate session factory, otherwise program won't end
 
         } catch (Exception e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -613,14 +606,12 @@ public class patientDashboardController implements Initializable{
         if (observationText.length()>0) {
             observation = new Observation(examination);
             observation.setDescription(observationText);
-
             saveObjectInDatabase(observation);
         }else{
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("No observation to be added");
             alert.setHeaderText("Look, an Error Dialog");
             alert.setContentText("Ooops, there was an error!");
-
 
             alert.showAndWait();
         }
@@ -639,7 +630,6 @@ public class patientDashboardController implements Initializable{
             alert.setTitle("No Palpation to be added");
             alert.setHeaderText("Look, an Error Dialog");
             alert.setContentText("Ooops, there was an error!");
-
 
             alert.showAndWait();
         }
@@ -1131,15 +1121,7 @@ public class patientDashboardController implements Initializable{
         return list;
     }
 
-    public void subjectiveInitialize(){
-        subjectiveRegionComboBox.getItems().addAll("head","neck","chest","Shoulder L", "shoulder R", "upper abdomen",
-                "lower abdomen", "back", "arm L", "arm R", "palm L", "palm R","hip joint","Leg L", "leg R", "ankle L",
-                "ankle R", "foot L", "foot R");
 
-        subjectiveFrequencyComboBox.getItems().addAll("always","once an hour","every six hours","daily", "more than once a week", "other");
-        subjectiveSeverityComboBox.getItems().addAll("high","high-medium", "medium", "low-medium","low");
-
-    }
 
     public void addPreviousObservation(){
         if(caseRelatedExamList.size() != 0) {
@@ -1470,5 +1452,30 @@ public class patientDashboardController implements Initializable{
         treatmentDurationChoiceBox.getItems().addAll("none","indefinitely","one week","two weeks", "three weeks","one month","six weeks","two months", "three months","one year");
         treatmentFrequencyChoiceBox.setValue("none");
         treatmentDurationChoiceBox.setValue("none");
+    }
+
+    public void subjectiveInitialize(){
+        subjectiveRegionComboBox.getItems().addAll("head","neck","chest","Shoulder L", "shoulder R", "upper abdomen",
+                "lower abdomen", "back", "arm L", "arm R", "palm L", "palm R","hip joint","Leg L", "leg R", "ankle L",
+                "ankle R", "foot L", "foot R");
+
+        subjectiveFrequencyComboBox.getItems().addAll("always","once an hour","every six hours","daily", "more than once a week", "other");
+        subjectiveSeverityComboBox.getItems().addAll("high","high-medium", "medium", "low-medium","low");
+
+        List<Subjective> subjectiveTotalList = new ArrayList<>();
+        if(caseRelatedExamList.size()!=0) {
+            for (int i = caseRelatedExamList.size() - 1; i >= 0; i--) {
+                Subjective subjective;
+                if((subjective= caseRelatedExamList.get(i).getSubjective())!=null){
+                    subjectiveTotalList.add(subjective);
+                    subjectiveTableView.setItems(FXCollections.observableList(subjectiveTotalList));
+                    subjectiveDateColumn.setCellValueFactory(c-> new SimpleStringProperty(c.getValue().getExamination().getDate()));
+                    subjectiveRegionColumn.setCellValueFactory(c-> new SimpleStringProperty(c.getValue().getRegion()));
+                    subjectiveRegionColumn.setCellValueFactory(c-> new SimpleStringProperty(c.getValue().getLocation()));
+                    subjectiveSymptomsColumn.setCellValueFactory(c-> new SimpleStringProperty(c.getValue().getSymptoms()));
+                    subjectiveSeverityColumn.setCellValueFactory(c-> new SimpleStringProperty(c.getValue().getSeverity()));
+                }
+            }
+        }
     }
 }

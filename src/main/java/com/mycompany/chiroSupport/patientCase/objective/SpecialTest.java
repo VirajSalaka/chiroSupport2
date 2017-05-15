@@ -100,7 +100,4 @@ public class SpecialTest {
         this.test = test;
     }
 
-//    public String getDate(){
-//        return examination.getDate();
-//    }
 }

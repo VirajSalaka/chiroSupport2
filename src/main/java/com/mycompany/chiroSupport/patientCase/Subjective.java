@@ -16,7 +16,7 @@ public class Subjective {
     @Column(name="id", nullable=false, unique=true)
     private long id;
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name="exam_id", nullable=false)
     private Examination examination;
 
