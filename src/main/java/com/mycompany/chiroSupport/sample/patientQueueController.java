@@ -1,5 +1,6 @@
 package com.mycompany.chiroSupport.sample;
 
+import com.mycompany.chiroSupport.patientCase.PatientCase;
 import com.mycompany.chiroSupport.patientProfile.Patient;
 import com.mycompany.chiroSupport.patientProfile.PatientQueueItem;
 import com.mycompany.chiroSupport.util.HibernateUtil;
@@ -21,6 +22,7 @@ import org.hibernate.Session;
 import org.hibernate.query.Query;
 
 
+import javax.swing.*;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -144,22 +146,34 @@ public class patientQueueController implements Initializable{
         Optional<ButtonType> result = alert.showAndWait();
         if (result.get() == buttonTypeOne){
             System.out.println("one");
+
+        } else if (result.get() == buttonTypeTwo) {
+            System.out.println("two");
             Node node=(Node) mouseEvent.getSource();
             Stage stage=(Stage) node.getScene().getWindow();
             Parent root = null;/* Exception */
             try {
-                root = FXMLLoader.load(getClass().getResource("/receptionistDataEntry.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/patientDashboard.fxml"));
+                root = loader.load();
+                PatientDashboardController controller = loader.getController();
+                Patient patient =newPatientListView.getSelectionModel().getSelectedItem();
+                List<PatientCase> tempList= patient.getPatientCaseList();
+                if(tempList.size()!=0){
+                    PatientCase patientCase = tempList.get(tempList.size()-1);
+                    controller.setPatient(patient);
+                    controller.setPatientCase(patientCase);
+
+                    Scene scene = new Scene(root);
+                    stage.setScene(scene);
+                    stage.show();
+                }else{
+                    JOptionPane.showMessageDialog(null, "No patient cases exist", "Error", JOptionPane.ERROR_MESSAGE);
+                }
+
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            Scene scene = new Scene(root);
-            stage.setScene(scene);
-            stage.show();
 
-
-        } else if (result.get() == buttonTypeTwo) {
-
-            System.out.println("two");
         }  else {
 
         }

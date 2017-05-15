@@ -626,11 +626,11 @@
     </column>
     <column id="156" parent="22" name="frequency">
       <Position>6</Position>
-      <DataType>tinyint(4)|0</DataType>
+      <DataType>varchar(70)|0</DataType>
     </column>
     <column id="157" parent="22" name="severity">
       <Position>7</Position>
-      <DataType>tinyint(4)|0</DataType>
+      <DataType>varchar(70)|0</DataType>
     </column>
     <column id="158" parent="22" name="pain">
       <Position>8</Position>

@@ -45,7 +45,7 @@ import java.util.ResourceBundle;
 /**
  * Created by Salaka on 4/24/2017.
  */
-public class patientDashboardController implements Initializable{
+public class PatientDashboardController implements Initializable{
 
     private Patient patient;
     private PatientCase patientCase;
