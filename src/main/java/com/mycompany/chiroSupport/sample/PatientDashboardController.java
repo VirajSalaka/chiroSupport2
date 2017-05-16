@@ -407,6 +407,8 @@ public class PatientDashboardController implements Initializable{
     private ChoiceBox<String> treatmentDurationChoiceBox;
     @FXML
     private TextArea treatmentAdjustmentsArea;
+    @FXML
+    private ListView<Treatment> planListView;
 
 
     public Patient getPatient() {
@@ -1499,6 +1501,8 @@ public class PatientDashboardController implements Initializable{
         treatmentDurationChoiceBox.getItems().addAll("none","indefinitely","one week","two weeks", "three weeks","one month","six weeks","two months", "three months","one year");
         treatmentFrequencyChoiceBox.setValue("none");
         treatmentDurationChoiceBox.setValue("none");
+
+
     }
 
     public void subjectiveInitialize(){
@@ -1575,5 +1579,8 @@ public class PatientDashboardController implements Initializable{
             }
         });
 
+    }
+
+    public void planListViewClicked(MouseEvent mouseEvent) {
     }
 }

@@ -4,9 +4,11 @@ import com.mycompany.chiroSupport.employee.Employee;
 import com.mycompany.chiroSupport.util.HibernateUtil;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
@@ -16,21 +18,25 @@ import org.hibernate.query.Query;
 
 import javax.swing.*;
 import java.io.IOException;
+import java.net.URL;
 import java.util.List;
+import java.util.ResourceBundle;
 
 /**
  * Created by Salaka on 3/23/2017.
  */
-public class loginController {
+public class loginController implements Initializable{
     @FXML
     private TextField usernameFld;
     @FXML
     private PasswordField passwordFld;
+    @FXML
+    private Label indicateLabel;
 
     public void userLogin(MouseEvent mouseEvent) throws Exception {
         Boolean authenticated = false;
         Employee employee = null;
-
+        indicateLabel.setVisible(true);
         Session session = HibernateUtil.getSessionAnnotationFactory().getCurrentSession();
         Query query = null;
         List list;
@@ -105,6 +111,13 @@ public class loginController {
         }else{
             JOptionPane.showMessageDialog (null, "Login Failed", "Login", JOptionPane.ERROR_MESSAGE);
         }
+        indicateLabel.setVisible(false);
+    }
 
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        indicateLabel.setVisible(false);
+        Session session = HibernateUtil.getSessionAnnotationFactory().getCurrentSession();
+        session.close();
     }
 }

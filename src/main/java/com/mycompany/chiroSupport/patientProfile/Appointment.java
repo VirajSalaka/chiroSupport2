@@ -7,7 +7,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name="appointment",
-        uniqueConstraints={@UniqueConstraint(columnNames={"user_id"})})
+        uniqueConstraints={@UniqueConstraint(columnNames={"id"})})
 public class Appointment {
 
     @Id
@@ -15,7 +15,7 @@ public class Appointment {
     @Column(name="id", nullable=false, unique=true)
     private int id;
 
-    @Column(name="createdDate", nullable=false)
+    @Column(name="date", nullable=false)
     private String date;
 
     @Column(name="description", nullable=false)

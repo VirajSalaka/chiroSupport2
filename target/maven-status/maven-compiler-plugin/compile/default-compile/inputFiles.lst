@@ -1,13 +1,17 @@
+E:\SemProject\my-app\src\main\java\com\mycompany\chiroSupport\patientProfile\Appointment.java
 E:\SemProject\my-app\src\main\java\com\mycompany\chiroSupport\patientCase\objective\NeurologicalStudy.java
+E:\SemProject\my-app\src\main\java\com\mycompany\chiroSupport\sample\physiotherapistHomeController.java
 E:\SemProject\my-app\src\main\java\com\mycompany\chiroSupport\patientProfile\PatientQueueItem.java
+E:\SemProject\my-app\src\main\java\com\mycompany\chiroSupport\sample\AddNewCaseController.java
 E:\SemProject\my-app\src\main\java\com\mycompany\chiroSupport\patientCase\Examination.java
-E:\SemProject\my-app\src\main\java\com\mycompany\chiroSupport\employee\Receptionist.java
+E:\SemProject\my-app\src\main\java\com\mycompany\chiroSupport\sample\UserRegistrationController.java
 E:\SemProject\my-app\src\main\java\com\mycompany\chiroSupport\patientCase\objective\Rom.java
 E:\SemProject\my-app\src\main\java\com\mycompany\chiroSupport\sample\loginController.java
 E:\SemProject\my-app\src\main\java\com\mycompany\chiroSupport\sample\patientQueueController.java
 E:\SemProject\my-app\src\main\java\com\mycompany\chiroSupport\patientCase\Treatment.java
 E:\SemProject\my-app\src\main\java\com\mycompany\chiroSupport\patientCase\MedicalHx.java
 E:\SemProject\my-app\src\main\java\com\mycompany\chiroSupport\sample\Main.java
+E:\SemProject\my-app\src\main\java\com\mycompany\chiroSupport\sample\MD5hash.java
 E:\SemProject\my-app\src\main\java\com\mycompany\chiroSupport\patientCase\objective\SpecialTest.java
 E:\SemProject\my-app\src\main\java\com\mycompany\chiroSupport\patientCase\objective\MusclePower.java
 E:\SemProject\my-app\src\main\java\com\mycompany\chiroSupport\patientCase\objective\Palpation.java
@@ -21,6 +25,6 @@ E:\SemProject\my-app\src\main\java\com\mycompany\chiroSupport\patientCase\Analys
 E:\SemProject\my-app\src\main\java\com\mycompany\chiroSupport\patientCase\Subjective.java
 E:\SemProject\my-app\src\main\java\com\mycompany\chiroSupport\employee\Employee.java
 E:\SemProject\my-app\src\main\java\com\mycompany\chiroSupport\sample\AppointmentController.java
-E:\SemProject\my-app\src\main\java\com\mycompany\chiroSupport\sample\patientDashboardController.java
+E:\SemProject\my-app\src\main\java\com\mycompany\chiroSupport\sample\PatientDashboardController.java
 E:\SemProject\my-app\src\main\java\com\mycompany\chiroSupport\patientCase\objective\Observation.java
 E:\SemProject\my-app\src\main\java\com\mycompany\chiroSupport\patientCase\PatientCase.java
