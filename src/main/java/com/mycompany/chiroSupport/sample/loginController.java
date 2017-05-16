@@ -8,6 +8,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -32,6 +33,8 @@ public class loginController implements Initializable{
     private PasswordField passwordFld;
     @FXML
     private Label indicateLabel;
+    @FXML
+    private Button loginBtn;
 
     public void userLogin(MouseEvent mouseEvent) throws Exception {
         Boolean authenticated = false;

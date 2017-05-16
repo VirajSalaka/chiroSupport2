@@ -2,39 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d5d57ec1-044f-4ae6-a6d6-ae99e1fd3698" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/com/mycompany/chiroSupport/sample/LoginTest.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/hibernate-annotation.cfg.xml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/mycompany/chiroSupport/sample/Main.class" afterPath="$PROJECT_DIR$/target/classes/com/mycompany/chiroSupport/sample/Main.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/mycompany/chiroSupport/sample/loginController.class" afterPath="$PROJECT_DIR$/target/classes/com/mycompany/chiroSupport/sample/loginController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/mycompany/chiroSupport/sample/patientDashboardController$1$1.class" afterPath="$PROJECT_DIR$/target/classes/com/mycompany/chiroSupport/sample/patientDashboardController$1$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/mycompany/chiroSupport/sample/patientDashboardController$1.class" afterPath="$PROJECT_DIR$/target/classes/com/mycompany/chiroSupport/sample/patientDashboardController$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/mycompany/chiroSupport/sample/patientDashboardController$2$1.class" afterPath="$PROJECT_DIR$/target/classes/com/mycompany/chiroSupport/sample/patientDashboardController$2$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/mycompany/chiroSupport/sample/patientDashboardController$2.class" afterPath="$PROJECT_DIR$/target/classes/com/mycompany/chiroSupport/sample/patientDashboardController$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/mycompany/chiroSupport/sample/patientDashboardController$3$1.class" afterPath="$PROJECT_DIR$/target/classes/com/mycompany/chiroSupport/sample/patientDashboardController$3$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/mycompany/chiroSupport/sample/patientDashboardController$3.class" afterPath="$PROJECT_DIR$/target/classes/com/mycompany/chiroSupport/sample/patientDashboardController$3.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/mycompany/chiroSupport/sample/patientDashboardController.class" afterPath="$PROJECT_DIR$/target/classes/com/mycompany/chiroSupport/sample/patientDashboardController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/mycompany/chiroSupport/sample/physiotherapistHomeController.class" afterPath="$PROJECT_DIR$/target/classes/com/mycompany/chiroSupport/sample/physiotherapistHomeController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/mycompany/chiroSupport/util/HibernateUtil.class" afterPath="$PROJECT_DIR$/target/classes/com/mycompany/chiroSupport/util/HibernateUtil.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/my-app-1.0-SNAPSHOT.jar" afterPath="$PROJECT_DIR$/target/my-app-1.0-SNAPSHOT.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources/848a222c-a8ad-43a3-8ecb-a68db5fc3285.xml" afterPath="$PROJECT_DIR$/.idea/dataSources/848a222c-a8ad-43a3-8ecb-a68db5fc3285.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/chiroSupport/patientProfile/Appointment.java" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/chiroSupport/patientProfile/Appointment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/chiroSupport/sample/Main.java" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/chiroSupport/sample/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/chiroSupport/sample/PatientDashboardController.java" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/chiroSupport/sample/PatientDashboardController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/chiroSupport/sample/loginController.java" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/chiroSupport/sample/loginController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/chiroSupport/sample/physiotherapistHomeController.java" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/chiroSupport/sample/physiotherapistHomeController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/chiroSupport/util/HibernateUtil.java" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/chiroSupport/util/HibernateUtil.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/login.fxml" afterPath="$PROJECT_DIR$/src/main/resources/login.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/patientDashboard.fxml" afterPath="$PROJECT_DIR$/src/main/resources/patientDashboard.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/mycompany/chiroSupport/sample/ReceptionistDataEntryTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/mycompany/chiroSupport/sample/ReceptionistDataEntryTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/login.fxml" afterPath="$PROJECT_DIR$/target/classes/login.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/patientDashboard.fxml" afterPath="$PROJECT_DIR$/target/classes/patientDashboard.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.mycompany.chiroSupport.sample.ReceptionistDataEntryTest.xml" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.mycompany.chiroSupport.sample.ReceptionistDataEntryTest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/surefire-reports/com.mycompany.chiroSupport.sample.ReceptionistDataEntryTest.txt" afterPath="$PROJECT_DIR$/target/surefire-reports/com.mycompany.chiroSupport.sample.ReceptionistDataEntryTest.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/mycompany/chiroSupport/sample/LoginTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/mycompany/chiroSupport/sample/LoginTest.java" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -70,165 +40,7 @@
     <favorites_list name="my-app" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="PatientDashboardController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/chiroSupport/sample/PatientDashboardController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-647">
-              <caret line="410" column="45" lean-forward="false" selection-start-line="410" selection-start-column="45" selection-end-line="410" selection-end-column="45" />
-              <folding>
-                <element signature="e#13551#13552#0" expanded="false" />
-                <element signature="e#13581#13582#0" expanded="false" />
-                <element signature="e#13628#13629#0" expanded="false" />
-                <element signature="e#13666#13667#0" expanded="false" />
-                <element signature="e#13710#13711#0" expanded="false" />
-                <element signature="e#13744#13745#0" expanded="false" />
-                <element signature="e#14859#14860#0" expanded="false" />
-                <element signature="e#14893#14894#0" expanded="false" />
-                <element signature="e#14952#14953#0" expanded="false" />
-                <element signature="e#14998#14999#0" expanded="false" />
-                <element signature="method#vitalsSave#0;class#PatientDashboardController#0" expanded="false" />
-                <element signature="method#SubjectiveSave#0;class#PatientDashboardController#0" expanded="false" />
-                <element signature="method#observationSave#0;class#PatientDashboardController#0" expanded="false" />
-                <element signature="method#palpationSave#0;class#PatientDashboardController#0" expanded="false" />
-                <element signature="method#specialResultsSave#0;class#PatientDashboardController#0" expanded="false" />
-                <element signature="method#romSave#0;class#PatientDashboardController#0" expanded="false" />
-                <element signature="method#musclePowerSave#0;class#PatientDashboardController#0" expanded="false" />
-                <element signature="method#diagnosticStudiesUploadFile#0;class#PatientDashboardController#0" expanded="false" />
-                <element signature="method#diagnosticStudiesSave#0;class#PatientDashboardController#0" expanded="false" />
-                <element signature="method#neurologicalStudyUploadFile#0;class#PatientDashboardController#0" expanded="false" />
-                <element signature="method#neurologicalStudySave#0;class#PatientDashboardController#0" expanded="false" />
-                <element signature="method#analysisSave#0;class#PatientDashboardController#0" expanded="false" />
-                <element signature="method#treatmentSave#0;class#PatientDashboardController#0" expanded="false" />
-                <element signature="method#initialize#0;class#PatientDashboardController#0" expanded="false" />
-                <element signature="method#saveObjectInDatabase#0;class#PatientDashboardController#0" expanded="false" />
-                <element signature="method#generalSelectQuery#0;class#PatientDashboardController#0" expanded="false" />
-                <element signature="method#addPreviousObservation#0;class#PatientDashboardController#0" expanded="false" />
-                <element signature="e#45173#45604#0" expanded="false" />
-                <element signature="e#45603#45604#0" expanded="false" />
-                <element signature="method#observationListViewClicked#0;class#PatientDashboardController#0" expanded="false" />
-                <element signature="method#addPreviousPalpation#0;class#PatientDashboardController#0" expanded="false" />
-                <element signature="e#47077#47496#0" expanded="false" />
-                <element signature="e#47495#47496#0" expanded="false" />
-                <element signature="method#palpationListViewClicked#0;class#PatientDashboardController#0" expanded="false" />
-                <element signature="method#specialTestIntialize#0;class#PatientDashboardController#0" expanded="false" />
-                <element signature="method#romTestInitialize#0;class#PatientDashboardController#0" expanded="false" />
-                <element signature="method#musclePowerInitialize#0;class#PatientDashboardController#0" expanded="false" />
-                <element signature="method#diagnosticStudyInitialize#0;class#PatientDashboardController#0" expanded="false" />
-                <element signature="method#neurologicalStudyInitialize#0;class#PatientDashboardController#0" expanded="false" />
-                <element signature="method#analysisInitialize#0;class#PatientDashboardController#0" expanded="false" />
-                <element signature="method#subjectiveInitialize#0;class#PatientDashboardController#0" expanded="false" />
-                <element signature="method#personalDetailsInitialize#0;class#PatientDashboardController#0" expanded="false" />
-                <element signature="e#67468#67873#0" expanded="false" />
-                <element signature="e#67872#67873#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/chiroSupport/sample/Main.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-              <folding>
-                <element signature="e#682#683#0" expanded="false" />
-                <element signature="e#710#711#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="login.fxml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/login.fxml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="20" column="75" lean-forward="false" selection-start-line="20" selection-start-column="75" selection-end-line="20" selection-end-column="75" />
-              <folding />
-            </state>
-          </provider>
-          <provider editor-type-id="JavaFX-Scene-Builder">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ReceptionistDataEntryTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/com/mycompany/chiroSupport/sample/ReceptionistDataEntryTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="646">
-              <caret line="54" column="13" lean-forward="false" selection-start-line="54" selection-start-column="13" selection-end-line="54" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LoginTest.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/test/java/com/mycompany/chiroSupport/sample/LoginTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="4" lean-forward="false" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="receptionistDataEntry.fxml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/receptionistDataEntry.fxml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="33" column="51" lean-forward="false" selection-start-line="33" selection-start-column="51" selection-end-line="33" selection-end-column="51" />
-              <folding />
-            </state>
-          </provider>
-          <provider editor-type-id="JavaFX-Scene-Builder">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="loginController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/chiroSupport/sample/loginController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="303">
-              <caret line="120" column="24" lean-forward="false" selection-start-line="120" selection-start-column="24" selection-end-line="120" selection-end-column="24" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="12" column="26" lean-forward="false" selection-start-line="12" selection-start-column="26" selection-end-line="12" selection-end-column="26" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="physiotherapistHomeController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/chiroSupport/sample/physiotherapistHomeController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-7">
-              <caret line="60" column="52" lean-forward="false" selection-start-line="60" selection-start-column="52" selection-end-line="60" selection-end-column="52" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="patientDashboard.fxml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/patientDashboard.fxml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="208">
-              <caret line="572" column="117" lean-forward="false" selection-start-line="572" selection-start-column="117" selection-end-line="572" selection-end-column="117" />
-              <folding />
-            </state>
-          </provider>
-          <provider editor-type-id="JavaFX-Scene-Builder">
-            <state />
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -301,12 +113,12 @@
         <option value="$PROJECT_DIR$/src/main/java/com/mycompany/chiroSupport/patientProfile/Appointment.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/mycompany/chiroSupport/util/HibernateUtil.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/mycompany/chiroSupport/sample/PatientDashboardController.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/login.fxml" />
         <option value="$PROJECT_DIR$/src/main/java/com/mycompany/chiroSupport/sample/Main.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/mycompany/chiroSupport/sample/loginController.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/mycompany/chiroSupport/sample/physiotherapistHomeController.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/mycompany/chiroSupport/sample/ReceptionistDataEntryTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mycompany/chiroSupport/sample/loginController.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/login.fxml" />
         <option value="$PROJECT_DIR$/src/test/java/com/mycompany/chiroSupport/sample/LoginTest.java" />
       </list>
     </option>
@@ -1198,16 +1010,16 @@
       <workItem from="1494778485116" duration="16736000" />
       <workItem from="1494817723536" duration="8182000" />
       <workItem from="1494845833172" duration="34639000" />
-      <workItem from="1494904953982" duration="5946000" />
+      <workItem from="1494904953982" duration="8380000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="317309000" />
+    <option name="totallyTimeSpent" value="319743000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -1231,7 +1043,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27659574" sideWeight="0.6068814" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2532943" sideWeight="0.23343849" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27382752" sideWeight="0.7665615" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27382752" sideWeight="0.7665615" order="1" side_tool="false" content_ui="combo" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1269,11 +1081,11 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22749591" sideWeight="0.6068814" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27659574" sideWeight="0.6068814" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2532943" sideWeight="0.23343849" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329653" sideWeight="0.5578331" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2700454" sideWeight="0.7665615" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27382752" sideWeight="0.7665615" order="1" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.49707174" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -1666,14 +1478,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/chiroSupport/sample/ReceptionistDataEntryController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2727">
-          <caret line="147" column="13" lean-forward="true" selection-start-line="147" selection-start-column="13" selection-end-line="147" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/chiroSupport/patientCase/Subjective.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -1902,21 +1706,98 @@
         <state />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="12" column="26" lean-forward="false" selection-start-line="12" selection-start-column="26" selection-end-line="12" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/chiroSupport/sample/physiotherapistHomeController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-7">
+          <caret line="60" column="52" lean-forward="false" selection-start-line="60" selection-start-column="52" selection-end-line="60" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/mycompany/chiroSupport/sample/ReceptionistDataEntryTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="43" column="16" lean-forward="false" selection-start-line="43" selection-start-column="16" selection-end-line="43" selection-end-column="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/chiroSupport/sample/loginController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="235">
+          <caret line="36" column="28" lean-forward="false" selection-start-line="36" selection-start-column="28" selection-end-line="36" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/receptionistDataEntry.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-357">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/chiroSupport/sample/ReceptionistDataEntryController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="147" column="13" lean-forward="true" selection-start-line="147" selection-start-column="13" selection-end-line="147" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/mycompany/chiroSupport/sample/LoginTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="41" column="65" lean-forward="false" selection-start-line="41" selection-start-column="65" selection-end-line="41" selection-end-column="65" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/login.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="45" lean-forward="true" selection-start-line="20" selection-start-column="45" selection-end-line="20" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/chiroSupport/sample/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/chiroSupport/sample/PatientDashboardController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-647">
+        <state relative-caret-position="-494">
           <caret line="410" column="45" lean-forward="false" selection-start-line="410" selection-start-column="45" selection-end-line="410" selection-end-column="45" />
           <folding>
-            <element signature="e#13551#13552#0" expanded="false" />
-            <element signature="e#13581#13582#0" expanded="false" />
-            <element signature="e#13628#13629#0" expanded="false" />
-            <element signature="e#13666#13667#0" expanded="false" />
-            <element signature="e#13710#13711#0" expanded="false" />
-            <element signature="e#13744#13745#0" expanded="false" />
-            <element signature="e#14859#14860#0" expanded="false" />
-            <element signature="e#14893#14894#0" expanded="false" />
-            <element signature="e#14952#14953#0" expanded="false" />
-            <element signature="e#14998#14999#0" expanded="false" />
+            <element signature="imports" expanded="true" />
             <element signature="method#vitalsSave#0;class#PatientDashboardController#0" expanded="false" />
             <element signature="method#SubjectiveSave#0;class#PatientDashboardController#0" expanded="false" />
             <element signature="method#observationSave#0;class#PatientDashboardController#0" expanded="false" />
@@ -1934,12 +1815,8 @@
             <element signature="method#saveObjectInDatabase#0;class#PatientDashboardController#0" expanded="false" />
             <element signature="method#generalSelectQuery#0;class#PatientDashboardController#0" expanded="false" />
             <element signature="method#addPreviousObservation#0;class#PatientDashboardController#0" expanded="false" />
-            <element signature="e#45173#45604#0" expanded="false" />
-            <element signature="e#45603#45604#0" expanded="false" />
             <element signature="method#observationListViewClicked#0;class#PatientDashboardController#0" expanded="false" />
             <element signature="method#addPreviousPalpation#0;class#PatientDashboardController#0" expanded="false" />
-            <element signature="e#47077#47496#0" expanded="false" />
-            <element signature="e#47495#47496#0" expanded="false" />
             <element signature="method#palpationListViewClicked#0;class#PatientDashboardController#0" expanded="false" />
             <element signature="method#specialTestIntialize#0;class#PatientDashboardController#0" expanded="false" />
             <element signature="method#romTestInitialize#0;class#PatientDashboardController#0" expanded="false" />
@@ -1949,82 +1826,7 @@
             <element signature="method#analysisInitialize#0;class#PatientDashboardController#0" expanded="false" />
             <element signature="method#subjectiveInitialize#0;class#PatientDashboardController#0" expanded="false" />
             <element signature="method#personalDetailsInitialize#0;class#PatientDashboardController#0" expanded="false" />
-            <element signature="e#67468#67873#0" expanded="false" />
-            <element signature="e#67872#67873#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/login.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="20" column="75" lean-forward="false" selection-start-line="20" selection-start-column="75" selection-end-line="20" selection-end-column="75" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/chiroSupport/sample/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-          <folding>
-            <element signature="e#682#683#0" expanded="false" />
-            <element signature="e#710#711#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/chiroSupport/sample/loginController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="303">
-          <caret line="120" column="24" lean-forward="false" selection-start-line="120" selection-start-column="24" selection-end-line="120" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="12" column="26" lean-forward="false" selection-start-line="12" selection-start-column="26" selection-end-line="12" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/chiroSupport/sample/physiotherapistHomeController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-7">
-          <caret line="60" column="52" lean-forward="false" selection-start-line="60" selection-start-column="52" selection-end-line="60" selection-end-column="52" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/receptionistDataEntry.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="33" column="51" lean-forward="false" selection-start-line="33" selection-start-column="51" selection-end-line="33" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/mycompany/chiroSupport/sample/ReceptionistDataEntryTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="54" column="13" lean-forward="false" selection-start-line="54" selection-start-column="13" selection-end-line="54" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/mycompany/chiroSupport/sample/LoginTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="4" lean-forward="false" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
